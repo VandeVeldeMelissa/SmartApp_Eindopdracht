@@ -1,5 +1,11 @@
-import { Text } from 'react-native'
+import React from 'react'
+import { Text, View } from 'react-native'
+import Card from '../../components/Card'
+import styles from '../../styles/index'
 
 export default () => {
-  return <Text>Sitters</Text>
+  return <View>
+  <Card />
+  <Card />
+  </View>
 }

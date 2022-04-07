@@ -3,6 +3,7 @@ export default {
 	light: '#FAFBFF',
 
 	purple: {
+		800: '#1E2A57',
 		700: '#5C6699',
 		600: '#7C87BF',
 		500: '#9EA8D9',
@@ -22,10 +23,14 @@ export default {
 		100: '#EDEEF2',
 	},
 	theme: {
-		grey: '#ABAEBB',
-        darkpurple: '#1E2A57',
-        purple: '#1E2A57',
-        lightpurple: '#1E2A57',
-        extralightpurple: '#F2F4FF'
+		dark: false,
+		colors: {
+			primary: '#1E2A57',
+			background: '#EDEEF2',
+			card: '#FAFBFF',
+			text: '#17171A',
+			border: '#FAFBFF',
+			notification: '#1E2A57',
+		},
 	},
 }

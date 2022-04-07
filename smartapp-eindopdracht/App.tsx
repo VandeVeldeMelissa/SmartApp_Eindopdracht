@@ -13,6 +13,8 @@ import {
 	Quicksand_700Bold,
 } from '@expo-google-fonts/quicksand'
 import AppLoading from 'expo-app-loading'
+import styles from './styles'
+import colors from './styles/colors'
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -27,7 +29,7 @@ export default function App() {
 		return <AppLoading />
 	} else {
 		return (
-			<NavigationContainer>
+			<NavigationContainer theme={colors.theme}>
 				<SafeAreaProvider>
 					<StatusBar style="auto" />
 					<AppNavigation />

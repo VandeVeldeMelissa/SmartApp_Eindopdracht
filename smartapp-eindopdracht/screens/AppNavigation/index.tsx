@@ -4,7 +4,7 @@ import {
 } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 import { ParamListBase, RouteProp } from '@react-navigation/native'
-import { ComponentProps } from 'react'
+import React, { ComponentProps } from 'react'
 
 import Sitters from '../Sitters'
 import Chat from '../Chat'
@@ -37,8 +37,8 @@ const screenOptions = ({
 
 		return <Ionicons color={color} name={icon} size={size} />
 	},
-	tabBarActiveTintColor: colors.theme.darkpurple,
-	tabBarInactiveTintColor: colors.theme.grey,
+	tabBarActiveTintColor: colors.purple[800],
+	tabBarInactiveTintColor: colors.grey[400],
 	tabBarStyle: {
 		backgroundColor: colors.light,
 		borderTopWidth: 1,
