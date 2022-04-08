@@ -40,5 +40,9 @@ export default StyleSheet.create({
     fontFamily: 'Quicksand_500Medium',
     fontSize: 14,
     color: colors.dark
+  },
+  fallback: {
+    fontFamily: 'Quicksand_500Medium',
+    fontSize: 20,
   }
 })
