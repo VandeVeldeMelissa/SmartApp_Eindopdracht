@@ -1,9 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import AppNavigation from './screens/AppNavigation'
+import { NativeBaseProvider, Box, extendTheme } from 'native-base';
 import {
 	useFonts,
 	Quicksand_300Light,
@@ -15,6 +16,8 @@ import {
 import AppLoading from 'expo-app-loading'
 import styles from './styles'
 import colors from './styles/colors'
+
+const theme = extendTheme({ colors: colors.theme.colors });
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -29,12 +32,16 @@ export default function App() {
 		return <AppLoading />
 	} else {
 		return (
-			<NavigationContainer theme={colors.theme}>
-				<SafeAreaProvider>
-					<StatusBar style="auto" />
-					<AppNavigation />
-				</SafeAreaProvider>
-			</NavigationContainer>
+			<NativeBaseProvider theme={theme}>
+				<Box flex={1}>
+					<NavigationContainer theme={colors.basictheme}>
+						<SafeAreaProvider>
+							<StatusBar style="auto" />
+							<AppNavigation />
+						</SafeAreaProvider>
+					</NavigationContainer>
+				</Box>
+			</NativeBaseProvider>
 		)
 	}
 }
