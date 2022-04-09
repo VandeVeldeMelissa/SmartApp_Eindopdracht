@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Filter from '../Filter/stackNavigation'
+import Edit from '../Profile/Edit'
 import tabNavigation from './tabNavigation'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
@@ -23,7 +24,6 @@ export default () => {
 					headerShown: true,
 					presentation: 'modal',
 					animationEnabled: true,
-					title: 'Filter',
 					headerStyle: {
 						backgroundColor: colors.purple[700],
 					},
@@ -40,6 +40,16 @@ export default () => {
 					options={({ navigation }) => ({
 						headerRight: () => (<Pressable onPress={() => navigation.goBack()}><Ionicons name="close" color={colors.light} size={24} style={styles.iconHeader}/></Pressable>),
 						headerLeft: ()=> null,
+						title: 'Filter'
+					})}
+				/>
+				<RootStack.Screen
+					name="EditProfileModal"
+					component={Edit}
+					options={({ navigation }) => ({
+						headerRight: () => (<Pressable onPress={() => navigation.goBack()}><Ionicons name="close" color={colors.light} size={24} style={styles.iconHeader}/></Pressable>),
+						headerLeft: ()=> null,
+						title: 'Edit profile'
 					})}
 				/>
 			</RootStack.Group>

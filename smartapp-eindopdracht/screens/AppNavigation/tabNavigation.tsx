@@ -55,7 +55,7 @@ const screenOptions = ({
 	tabBarStyle: {
 		backgroundColor: colors.light,
 		borderTopWidth: 1,
-		borderTopColor: colors.light,
+		borderTopColor: colors.grey[100],
 	},
 	tabBarLabelStyle: {
 		fontFamily: 'Quicksand_500Medium',
@@ -90,7 +90,22 @@ export default () => {
 				})}
 			/>
 			<Tab.Screen name="Chat" component={Chat} />
-			<Tab.Screen name="Profile" component={Profile} />
+			<Tab.Screen
+				name="Profile"
+				component={Profile}
+				options={({ navigation }) => ({
+					headerRight: () => (
+						<Pressable onPress={() => navigation.navigate('EditProfileModal')}>
+							<Ionicons
+								name="ios-pencil"
+								size={24}
+								color={colors.light}
+								style={styles.iconHeader}
+							/>
+						</Pressable>
+					),
+				})}
+			/>
 			<Tab.Screen name="Settings" component={Settings} />
 		</Tab.Navigator>
 	)

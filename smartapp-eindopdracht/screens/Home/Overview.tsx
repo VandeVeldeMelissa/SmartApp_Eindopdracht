@@ -1,3 +1,4 @@
+import { ScrollView } from 'native-base'
 import React from 'react'
 import { FlatList, SafeAreaView, Text, View } from 'react-native'
 import Card from '../../components/Card'
@@ -43,6 +44,19 @@ export default () => {
 			priceNight: 20,
 			rating: 4.5,
 		},
+		{
+			id: 4,
+			firstName: 'Gordy',
+			lastName: 'Van de Velde',
+			profilePic:
+				'https://images.unsplash.com/photo-1632498301446-5f78baad40d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80',
+			location: 'Bredene',
+			description:
+				'Woef waf ik ben schattig en ik wil honden vriendjes!!',
+			priceWalk: 0,
+			priceNight: 0,
+			rating: 5,
+		},
 	]
 
 	const renderUser = ({ item }: { item: User }) => (
@@ -50,8 +64,8 @@ export default () => {
 	)
 
 	return (
-			<>
+			<SafeAreaView>
 				<FlatList style={styles.list} data={testUsers} renderItem={renderUser} />
-			</>
+			</SafeAreaView>
 	)
 }
