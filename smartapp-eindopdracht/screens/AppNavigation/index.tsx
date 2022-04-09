@@ -5,12 +5,15 @@ import {
 import { Ionicons } from '@expo/vector-icons'
 import { ParamListBase, RouteProp } from '@react-navigation/native'
 import React, { ComponentProps } from 'react'
+import { Octicons } from '@expo/vector-icons'
 
-import Sitters from '../Sitters'
+import Home from '../Home'
 import Chat from '../Chat'
 import Profile from '../Profile'
 import Settings from '../Settings'
 import colors from '../../styles/colors'
+import { Button, Pressable } from 'react-native'
+import styles from '../../styles'
 
 const Tab = createBottomTabNavigator()
 
@@ -30,7 +33,7 @@ const screenOptions = ({
 	}) => {
 		let icon: ComponentProps<typeof Ionicons>['name'] = 'help'
 
-		if (route.name === 'Sitters') icon = 'paw'
+		if (route.name === 'Sitters & Walkers') icon = 'paw'
 		if (route.name === 'Chat') icon = 'ios-chatbubbles'
 		if (route.name === 'Profile') icon = 'ios-person'
 		if (route.name === 'Settings') icon = 'ios-settings'
@@ -59,7 +62,23 @@ const screenOptions = ({
 export default () => {
 	return (
 		<Tab.Navigator screenOptions={screenOptions}>
-			<Tab.Screen name="Sitters" component={Sitters} />
+			<Tab.Screen
+				name="Sitters & Walkers"
+				component={Home}
+				options={{
+					tabBarLabel: 'Home',
+					headerRight: () => (
+						<Pressable>
+							<Octicons
+								name="settings"
+								size={24}
+								color={colors.light}
+								style={styles.filter}
+							/>
+						</Pressable>
+					),
+				}}
+			/>
 			<Tab.Screen name="Chat" component={Chat} />
 			<Tab.Screen name="Profile" component={Profile} />
 			<Tab.Screen name="Settings" component={Settings} />

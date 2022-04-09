@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Text, View } from 'react-native'
 import card from '../styles/card'
 import { Avatar, HStack, VStack, Badge, Box } from 'native-base'
@@ -14,6 +14,21 @@ const avatarFallback = (firstName: string, lastName: string) => {
     return abbreviation
 }
 
+const NUMBER_OF_LINES = 2;
+
+function showOnly2Lines (textBlock: string) { 
+  const [ showMore, setShowMore ] = useState(false);
+  const onTextLayout = useCallback(e => {
+    setShowMore(e.nativeEvent.lines.length > NUMBER_OF_LINES);
+  }, []);
+
+  return (
+    <Text style={card.description} numberOfLines={NUMBER_OF_LINES} onTextLayout={onTextLayout}>
+      {textBlock}
+    </Text>
+  );
+}
+
 export default ({ user }: { user: User }) => {
 	return (
 		<View style={[card.card]}>
@@ -22,7 +37,7 @@ export default ({ user }: { user: User }) => {
     				<Avatar
     					bg="purple.200"
     					source={{
-    						uri: "",
+    						uri: user.profilePic,
     					}}
     					size="lg"
     				>
@@ -40,6 +55,7 @@ export default ({ user }: { user: User }) => {
     							maxStars={5}
     							rating={user?.rating}
     							fullStarColor={colors.rating}
+                                emptyStarColor={colors.grey[300]}
     							starSize={20}
     						/>
     						<Text style={card.ratingtext}>(?)</Text>
@@ -50,9 +66,7 @@ export default ({ user }: { user: User }) => {
     				<Text style={card.price}>{user.priceWalk} €{'\n'}/walk</Text>
     			</VStack>
 			</HStack>
-			<Text style={card.description}>
-				{user.description}
-			</Text>
+				{showOnly2Lines(user.description)}
 		</View>
 	)
 }

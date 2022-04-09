@@ -5,7 +5,10 @@ export default StyleSheet.create({
 	flex: {
 		flex: 1,
 	},
-	backgroundApp: {
-		backgroundColor: colors.grey[500],
-	},
+    filter: {
+        marginRight: 8,
+    },
+	list: {
+		marginVertical: 4
+	}
 })
