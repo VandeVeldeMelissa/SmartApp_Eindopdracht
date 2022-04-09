@@ -66,7 +66,7 @@ const screenOptions = ({
 	headerTitleStyle: {
 		color: colors.light,
 		fontFamily: 'Quicksand_600SemiBold',
-	},
+	}
 })
 
 export default () => {

@@ -4,7 +4,7 @@ import Filter from '../Filter/stackNavigation'
 import Edit from '../Profile/Edit'
 import tabNavigation from './tabNavigation'
 import colors from '../../styles/colors'
-import { Pressable } from 'react-native'
+import { Appearance, Pressable } from 'react-native'
 import { Ionicons, Octicons } from '@expo/vector-icons'
 import styles from '../../styles'
 import Detail from '../Home/Detail'
@@ -20,14 +20,14 @@ export default () => {
 					component={tabNavigation}
 					options={() => ({
 						title: 'Home',
-						headerShown: false
+						headerShown: false,
 					})}
 				/>
 				<RootStack.Screen
 					name="DetailPage"
 					component={Detail}
 					options={() => ({
-						title: 'Detail', 
+						title: 'Detail',
 						headerShown: true,
 						headerStyle: {
 							backgroundColor: colors.purple[700],
@@ -37,6 +37,10 @@ export default () => {
 							fontFamily: 'Quicksand_600SemiBold',
 						},
 						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						}
 					})}
 				/>
 			</RootStack.Group>
