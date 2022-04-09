@@ -7,16 +7,37 @@ import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
 import { Ionicons, Octicons } from '@expo/vector-icons'
 import styles from '../../styles'
+import Detail from '../Home/Detail'
 
 const RootStack = createStackNavigator()
 
 export default () => {
 	return (
 		<RootStack.Navigator>
-			<RootStack.Group screenOptions={{ headerShown: false }}>
+			<RootStack.Group>
 				<RootStack.Screen
 					name="BottomTabNavigatorScreen"
 					component={tabNavigation}
+					options={() => ({
+						title: 'Home',
+						headerShown: false
+					})}
+				/>
+				<RootStack.Screen
+					name="DetailPage"
+					component={Detail}
+					options={() => ({
+						title: 'Detail', 
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+					})}
 				/>
 			</RootStack.Group>
 			<RootStack.Group
@@ -38,18 +59,36 @@ export default () => {
 					name="FilterModal"
 					component={Filter}
 					options={({ navigation }) => ({
-						headerRight: () => (<Pressable onPress={() => navigation.goBack()}><Ionicons name="close" color={colors.light} size={24} style={styles.iconHeader}/></Pressable>),
-						headerLeft: ()=> null,
-						title: 'Filter'
+						headerRight: () => (
+							<Pressable onPress={() => navigation.goBack()}>
+								<Ionicons
+									name="close"
+									color={colors.light}
+									size={24}
+									style={styles.iconHeader}
+								/>
+							</Pressable>
+						),
+						headerLeft: () => null,
+						title: 'Filter',
 					})}
 				/>
 				<RootStack.Screen
 					name="EditProfileModal"
 					component={Edit}
 					options={({ navigation }) => ({
-						headerRight: () => (<Pressable onPress={() => navigation.goBack()}><Ionicons name="close" color={colors.light} size={24} style={styles.iconHeader}/></Pressable>),
-						headerLeft: ()=> null,
-						title: 'Edit profile'
+						headerRight: () => (
+							<Pressable onPress={() => navigation.goBack()}>
+								<Ionicons
+									name="close"
+									color={colors.light}
+									size={24}
+									style={styles.iconHeader}
+								/>
+							</Pressable>
+						),
+						headerLeft: () => null,
+						title: 'Edit profile',
 					})}
 				/>
 			</RootStack.Group>
