@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Filter from '../Home/Filter'
+import Filter from '../Filter/stackNavigation'
 import tabNavigation from './tabNavigation'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'

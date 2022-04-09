@@ -23,7 +23,7 @@ import Settings from '../Settings'
 import colors from '../../styles/colors'
 import { Button, Pressable } from 'react-native'
 import styles from '../../styles'
-import Filter from '../Home/Filter'
+import Filter from '../Filter/stackNavigation'
 
 const Tab = createBottomTabNavigator()
 
