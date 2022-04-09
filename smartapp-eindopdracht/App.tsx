@@ -1,10 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import AppNavigation from './screens/AppNavigation'
-import { NativeBaseProvider, Box, extendTheme } from 'native-base';
+import { NativeBaseProvider, Box, extendTheme } from 'native-base'
 import {
 	useFonts,
 	Quicksand_300Light,
@@ -14,10 +13,11 @@ import {
 	Quicksand_700Bold,
 } from '@expo-google-fonts/quicksand'
 import AppLoading from 'expo-app-loading'
-import styles from './styles'
 import colors from './styles/colors'
+import { createStackNavigator } from '@react-navigation/stack'
 
-const theme = extendTheme({ colors: colors.theme.colors });
+const theme = extendTheme({ colors: colors.theme.colors })
+const RootStack = createStackNavigator();
 
 export default function App() {
 	let [fontsLoaded] = useFonts({

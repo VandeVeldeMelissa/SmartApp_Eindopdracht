@@ -5,7 +5,7 @@ export default StyleSheet.create({
 	flex: {
 		flex: 1,
 	},
-    filter: {
+    iconHeader: {
         marginRight: 8,
     },
 	list: {
