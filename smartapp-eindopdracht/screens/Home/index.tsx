@@ -10,6 +10,10 @@ import Detail from './Detail'
 import Reviews from './Reviews'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import 'react-native-gesture-handler';
+import colors from '../../styles/colors'
+import { Pressable } from 'react-native'
+import { Octicons } from '@expo/vector-icons'
+import styles from '../../styles'
 
 const Stack = createStackNavigator()
 
@@ -24,21 +28,76 @@ const screenOptions = ({
 export default () => {
 	return (
 		<Stack.Navigator initialRouteName='Home'>
-			<Stack.Group>
 				<Stack.Screen
 					name="Home"
 					component={Overview}
-					options={{ headerShown: false }}
+					options={({navigation}) => ({
+						title: 'Sitters & Walkers',
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerRight: () => (
+						<Pressable onPress={() => navigation.navigate('FilterModal')}>
+							<Octicons
+								name="settings"
+								size={24}
+								color={colors.light}
+								style={styles.iconHeader}
+							/>
+						</Pressable>
+					),
+					})}
 				/>
 				<Stack.Screen
-					name="Detail"
+					name="DetailPage"
 					component={Detail}
-					options={{ headerShown: true }}
+					options={() => ({
+						title: 'Details',
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+					})}
 				/>
-			</Stack.Group>
-			<Stack.Group screenOptions={screenOptions}>
-				<Stack.Screen name="Filter" component={Filter} />
-			</Stack.Group>
+				<Stack.Screen
+					name="ReviewsPage"
+					component={Reviews}
+					options={() => ({
+						title: 'Reviews',
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+					})}
+				/>
 		</Stack.Navigator>
 	)
 }

@@ -25,7 +25,7 @@ export default () => {
 						headerShown: false,
 					})}
 				/>
-				<RootStack.Screen
+				{/* <RootStack.Screen
 					name="DetailPage"
 					component={Detail}
 					options={() => ({
@@ -84,10 +84,10 @@ export default () => {
 							fontFamily: 'Quicksand_600SemiBold',
 						}
 					})}
-				/>
+				/> */}
 			</RootStack.Group>
 			<RootStack.Group
-				screenOptions={({ navigation }) => ({
+				screenOptions={() => ({
 					headerShown: true,
 					presentation: 'modal',
 					animationEnabled: true,

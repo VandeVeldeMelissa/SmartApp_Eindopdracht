@@ -17,13 +17,13 @@ import {
 } from '@react-navigation/stack'
 
 import Home from '../Home/index'
-import Chat from '../Chat'
-import Profile from '../Profile'
-import Settings from '../Settings'
+import Chat from '../Chat/index'
+import Settings from '../Settings/index'
 import colors from '../../styles/colors'
 import { Button, Pressable } from 'react-native'
 import styles from '../../styles'
 import Filter from '../Filter/stackNavigation'
+import Profile from '../Profile/index'
 
 const Tab = createBottomTabNavigator()
 
@@ -66,7 +66,8 @@ const screenOptions = ({
 	headerTitleStyle: {
 		color: colors.light,
 		fontFamily: 'Quicksand_600SemiBold',
-	}
+	},
+	headerShown: false
 })
 
 export default () => {
@@ -77,34 +78,34 @@ export default () => {
 				component={Home}
 				options={({ navigation }) => ({
 					tabBarLabel: 'Home',
-					headerRight: () => (
-						<Pressable onPress={() => navigation.navigate('FilterModal')}>
-							<Octicons
-								name="settings"
-								size={24}
-								color={colors.light}
-								style={styles.iconHeader}
-							/>
-						</Pressable>
-					),
+					// headerRight: () => (
+					// 	<Pressable onPress={() => navigation.navigate('FilterModal')}>
+					// 		<Octicons
+					// 			name="settings"
+					// 			size={24}
+					// 			color={colors.light}
+					// 			style={styles.iconHeader}
+					// 		/>
+					// 	</Pressable>
+					// ),
 				})}
 			/>
 			<Tab.Screen name="Chat" component={Chat} />
 			<Tab.Screen
 				name="Profile"
 				component={Profile}
-				options={({ navigation }) => ({
-					headerRight: () => (
-						<Pressable onPress={() => navigation.navigate('EditProfileModal')}>
-							<Ionicons
-								name="ios-pencil"
-								size={24}
-								color={colors.light}
-								style={styles.iconHeader}
-							/>
-						</Pressable>
-					),
-				})}
+				// options={({ navigation }) => ({
+				// 	headerRight: () => (
+				// 		<Pressable onPress={() => navigation.navigate('EditProfileModal')}>
+				// 			<Ionicons
+				// 				name="ios-pencil"
+				// 				size={24}
+				// 				color={colors.light}
+				// 				style={styles.iconHeader}
+				// 			/>
+				// 		</Pressable>
+				// 	),
+				// })}
 			/>
 			<Tab.Screen name="Settings" component={Settings} />
 		</Tab.Navigator>
