@@ -10,6 +10,4 @@ export default interface User {
     priceWalk: number
     priceNight: number
     rating: number
-    reviews?: any
 }
-  

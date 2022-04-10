@@ -20,13 +20,12 @@ import styles from '../../styles'
 import profile from '../../styles/profile'
 import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
-import Info from './Info'
 import Reviews from './Reviews'
 import { SceneMap, TabView } from 'react-native-tab-view'
 import Constants from 'expo-constants'
 import { Ionicons } from '@expo/vector-icons'
 
-export default () => {
+export default ({ navigation }: { navigation: any }) => {
 	return (
 		<View>
 			<Box style={profile.container} height='100%' backgroundColor={colors.light}>
@@ -42,8 +41,11 @@ export default () => {
 					</Avatar>
 					<VStack>
 						<Text style={profile.name}>Melissa Van de Velde</Text>
-						<Text style={profile.location}>Bredene</Text>
-						<Pressable onPress={() => console.log('click')}>
+						<HStack alignItems='center' space={1}>
+							<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
+							<Text style={profile.location}>Bredene</Text>
+						</HStack>
+						<Pressable onPress={() => navigation.navigate('OwnReviewsPage')}>
 							<HStack space={1} alignItems="center">
 								<StarRating
 									disabled={true}

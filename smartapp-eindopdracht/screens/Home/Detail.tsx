@@ -42,7 +42,10 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						<Text style={profile.name}>
 							{payload.firstName} {payload.lastName}
 						</Text>
-						<Text style={profile.location}>{payload.location}</Text>
+						<HStack alignItems='center' space={1}>
+							<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
+							<Text style={profile.location}>{payload.location}</Text>
+						</HStack>
 						<Pressable onPress={() => navigation.navigate('ReviewsPage')}>
 							<HStack space={1} alignItems="center">
 								<StarRating

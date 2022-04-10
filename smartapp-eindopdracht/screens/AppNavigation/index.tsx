@@ -9,6 +9,7 @@ import { Ionicons, Octicons } from '@expo/vector-icons'
 import styles from '../../styles'
 import Detail from '../Home/Detail'
 import Reviews from '../Home/Reviews'
+import MyReviews from '../Profile/Reviews'
 
 const RootStack = createStackNavigator()
 
@@ -49,6 +50,26 @@ export default () => {
 					component={Reviews}
 					options={() => ({
 						title: 'Reviews',
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						}
+					})}
+				/>
+				<RootStack.Screen
+					name="OwnReviewsPage"
+					component={MyReviews}
+					options={() => ({
+						title: 'My Reviews',
 						headerShown: true,
 						headerStyle: {
 							backgroundColor: colors.purple[700],

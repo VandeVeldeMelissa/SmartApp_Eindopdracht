@@ -6,5 +6,5 @@ export default interface Review {
     profilePic: string
 	rating: number
 	text: string
-    date: string
+    date: Date | number | string
 }
