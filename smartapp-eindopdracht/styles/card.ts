@@ -44,5 +44,15 @@ export default StyleSheet.create({
   fallback: {
     fontFamily: 'Quicksand_500Medium',
     fontSize: 20,
+  },
+  timeStamp: {
+    fontFamily: 'Quicksand_500Medium',
+    fontSize: 14,
+    color: colors.grey[800]
+  },
+  smallTitle: {
+    fontFamily: 'Quicksand_600SemiBold',
+    fontSize: 16,
+    color: colors.dark
   }
 })

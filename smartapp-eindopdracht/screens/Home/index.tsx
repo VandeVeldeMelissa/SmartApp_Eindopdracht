@@ -7,6 +7,9 @@ import {
 } from '@react-navigation/stack'
 import { ParamListBase, RouteProp } from '@react-navigation/native'
 import Detail from './Detail'
+import Reviews from './Reviews'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator()
 
@@ -20,7 +23,7 @@ const screenOptions = ({
 
 export default () => {
 	return (
-		<Stack.Navigator>
+		<Stack.Navigator initialRouteName='Home'>
 			<Stack.Group>
 				<Stack.Screen
 					name="Home"

@@ -11,7 +11,7 @@ export default ({ navigation }: { navigation: any }) => {
 	const isFocused = useIsFocused()
 
 	useEffect(() => {
-		nav?.getParent()?.setOptions({ title: 'Overview' })
+		nav?.getParent()?.setOptions({ title: 'Sitters & Walkers' })
 	}, [isFocused])
 
 	const testUsers: User[] = [
@@ -27,6 +27,26 @@ export default ({ navigation }: { navigation: any }) => {
 			priceWalk: 5,
 			priceNight: 10,
 			rating: 4,
+			reviews: [
+				{
+					id: '1',
+					name: 'Aram Vanlerberghe',
+					profilePic:
+						'https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80',
+					rating: 5,
+					text: 'Very nice very guud',
+					date: '10/04/2022'
+				},
+				{
+					id: '2',
+					name: 'Yannick Schalck',
+					profilePic:
+						'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+					rating: 3,
+					text: 'jeh jeh',
+					date: '19/04/2022'
+				},
+			],
 		},
 		{
 			id: '2',

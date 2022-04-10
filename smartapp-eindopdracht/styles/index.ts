@@ -11,7 +11,9 @@ export default StyleSheet.create({
 	list: {
 		marginVertical: 4
 	},
-	container: {
-		margin: 8
-	}
+	largeText: {
+		fontFamily: 'Quicksand_500Medium',
+		fontSize: 20,
+		color: colors.dark
+	},
 })

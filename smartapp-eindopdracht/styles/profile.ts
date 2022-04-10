@@ -49,5 +49,8 @@ export default StyleSheet.create({
         fontFamily: 'Quicksand_400Regular',
 		fontSize: 16,
         color: colors.dark,
-    }
+    },
+	container: {
+		padding: 12,
+	},
 })

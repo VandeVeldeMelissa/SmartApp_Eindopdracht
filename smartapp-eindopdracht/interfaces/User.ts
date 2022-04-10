@@ -1,3 +1,5 @@
+import Review from "./Review"
+
 export default interface User {
     id: string
     firstName: string
@@ -8,5 +10,6 @@ export default interface User {
     priceWalk: number
     priceNight: number
     rating: number
+    reviews?: any
 }
   

@@ -8,6 +8,7 @@ import { Appearance, Pressable } from 'react-native'
 import { Ionicons, Octicons } from '@expo/vector-icons'
 import styles from '../../styles'
 import Detail from '../Home/Detail'
+import Reviews from '../Home/Reviews'
 
 const RootStack = createStackNavigator()
 
@@ -28,6 +29,26 @@ export default () => {
 					component={Detail}
 					options={() => ({
 						title: 'Detail',
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						}
+					})}
+				/>
+				<RootStack.Screen
+					name="ReviewsPage"
+					component={Reviews}
+					options={() => ({
+						title: 'Reviews',
 						headerShown: true,
 						headerStyle: {
 							backgroundColor: colors.purple[700],

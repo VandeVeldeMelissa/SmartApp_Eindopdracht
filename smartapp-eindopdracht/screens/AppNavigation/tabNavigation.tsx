@@ -16,7 +16,7 @@ import {
 	StackNavigationOptions,
 } from '@react-navigation/stack'
 
-import Home from '../Home/Overview'
+import Home from '../Home/index'
 import Chat from '../Chat'
 import Profile from '../Profile'
 import Settings from '../Settings'
