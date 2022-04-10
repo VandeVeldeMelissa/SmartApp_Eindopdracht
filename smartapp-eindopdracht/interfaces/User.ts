@@ -1,6 +1,3 @@
-import { ImageSourcePropType } from "react-native"
-import { Path } from "react-native-svg"
-
 export default interface User {
     id: string
     firstName: string

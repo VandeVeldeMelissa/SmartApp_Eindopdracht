@@ -34,20 +34,6 @@ function showOnly2Lines(textBlock: string) {
 	)
 }
 
-{
-	/* <Pressable
-			onPress={() =>
-				navigation.navigate('BottomTabNavigatorScreen', {
-					screen: 'Sitters & Walkers',
-					params: {
-						screen: 'Detail',
-						payload: user,
-					},
-				})
-			}
-></Pressable> */
-}
-
 export default ({ user, navigation }: { user: User; navigation: any }) => {
 	return (
 		<Pressable
