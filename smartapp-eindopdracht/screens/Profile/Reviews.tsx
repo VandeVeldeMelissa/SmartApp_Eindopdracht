@@ -1,6 +1,6 @@
 import { Box, HStack } from 'native-base'
 import React from 'react'
-import { FlatList, SafeAreaView, Text, View } from 'react-native'
+import { FlatList, Text, View } from 'react-native'
 import StarRating from 'react-native-star-rating'
 import ReviewCard from '../../components/ReviewCard'
 import Review from '../../interfaces/Review'

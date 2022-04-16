@@ -1,5 +1,4 @@
 import React from 'react'
-import Filter from '../Filter/stackNavigation'
 import Overview from './Overview'
 import {
 	createStackNavigator,
@@ -8,8 +7,7 @@ import {
 import { ParamListBase, RouteProp } from '@react-navigation/native'
 import Detail from './Detail'
 import Reviews from './Reviews'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import 'react-native-gesture-handler';
+import 'react-native-gesture-handler'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
 import { Octicons } from '@expo/vector-icons'
@@ -27,26 +25,26 @@ const screenOptions = ({
 
 export default () => {
 	return (
-		<Stack.Navigator initialRouteName='Home'>
-				<Stack.Screen
-					name="Home"
-					component={Overview}
-					options={({navigation}) => ({
-						title: 'Sitters & Walkers',
-						headerShown: true,
-						headerStyle: {
-							backgroundColor: colors.purple[700],
-						},
-						headerTitleStyle: {
-							color: colors.light,
-							fontFamily: 'Quicksand_600SemiBold',
-						},
-						headerTintColor: colors.light,
-						headerBackTitle: 'Back',
-						headerBackTitleStyle: {
-							fontFamily: 'Quicksand_600SemiBold',
-						},
-						headerRight: () => (
+		<Stack.Navigator initialRouteName="Home">
+			<Stack.Screen
+				name="Home"
+				component={Overview}
+				options={({ navigation }) => ({
+					title: 'Sitters & Walkers',
+					headerShown: true,
+					headerStyle: {
+						backgroundColor: colors.purple[700],
+					},
+					headerTitleStyle: {
+						color: colors.light,
+						fontFamily: 'Quicksand_600SemiBold',
+					},
+					headerTintColor: colors.light,
+					headerBackTitle: 'Back',
+					headerBackTitleStyle: {
+						fontFamily: 'Quicksand_600SemiBold',
+					},
+					headerRight: () => (
 						<Pressable onPress={() => navigation.navigate('FilterModal')}>
 							<Octicons
 								name="settings"
@@ -56,48 +54,48 @@ export default () => {
 							/>
 						</Pressable>
 					),
-					})}
-				/>
-				<Stack.Screen
-					name="DetailPage"
-					component={Detail}
-					options={() => ({
-						title: 'Details',
-						headerShown: true,
-						headerStyle: {
-							backgroundColor: colors.purple[700],
-						},
-						headerTitleStyle: {
-							color: colors.light,
-							fontFamily: 'Quicksand_600SemiBold',
-						},
-						headerTintColor: colors.light,
-						headerBackTitle: 'Back',
-						headerBackTitleStyle: {
-							fontFamily: 'Quicksand_600SemiBold',
-						},
-					})}
-				/>
-				<Stack.Screen
-					name="ReviewsPage"
-					component={Reviews}
-					options={() => ({
-						title: 'Reviews',
-						headerShown: true,
-						headerStyle: {
-							backgroundColor: colors.purple[700],
-						},
-						headerTitleStyle: {
-							color: colors.light,
-							fontFamily: 'Quicksand_600SemiBold',
-						},
-						headerTintColor: colors.light,
-						headerBackTitle: 'Back',
-						headerBackTitleStyle: {
-							fontFamily: 'Quicksand_600SemiBold',
-						},
-					})}
-				/>
+				})}
+			/>
+			<Stack.Screen
+				name="DetailPage"
+				component={Detail}
+				options={() => ({
+					title: 'Details',
+					headerShown: true,
+					headerStyle: {
+						backgroundColor: colors.purple[700],
+					},
+					headerTitleStyle: {
+						color: colors.light,
+						fontFamily: 'Quicksand_600SemiBold',
+					},
+					headerTintColor: colors.light,
+					headerBackTitle: 'Back',
+					headerBackTitleStyle: {
+						fontFamily: 'Quicksand_600SemiBold',
+					},
+				})}
+			/>
+			<Stack.Screen
+				name="ReviewsPage"
+				component={Reviews}
+				options={() => ({
+					title: 'Reviews',
+					headerShown: true,
+					headerStyle: {
+						backgroundColor: colors.purple[700],
+					},
+					headerTitleStyle: {
+						color: colors.light,
+						fontFamily: 'Quicksand_600SemiBold',
+					},
+					headerTintColor: colors.light,
+					headerBackTitle: 'Back',
+					headerBackTitleStyle: {
+						fontFamily: 'Quicksand_600SemiBold',
+					},
+				})}
+			/>
 		</Stack.Navigator>
 	)
 }

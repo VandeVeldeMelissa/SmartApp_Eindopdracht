@@ -1,34 +1,15 @@
 import React from 'react'
-import {
-	Text,
-	View,
-	useWindowDimensions,
-	Dimensions,
-	Pressable,
-	Animated,
-	StatusBar,
-} from 'react-native'
-import {
-	Avatar,
-	Box,
-	Center,
-	HStack,
-	useColorModeValue,
-	VStack,
-} from 'native-base'
-import styles from '../../styles'
+import { Text, View, Pressable } from 'react-native'
+import { Avatar, Box, HStack, VStack } from 'native-base'
 import profile from '../../styles/profile'
 import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
-import Reviews from './Reviews'
-import { SceneMap, TabView } from 'react-native-tab-view'
-import Constants from 'expo-constants'
 import { Ionicons } from '@expo/vector-icons'
 
 export default ({ navigation }: { navigation: any }) => {
 	return (
 		<View>
-			<Box style={profile.container} height='100%' backgroundColor={colors.light}>
+			<Box style={profile.container} height="100%" backgroundColor={colors.light}>
 				<HStack alignItems="center" space={2}>
 					<Avatar
 						bg="purple.200"
@@ -41,7 +22,7 @@ export default ({ navigation }: { navigation: any }) => {
 					</Avatar>
 					<VStack>
 						<Text style={profile.name}>Melissa Van de Velde</Text>
-						<HStack alignItems='center' space={1}>
+						<HStack alignItems="center" space={1}>
 							<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
 							<Text style={profile.location}>Bredene</Text>
 						</HStack>

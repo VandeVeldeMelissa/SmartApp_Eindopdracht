@@ -1,24 +1,7 @@
 import React, { useState } from 'react'
-import { Dimensions, TouchableOpacity, View } from 'react-native'
-import {
-	NativeBaseProvider,
-	Box,
-	Text,
-	Pressable,
-	Heading,
-	IconButton,
-	Icon,
-	HStack,
-	Avatar,
-	VStack,
-	Spacer,
-	Center,
-	ScrollView,
-} from 'native-base'
+import { Box, Heading, Center } from 'native-base'
 import { SwipeListView } from 'react-native-swipe-list-view'
-import { MaterialIcons, Ionicons, Entypo } from '@expo/vector-icons'
 import ChatUser from '../../interfaces/ChatUser'
-import { Header } from '@react-navigation/stack'
 import colors from '../../styles/colors'
 import chat from '../../styles/chat'
 import ChatListItem from '../../components/ChatListItem'

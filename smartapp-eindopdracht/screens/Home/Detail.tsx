@@ -1,17 +1,9 @@
 import { Ionicons } from '@expo/vector-icons'
-import {
-	CompositeNavigationProp,
-	ParamListBase,
-	useIsFocused,
-	useNavigation,
-} from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack'
+import { useIsFocused, useNavigation } from '@react-navigation/native'
 import { Avatar, Box, HStack, VStack } from 'native-base'
 import React, { useEffect } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import StarRating from 'react-native-star-rating'
-import User from '../../interfaces/User'
-import styles from '../../styles'
 import colors from '../../styles/colors'
 import profile from '../../styles/profile'
 
@@ -27,7 +19,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 
 	return (
 		<View>
-			<Box style={profile.container} height='100%' backgroundColor={colors.light}>
+			<Box style={profile.container} height="100%" backgroundColor={colors.light}>
 				<HStack alignItems="center" space={2}>
 					<Avatar
 						bg="purple.200"
@@ -42,7 +34,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						<Text style={profile.name}>
 							{payload.firstName} {payload.lastName}
 						</Text>
-						<HStack alignItems='center' space={1}>
+						<HStack alignItems="center" space={1}>
 							<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
 							<Text style={profile.location}>{payload.location}</Text>
 						</HStack>

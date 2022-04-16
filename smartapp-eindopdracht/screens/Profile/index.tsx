@@ -1,12 +1,9 @@
 import React from 'react'
-import Filter from '../Filter/stackNavigation'
 import {
 	createStackNavigator,
 	StackNavigationOptions,
 } from '@react-navigation/stack'
 import { ParamListBase, RouteProp } from '@react-navigation/native'
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import 'react-native-gesture-handler'
 import Profile from './Profile'
 import Reviews from './Reviews'

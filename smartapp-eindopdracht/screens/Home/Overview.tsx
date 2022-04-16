@@ -1,7 +1,6 @@
 import { useIsFocused, useNavigation } from '@react-navigation/native'
-import { ScrollView } from 'native-base'
 import React, { useEffect } from 'react'
-import { FlatList, SafeAreaView, Text, View } from 'react-native'
+import { FlatList, SafeAreaView } from 'react-native'
 import Card from '../../components/Card'
 import User from '../../interfaces/User'
 import styles from '../../styles/index'
@@ -26,7 +25,7 @@ export default ({ navigation }: { navigation: any }) => {
 				'Hallo iedereen. Ik ben Mel. Ik heb een hond. Test123. Ik ben de lijntjes tekst hier aan het testen. En zo te zien werrkt het joepie de poepie.',
 			priceWalk: 5,
 			priceNight: 10,
-			rating: 4
+			rating: 4,
 		},
 		{
 			id: '2',

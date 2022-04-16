@@ -1,6 +1,6 @@
 import { Box, HStack } from 'native-base'
 import React from 'react'
-import { FlatList, SafeAreaView, Text, View } from 'react-native'
+import { FlatList, Text, View } from 'react-native'
 import StarRating from 'react-native-star-rating'
 import ReviewCard from '../../components/ReviewCard'
 import Review from '../../interfaces/Review'
@@ -30,7 +30,7 @@ export default ({ user }: { user: User }) => {
 		},
 	]
 
-    const renderReview = ({ item }: { item: Review }) => (
+	const renderReview = ({ item }: { item: Review }) => (
 		<ReviewCard item={item} key={item.id} />
 	)
 
@@ -54,11 +54,11 @@ export default ({ user }: { user: User }) => {
 					<Text style={styles.largeText}>{testReviews.length} reviews</Text>
 				</HStack>
 				<FlatList
-                    style={styles.list}
-                    data={testReviews}
-                    renderItem={renderReview}
-                    keyExtractor={(item) => item.id}
-			/>
+					style={styles.list}
+					data={testReviews}
+					renderItem={renderReview}
+					keyExtractor={(item) => item.id}
+				/>
 			</Box>
 		</View>
 	)
