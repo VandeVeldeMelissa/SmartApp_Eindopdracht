@@ -28,11 +28,31 @@ export default ({ user }: { user: User }) => {
 			text: 'jeh jeh',
 			date: '19/04/2022',
 		},
+		{
+			id: '3',
+			name: 'Melissa Van de Velde',
+			profilePic:
+				'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80',
+			rating: 5,
+			text: 'Perfect',
+			date: '16/04/2022',
+		},
 	]
 
 	const renderReview = ({ item }: { item: Review }) => (
 		<ReviewCard item={item} key={item.id} />
 	)
+
+	const averageScore = () => {
+		let average = 0
+		if (testReviews.length != 0) {
+			for (let i = 0; i < testReviews.length; i++) {
+				average += testReviews[i].rating
+			}
+			average = average / testReviews.length
+		}
+		return average.toFixed(1)
+	}
 
 	return (
 		<View>
@@ -43,6 +63,7 @@ export default ({ user }: { user: User }) => {
 					justifyContent="center"
 					marginBottom={2}
 				>
+					<Text style={styles.largeText}>{averageScore()}</Text>
 					<StarRating
 						disabled={true}
 						maxStars={5}

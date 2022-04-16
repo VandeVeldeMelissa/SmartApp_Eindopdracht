@@ -34,6 +34,17 @@ export default ({ user }: { user: User }) => {
 		<ReviewCard item={item} key={item.id} />
 	)
 
+	const averageScore = () => {
+		let average = 0
+		if (testReviews.length != 0) {
+			for (let i = 0; i < testReviews.length; i++) {
+				average += testReviews[i].rating
+			}
+			average = average / testReviews.length
+		}
+		return average.toFixed(1)
+	}
+
 	return (
 		<View>
 			<Box height="100%" marginTop={3}>
@@ -43,6 +54,7 @@ export default ({ user }: { user: User }) => {
 					justifyContent="center"
 					marginBottom={2}
 				>
+					<Text style={styles.largeText}>{averageScore()}</Text>
 					<StarRating
 						disabled={true}
 						maxStars={5}
