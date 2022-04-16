@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Filter from '../Filter/stackNavigation'
+import Filter from '../Filter/index'
 import Edit from '../Profile/Edit'
 import tabNavigation from './tabNavigation'
 import colors from '../../styles/colors'
@@ -25,17 +25,17 @@ export default () => {
 			</RootStack.Group>
 			<RootStack.Group
 				screenOptions={() => ({
-					headerShown: true,
+					headerShown: false,
 					presentation: 'modal',
 					animationEnabled: true,
-					headerStyle: {
-						backgroundColor: colors.purple[700],
-					},
-					headerTitleStyle: {
-						color: colors.light,
-						fontFamily: 'Quicksand_600SemiBold',
-					},
-					headerTintColor: colors.light,
+					// headerStyle: {
+					// 	backgroundColor: colors.purple[700],
+					// },
+					// headerTitleStyle: {
+					// 	color: colors.light,
+					// 	fontFamily: 'Quicksand_600SemiBold',
+					// },
+					// headerTintColor: colors.light,
 				})}
 			>
 				<RootStack.Screen

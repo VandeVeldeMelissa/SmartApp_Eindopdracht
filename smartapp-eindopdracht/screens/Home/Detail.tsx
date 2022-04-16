@@ -6,6 +6,7 @@ import { Pressable, Text, View } from 'react-native'
 import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import profile from '../../styles/profile'
+import { Button } from 'native-base'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
@@ -75,7 +76,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						}}
 						size="md"
 					>
-						<Text>G</Text>
+						<Text>{avatarFallback('Gordy', '')}</Text>
 					</Avatar>
 					<VStack>
 						<Text style={profile.dogname}>Gordy</Text>
@@ -86,6 +87,9 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				<Text style={profile.home}>
 					- House{'\n'}- Garden{'\n'}- No Children
 				</Text>
+				<Button style={profile.button}>
+					<Text style={profile.buttonText}>Contact</Text>
+				</Button>
 			</Box>
 		</View>
 	)

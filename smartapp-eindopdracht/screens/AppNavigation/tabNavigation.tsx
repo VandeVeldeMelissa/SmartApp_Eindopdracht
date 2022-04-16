@@ -39,7 +39,7 @@ const screenOptions = ({
 
 		return <Ionicons color={color} name={icon} size={size} />
 	},
-	tabBarActiveTintColor: colors.purple[800],
+	tabBarActiveTintColor: colors.purple[900],
 	tabBarInactiveTintColor: colors.grey[400],
 	tabBarStyle: {
 		backgroundColor: colors.light,

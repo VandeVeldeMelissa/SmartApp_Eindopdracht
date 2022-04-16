@@ -2,7 +2,8 @@ export default {
 	dark: '#17171A',
 	light: '#FAFBFF',
 	purple: {
-		800: '#1E2A57',
+		900: '#1E2A57',
+		800: '#3D4466',
 		700: '#5C6699',
 		600: '#7C87BF',
 		500: '#9EA8D9',

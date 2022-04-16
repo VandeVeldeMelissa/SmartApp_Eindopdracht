@@ -53,4 +53,17 @@ export default StyleSheet.create({
 	container: {
 		padding: 12,
 	},
+	button: {
+		position: 'absolute',
+    	bottom: 0,
+		margin: 8,
+		width: '100%',
+		backgroundColor: colors.purple[800]
+	},
+	buttonText: {
+		fontFamily: 'Quicksand_600SemiBold',
+		fontSize: 16,
+		color: colors.light,
+		padding: 4
+	}
 })
