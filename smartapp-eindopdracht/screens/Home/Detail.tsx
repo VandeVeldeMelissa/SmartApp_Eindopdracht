@@ -7,6 +7,13 @@ import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import profile from '../../styles/profile'
 
+const avatarFallback = (firstName: string, lastName: string) => {
+	let firstLetter = firstName.slice(0, 1)
+	let secondLetter = lastName.slice(0, 1)
+	let abbreviation = firstLetter + secondLetter
+	return abbreviation
+}
+
 export default ({ route, navigation }: { route: any; navigation: any }) => {
 	const { payload } = route.params
 
@@ -28,7 +35,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						}}
 						size="xl"
 					>
-						<Text>MV</Text>
+						<Text>{avatarFallback(payload.firstName, payload.lastName)}</Text>
 					</Avatar>
 					<VStack>
 						<Text style={profile.name}>

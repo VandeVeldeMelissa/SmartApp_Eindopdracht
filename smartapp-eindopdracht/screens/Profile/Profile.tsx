@@ -6,6 +6,13 @@ import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import { Ionicons } from '@expo/vector-icons'
 
+const avatarFallback = (firstName: string, lastName: string) => {
+	let firstLetter = firstName.slice(0, 1)
+	let secondLetter = lastName.slice(0, 1)
+	let abbreviation = firstLetter + secondLetter
+	return abbreviation
+}
+
 export default ({ navigation }: { navigation: any }) => {
 	return (
 		<View>
@@ -18,7 +25,7 @@ export default ({ navigation }: { navigation: any }) => {
 						}}
 						size="xl"
 					>
-						<Text>MV</Text>
+						<Text>{avatarFallback("Melissa", "Van de Velde")}</Text>
 					</Avatar>
 					<VStack>
 						<Text style={profile.name}>Melissa Van de Velde</Text>
