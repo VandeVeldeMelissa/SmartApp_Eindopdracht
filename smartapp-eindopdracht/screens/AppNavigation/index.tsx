@@ -42,24 +42,25 @@ export default () => {
 					name="FilterModal"
 					component={Filter}
 					options={({ navigation }) => ({
-						headerRight: () => (
-							<Pressable onPress={() => navigation.goBack()}>
-								<Ionicons
-									name="close"
-									color={colors.light}
-									size={24}
-									style={styles.iconHeader}
-								/>
-							</Pressable>
-						),
-						headerLeft: () => null,
-						title: 'Filter',
+						// headerRight: () => (
+						// 	<Pressable onPress={() => navigation.goBack()}>
+						// 		<Ionicons
+						// 			name="close"
+						// 			color={colors.light}
+						// 			size={24}
+						// 			style={styles.iconHeader}
+						// 		/>
+						// 	</Pressable>
+						// ),
+						// headerLeft: () => null,
+						// title: 'Filter',
 					})}
 				/>
 				<RootStack.Screen
 					name="EditProfileModal"
 					component={Edit}
 					options={({ navigation }) => ({
+						headerShown: true,
 						headerRight: () => (
 							<Pressable onPress={() => navigation.goBack()}>
 								<Ionicons
@@ -72,6 +73,18 @@ export default () => {
 						),
 						headerLeft: () => null,
 						title: 'Edit profile',
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						},
 					})}
 				/>
 			</RootStack.Group>

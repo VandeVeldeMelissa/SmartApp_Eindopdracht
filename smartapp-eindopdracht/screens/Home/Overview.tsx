@@ -66,6 +66,7 @@ export default ({ navigation }: { navigation: any }) => {
 			rating: 5,
 		},
 	]
+	
 	const renderUser = ({ item }: { item: User }) => (
 		<Card user={item} key={item.id} navigation={navigation} />
 	)
