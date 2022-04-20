@@ -41,5 +41,18 @@ export default StyleSheet.create({
 		borderBottomWidth: 1,
 		borderBottomColor: colors.grey[200],
 		marginHorizontal: 10
-	}
+	},
+	button: {
+		position: 'absolute',
+		marginHorizontal: 8,
+		bottom: 8,
+		width: '100%',
+		backgroundColor: colors.purple[800],
+	},
+	buttonText: {
+		fontFamily: 'Quicksand_600SemiBold',
+		fontSize: 16,
+		color: colors.light,
+		padding: 4,
+	},
 })

@@ -95,7 +95,7 @@ export default () => {
 				name="Date"
 				component={DatePage}
 				options={() => ({
-					title: 'Date',
+					title: 'Date(s)',
 					headerShown: true,
 					headerStyle: {
 						backgroundColor: colors.purple[700],

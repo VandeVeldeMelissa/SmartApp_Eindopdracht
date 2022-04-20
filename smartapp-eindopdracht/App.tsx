@@ -17,7 +17,6 @@ import colors from './styles/colors'
 import { createStackNavigator } from '@react-navigation/stack'
 
 const theme = extendTheme({ colors: colors.theme.colors })
-const RootStack = createStackNavigator();
 
 export default function App() {
 	let [fontsLoaded] = useFonts({

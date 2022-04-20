@@ -9,7 +9,7 @@ import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
 import { useNavigation } from '@react-navigation/native'
 
-export default ({ navigation }: {navigation: any }) => {
+export default ({ navigation }: { navigation: any }) => {
 	const nav = useNavigation()
 
 	const [isEnabledNoChildren, setIsEnabledNoChildren] = useState(false)
@@ -75,41 +75,45 @@ export default ({ navigation }: {navigation: any }) => {
 							</HStack>
 						</HStack>
 					</TouchableHighlight>
-					<TouchableHighlight activeOpacity={0.6}
+					<TouchableHighlight
+						activeOpacity={0.6}
 						underlayColor={colors.grey[200]}
-						onPress={() => navigation.navigate('Date')}>
-					    <HStack
-    						alignItems="center"
-    						justifyContent="space-between"
-    						style={filter.switchContainer}
-    					>
-    						<HStack alignItems="center" space={2}>
-    							<Ionicons name="ios-calendar-sharp" size={24} color={colors.dark} />
-    							<Text style={filter.selectText}>Date:</Text>
-    						</HStack>
-    						<HStack alignItems="center" space={1}>
-    							<Text style={filter.selectedText}>-</Text>
-    							<AntDesign name="right" size={24} color={colors.grey[600]} />
-    						</HStack>
-    					</HStack>
+						onPress={() => navigation.navigate('Date')}
+					>
+						<HStack
+							alignItems="center"
+							justifyContent="space-between"
+							style={filter.switchContainer}
+						>
+							<HStack alignItems="center" space={2}>
+								<Ionicons name="ios-calendar-sharp" size={24} color={colors.dark} />
+								<Text style={filter.selectText}>Date(s):</Text>
+							</HStack>
+							<HStack alignItems="center" space={1}>
+								<Text style={filter.selectedText}>-</Text>
+								<AntDesign name="right" size={24} color={colors.grey[600]} />
+							</HStack>
+						</HStack>
 					</TouchableHighlight>
-					<TouchableHighlight activeOpacity={0.6}
+					<TouchableHighlight
+						activeOpacity={0.6}
 						underlayColor={colors.grey[200]}
-						onPress={() => navigation.navigate('Pets')}>
-					    <HStack
-    						alignItems="center"
-    						justifyContent="space-between"
-    						style={[filter.switchContainer, filter.spaceBottom]}
-    					>
-    						<HStack alignItems="center" space={2}>
-    							<Ionicons name="ios-paw" size={24} color={colors.dark} />
-    							<Text style={filter.selectText}>Pet(s):</Text>
-    						</HStack>
-    						<HStack alignItems="center" space={1}>
-    							<Text style={filter.selectedText}>-</Text>
-    							<AntDesign name="right" size={24} color={colors.grey[600]} />
-    						</HStack>
-    					</HStack>
+						onPress={() => navigation.navigate('Pets')}
+					>
+						<HStack
+							alignItems="center"
+							justifyContent="space-between"
+							style={[filter.switchContainer, filter.spaceBottom]}
+						>
+							<HStack alignItems="center" space={2}>
+								<Ionicons name="ios-paw" size={24} color={colors.dark} />
+								<Text style={filter.selectText}>Pet(s):</Text>
+							</HStack>
+							<HStack alignItems="center" space={1}>
+								<Text style={filter.selectedText}>-</Text>
+								<AntDesign name="right" size={24} color={colors.grey[600]} />
+							</HStack>
+						</HStack>
 					</TouchableHighlight>
 					<HStack alignItems="center" justifyContent="space-between">
 						<Text style={filter.subtitle}>Maximum price:</Text>
