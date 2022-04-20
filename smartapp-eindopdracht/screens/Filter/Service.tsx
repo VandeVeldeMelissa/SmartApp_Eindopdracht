@@ -31,6 +31,14 @@ export default ({ navigation }: { navigation: any }) => {
 	const toggleSelectSitterAtMyHouse = () =>
 		setIsSelectedSitterAtMyHouse((previousState) => !previousState)
 
+	const unselectAllServices = () => {
+		setIsSelectedAtSittersHouseNight(false)
+		setIsSelectedAtSittersHouseDay(false)
+		setIsSelectedHouseVisit(false)
+		setIsSelectedDogWalking(false)
+		setIsSelectedSitterAtMyHouse(false)
+	}
+
 	//TODO: navigatie terug naar de vorige pagina en geselecteerde service meegeven!
 
 	return (
@@ -41,6 +49,7 @@ export default ({ navigation }: { navigation: any }) => {
 				underlayColor={colors.grey[200]}
 				style={filter.spaceTop}
 				onPress={() => {
+					unselectAllServices()
 					toggleSelectAtSittersHouseNight()
 					navigation.goBack({})
 				}}
@@ -73,6 +82,7 @@ export default ({ navigation }: { navigation: any }) => {
 				underlayColor={colors.grey[200]}
 				style={filter.spaceBottom}
 				onPress={() => {
+					unselectAllServices()
 					toggleSelectAtSittersHouseDay()
 					//navigation.goBack()
 				}}
@@ -102,6 +112,7 @@ export default ({ navigation }: { navigation: any }) => {
 				underlayColor={colors.grey[200]}
 				style={filter.spaceTop}
 				onPress={() => {
+					unselectAllServices()
 					toggleSelectHouseVisit()
 					//navigation.goBack()
 				}}
@@ -129,6 +140,7 @@ export default ({ navigation }: { navigation: any }) => {
 				activeOpacity={0.7}
 				underlayColor={colors.grey[200]}
 				onPress={() => {
+					unselectAllServices()
 					toggleSelectDogWalking()
 					//navigation.goBack()
 				}}
@@ -160,6 +172,7 @@ export default ({ navigation }: { navigation: any }) => {
 				activeOpacity={0.7}
 				underlayColor={colors.grey[200]}
 				onPress={() => {
+					unselectAllServices()
 					toggleSelectSitterAtMyHouse()
 					//navigation.goBack()
 				}}
