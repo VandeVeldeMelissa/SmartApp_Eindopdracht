@@ -99,11 +99,12 @@ export default ({ navigation }: { navigation: any }) => {
 						activeOpacity={0.6}
 						underlayColor={colors.grey[200]}
 						onPress={() => navigation.navigate('Pets')}
+						style={filter.spaceBottom}
 					>
 						<HStack
 							alignItems="center"
 							justifyContent="space-between"
-							style={[filter.switchContainer, filter.spaceBottom]}
+							style={[filter.switchContainer]}
 						>
 							<HStack alignItems="center" space={2}>
 								<Ionicons name="ios-paw" size={24} color={colors.dark} />

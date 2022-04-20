@@ -6,7 +6,7 @@ import styles from '../styles'
 import calender from '../styles/calender'
 import colors from '../styles/colors'
 
-export default ({ navigation }: { navigation: any }) => {
+export default () => {
 	const [dateStartSelected, setDateStartSelected] = useState<Date | null>()
 	const [dateEndSelected, setDateEndSelected] = useState<Date | null>()
 
@@ -50,14 +50,6 @@ export default ({ navigation }: { navigation: any }) => {
 						<Text>SELECTED END DATE:{endDate}</Text>
 					</View>
 				</View>
-				<Button
-					style={styles.button}
-					onPress={() => {
-						navigation.goBack()
-					}}
-				>
-					<Text style={styles.buttonText}>Save date(s)</Text>
-				</Button>
 			</Box>
 		</View>
 	)

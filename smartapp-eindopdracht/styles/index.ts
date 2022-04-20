@@ -55,4 +55,29 @@ export default StyleSheet.create({
 		color: colors.light,
 		padding: 4,
 	},
+    subtitle: {
+        fontFamily: 'Quicksand_700Bold',
+		fontSize: 16,
+		color: colors.dark,
+        marginBottom: 2,
+    },
+	description: {
+		fontFamily: 'Quicksand_400Regular',
+		fontSize: 15,
+		color: colors.dark,
+	},
+	container: {
+		padding: 8
+	},
+	counter: {
+		fontFamily: 'Quicksand_500Medium',
+		fontSize: 16,
+		width: 14
+	},
+	containerDivider: {
+		marginHorizontal: 8,
+		paddingVertical: 16,
+		borderBottomWidth: 1,
+		borderBottomColor: colors.grey[200],
+	}
 })
