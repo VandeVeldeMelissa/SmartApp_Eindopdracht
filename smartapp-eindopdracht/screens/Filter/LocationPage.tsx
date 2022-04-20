@@ -1,14 +1,12 @@
 import {
 	FlatList,
-	TextInput,
 	View,
 	Text,
 } from 'react-native'
 import colors from '../../styles/colors'
 import React from 'react'
-import { Box, HStack } from 'native-base'
+import { Box } from 'native-base'
 import styles from '../../styles'
-import { Ionicons } from '@expo/vector-icons'
 import SearchBar from '../../components/SearchBar'
 
 

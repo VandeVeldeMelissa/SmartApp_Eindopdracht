@@ -14,7 +14,6 @@ import {
 } from '@expo-google-fonts/quicksand'
 import AppLoading from 'expo-app-loading'
 import colors from './styles/colors'
-import { createStackNavigator } from '@react-navigation/stack'
 
 const theme = extendTheme({ colors: colors.theme.colors })
 

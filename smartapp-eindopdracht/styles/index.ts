@@ -83,4 +83,9 @@ export default StyleSheet.create({
 		fontSize: 15,
 		color: colors.dark,
 	},
+	largeText: {
+		fontFamily: 'Quicksand_500Medium',
+ 		fontSize: 20,
+ 		color: colors.dark
+	}
 })

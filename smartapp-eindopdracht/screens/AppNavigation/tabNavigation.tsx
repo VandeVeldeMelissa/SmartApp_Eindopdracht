@@ -3,10 +3,7 @@ import {
 	createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
-import {
-	ParamListBase,
-	RouteProp,
-} from '@react-navigation/native'
+import { ParamListBase, RouteProp } from '@react-navigation/native'
 import React, { ComponentProps } from 'react'
 import Home from '../Home/index'
 import Chat from '../Chat/index'
@@ -56,7 +53,7 @@ const screenOptions = ({
 		color: colors.light,
 		fontFamily: 'Quicksand_600SemiBold',
 	},
-	headerShown: false
+	headerShown: false,
 })
 
 export default () => {
@@ -65,15 +62,12 @@ export default () => {
 			<Tab.Screen
 				name="Sitters & Walkers"
 				component={Home}
-				options={({ navigation }) => ({
+				options={() => ({
 					tabBarLabel: 'Home',
 				})}
 			/>
 			<Tab.Screen name="Chat" component={Chat} />
-			<Tab.Screen
-				name="Profile"
-				component={Profile}
-			/>
+			<Tab.Screen name="Profile" component={Profile} />
 			<Tab.Screen name="Settings" component={Settings} />
 		</Tab.Navigator>
 	)

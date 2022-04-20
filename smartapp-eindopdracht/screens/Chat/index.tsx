@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-	createStackNavigator,
-	StackNavigationOptions,
-} from '@react-navigation/stack'
-import { ParamListBase, RouteProp } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import 'react-native-gesture-handler'
 import colors from '../../styles/colors'
 import ChatList from './ChatList'

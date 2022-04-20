@@ -28,34 +28,9 @@ export default () => {
 					headerShown: false,
 					presentation: 'modal',
 					animationEnabled: true,
-					// headerStyle: {
-					// 	backgroundColor: colors.purple[700],
-					// },
-					// headerTitleStyle: {
-					// 	color: colors.light,
-					// 	fontFamily: 'Quicksand_600SemiBold',
-					// },
-					// headerTintColor: colors.light,
 				})}
 			>
-				<RootStack.Screen
-					name="FilterModal"
-					component={Filter}
-					options={({ navigation }) => ({
-						// headerRight: () => (
-						// 	<Pressable onPress={() => navigation.goBack()}>
-						// 		<Ionicons
-						// 			name="close"
-						// 			color={colors.light}
-						// 			size={24}
-						// 			style={styles.iconHeader}
-						// 		/>
-						// 	</Pressable>
-						// ),
-						// headerLeft: () => null,
-						// title: 'Filter',
-					})}
-				/>
+				<RootStack.Screen name="FilterModal" component={Filter} />
 				<RootStack.Screen
 					name="EditProfileModal"
 					component={Edit}

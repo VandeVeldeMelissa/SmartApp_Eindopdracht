@@ -14,14 +14,6 @@ import styles from '../../styles'
 
 const Stack = createStackNavigator()
 
-const screenOptions = ({
-	route,
-}: {
-	route: RouteProp<ParamListBase>
-}): StackNavigationOptions => ({
-	presentation: 'modal',
-})
-
 export default () => {
 	return (
 		<Stack.Navigator initialRouteName="MyProfile">

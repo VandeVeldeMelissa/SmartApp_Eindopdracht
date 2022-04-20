@@ -2,13 +2,11 @@ import React from 'react'
 import Overview from './Overview'
 import {
 	createStackNavigator,
-	StackNavigationOptions,
 } from '@react-navigation/stack'
-import { ParamListBase, RouteProp } from '@react-navigation/native'
 import 'react-native-gesture-handler'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
-import { Ionicons, Octicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
 import styles from '../../styles'
 import Service from './Service'
 import LocationPage from './LocationPage'

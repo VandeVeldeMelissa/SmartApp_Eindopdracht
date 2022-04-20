@@ -7,7 +7,6 @@ import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import profile from '../../styles/profile'
 import { Button } from 'native-base'
-import ButtonBottom from '../../components/ButtonBottom'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
