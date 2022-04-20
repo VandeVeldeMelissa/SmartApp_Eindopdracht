@@ -66,9 +66,9 @@ export default ({ navigation }: { navigation: any }) => {
 							color={colors.dark}
 						/>
 						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Logeren</Text>
+							<Text style={filter.serviceTitle}>Stay</Text>
 							<Text style={filter.serviceDescription}>
-								Verblijft bij de oppas, overdag en 's nachts
+								Stays with the pet sitter, day and night
 							</Text>
 						</VStack>
 					</HStack>
@@ -95,9 +95,9 @@ export default ({ navigation }: { navigation: any }) => {
 					<HStack alignItems="center" space={3}>
 						<Ionicons name="sunny" size={24} color={colors.dark} />
 						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Dagopvang</Text>
+							<Text style={filter.serviceTitle}>Day care</Text>
 							<Text style={filter.serviceDescription}>
-								Verblijft bij de oppas overdag
+								Stay with the pet sitter during the day
 							</Text>
 						</VStack>
 					</HStack>
@@ -125,9 +125,9 @@ export default ({ navigation }: { navigation: any }) => {
 					<HStack alignItems="center" space={3}>
 						<Ionicons name="key" size={24} color={colors.dark} />
 						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Huisbezoeken</Text>
+							<Text style={filter.serviceTitle}>Home visits</Text>
 							<Text style={filter.serviceDescription}>
-								De oppas komt bij jou thuis langs
+								The pet sitter comes to your home
 							</Text>
 						</VStack>
 					</HStack>
@@ -157,9 +157,9 @@ export default ({ navigation }: { navigation: any }) => {
 							color={colors.dark}
 						/>
 						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Hondenuitlaatservice</Text>
+							<Text style={filter.serviceTitle}>Dog walking service</Text>
 							<Text style={filter.serviceDescription}>
-								Een fijne wandeling voor je hond
+								A nice walk for your dog
 							</Text>
 						</VStack>
 					</HStack>
@@ -185,9 +185,9 @@ export default ({ navigation }: { navigation: any }) => {
 					<HStack alignItems="center" space={3}>
 						<Ionicons name="home" size={24} color={colors.dark} />
 						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Huisoppas</Text>
+							<Text style={filter.serviceTitle}>House sitter</Text>
 							<Text style={filter.serviceDescription}>
-								De oppas verblijft bij jou thuis
+								The pet sitter stays at your home
 							</Text>
 						</VStack>
 					</HStack>
