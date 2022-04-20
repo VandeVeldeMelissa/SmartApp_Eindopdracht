@@ -8,8 +8,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
 import { useNavigation } from '@react-navigation/native'
+import styles from '../../styles'
 
-export default ({ navigation }: { navigation: any }) => {
+export default ({
+	navigation,
+	payload,
+}: {
+	navigation: any
+	payload: any | null
+}) => {
 	const nav = useNavigation()
 
 	const [isEnabledNoChildren, setIsEnabledNoChildren] = useState(false)
@@ -25,6 +32,7 @@ export default ({ navigation }: { navigation: any }) => {
 		setIsEnabledGarden((previousState) => !previousState)
 
 	const [onChangeValueMaxPrice, setOnChangeValueMaxPrice] = useState(50)
+
 	return (
 		<View>
 			<Box height="100%" style={filter.container}>
@@ -39,7 +47,7 @@ export default ({ navigation }: { navigation: any }) => {
 						<HStack
 							alignItems="center"
 							justifyContent="space-between"
-							style={[filter.switchContainer, filter.topContainer]}
+							style={[styles.containerDivider, styles.topContainer]}
 						>
 							<HStack alignItems="center" space={2}>
 								<MaterialCommunityIcons
@@ -63,7 +71,7 @@ export default ({ navigation }: { navigation: any }) => {
 						<HStack
 							alignItems="center"
 							justifyContent="space-between"
-							style={filter.switchContainer}
+							style={styles.containerDivider}
 						>
 							<HStack alignItems="center" space={2}>
 								<Ionicons name="ios-location" size={24} color={colors.dark} />
@@ -83,7 +91,7 @@ export default ({ navigation }: { navigation: any }) => {
 						<HStack
 							alignItems="center"
 							justifyContent="space-between"
-							style={filter.switchContainer}
+							style={styles.containerDivider}
 						>
 							<HStack alignItems="center" space={2}>
 								<Ionicons name="ios-calendar-sharp" size={24} color={colors.dark} />
@@ -104,7 +112,7 @@ export default ({ navigation }: { navigation: any }) => {
 						<HStack
 							alignItems="center"
 							justifyContent="space-between"
-							style={[filter.switchContainer]}
+							style={[styles.containerDivider]}
 						>
 							<HStack alignItems="center" space={2}>
 								<Ionicons name="ios-paw" size={24} color={colors.dark} />
@@ -145,7 +153,7 @@ export default ({ navigation }: { navigation: any }) => {
 					<HStack
 						alignItems="center"
 						justifyContent="space-between"
-						style={[filter.switchContainer, filter.topContainer]}
+						style={[styles.containerDivider, styles.topContainer]}
 					>
 						<Text style={filter.switchText}>Pet Sitter has no children</Text>
 						<Switch
@@ -159,7 +167,7 @@ export default ({ navigation }: { navigation: any }) => {
 					<HStack
 						alignItems="center"
 						justifyContent="space-between"
-						style={filter.switchContainer}
+						style={styles.containerDivider}
 					>
 						<Text style={filter.switchText}>Pet Sitter doesn't have pets</Text>
 						<Switch
@@ -173,7 +181,7 @@ export default ({ navigation }: { navigation: any }) => {
 					<HStack
 						alignItems="center"
 						justifyContent="space-between"
-						style={filter.switchContainer}
+						style={styles.containerDivider}
 						marginBottom={16}
 					>
 						<Text style={filter.switchText}>Pet Sitter has a garden</Text>

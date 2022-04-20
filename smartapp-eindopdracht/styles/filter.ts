@@ -46,6 +46,8 @@ export default StyleSheet.create({
 		color: colors.dark,
 	},
     selectedText: {
+		fontFamily: 'Quicksand_400Regular',
+		fontSize: 15,
         color: colors.grey[600]
     },
 	topContainer: {
@@ -77,5 +79,10 @@ export default StyleSheet.create({
     serviceDescription: {
         fontFamily: 'Quicksand_400Regular',
 		fontSize: 14,
-    }
+    },
+	counter: {
+		fontFamily: 'Quicksand_500Medium',
+		fontSize: 16,
+		width: 14
+	},
 })

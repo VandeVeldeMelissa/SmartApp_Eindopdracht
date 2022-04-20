@@ -8,7 +8,7 @@ import calender from '../../styles/calender'
 export default ({ navigation }: { navigation: any }) => {
 	return (
 		<View>
-			<Box height="100%" style={calender.container}>
+			<Box height="100%" style={styles.container}>
 			  <Calender/>
         <Button
   					style={styles.button}

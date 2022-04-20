@@ -51,7 +51,7 @@ export default StyleSheet.create({
         color: colors.dark,
     },
 	container: {
-		padding: 12,
+		padding: 8,
 	},
 	button: {
 		position: 'absolute',

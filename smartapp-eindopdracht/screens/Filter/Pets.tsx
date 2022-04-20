@@ -32,16 +32,16 @@ export default ({ navigation }: { navigation: any }) => {
 									setAmountSmallDogs(amountSmallDogs - 1)
 								}
 							}}
-              bg={(amountSmallDogs > 0) ? colors.purple[700] : colors.grey[300]}
+							bg={amountSmallDogs > 0 ? colors.purple[700] : colors.grey[300]}
 						>
 							<Ionicons name="ios-remove" size={24} color={colors.light} />
 						</Button>
-						<Text style={styles.counter}>{amountSmallDogs}</Text>
+						<Text style={filter.counter}>{amountSmallDogs}</Text>
 						<Button
 							onPress={() => {
 								setAmountSmallDogs(amountSmallDogs + 1)
 							}}
-              bg={colors.purple[700]}
+							bg={colors.purple[700]}
 						>
 							<Ionicons name="ios-add" size={24} color={colors.light} />
 						</Button>
@@ -63,16 +63,16 @@ export default ({ navigation }: { navigation: any }) => {
 									setAmountMediumDogs(amountMediumDogs - 1)
 								}
 							}}
-              bg={(amountMediumDogs > 0) ? colors.purple[700] : colors.grey[300]}
+							bg={amountMediumDogs > 0 ? colors.purple[700] : colors.grey[300]}
 						>
 							<Ionicons name="ios-remove" size={24} color={colors.light} />
 						</Button>
-						<Text style={styles.counter}>{amountMediumDogs}</Text>
+						<Text style={filter.counter}>{amountMediumDogs}</Text>
 						<Button
 							onPress={() => {
 								setAmountMediumDogs(amountMediumDogs + 1)
 							}}
-              bg={colors.purple[700]}
+							bg={colors.purple[700]}
 						>
 							<Ionicons name="ios-add" size={24} color={colors.light} />
 						</Button>
@@ -94,16 +94,16 @@ export default ({ navigation }: { navigation: any }) => {
 									setAmountLargeDogs(amountLargeDogs - 1)
 								}
 							}}
-              bg={(amountLargeDogs > 0) ? colors.purple[700] : colors.grey[300]}
+							bg={amountLargeDogs > 0 ? colors.purple[700] : colors.grey[300]}
 						>
 							<Ionicons name="ios-remove" size={24} color={colors.light} />
 						</Button>
-						<Text style={styles.counter}>{amountLargeDogs}</Text>
+						<Text style={filter.counter}>{amountLargeDogs}</Text>
 						<Button
 							onPress={() => {
 								setAmountLargeDogs(amountLargeDogs + 1)
 							}}
-              bg={colors.purple[700]}
+							bg={colors.purple[700]}
 						>
 							<Ionicons name="ios-add" size={24} color={colors.light} />
 						</Button>
@@ -125,16 +125,16 @@ export default ({ navigation }: { navigation: any }) => {
 									setAmountCats(amountCats - 1)
 								}
 							}}
-              bg={(amountCats > 0) ? colors.purple[700] : colors.grey[300]}
+							bg={amountCats > 0 ? colors.purple[700] : colors.grey[300]}
 						>
 							<Ionicons name="ios-remove" size={24} color={colors.light} />
 						</Button>
-						<Text style={styles.counter}>{amountCats}</Text>
+						<Text style={filter.counter}>{amountCats}</Text>
 						<Button
 							onPress={() => {
 								setAmountCats(amountCats + 1)
 							}}
-              bg={colors.purple[700]}
+							bg={colors.purple[700]}
 						>
 							<Ionicons name="ios-add" size={24} color={colors.light} />
 						</Button>
@@ -156,16 +156,16 @@ export default ({ navigation }: { navigation: any }) => {
 									setAmountSmallAnimals(amountSmallAnimals - 1)
 								}
 							}}
-              bg={(amountSmallAnimals > 0) ? colors.purple[700] : colors.grey[300]}
+							bg={amountSmallAnimals > 0 ? colors.purple[700] : colors.grey[300]}
 						>
 							<Ionicons name="ios-remove" size={24} color={colors.light} />
 						</Button>
-						<Text style={styles.counter}>{amountSmallAnimals}</Text>
+						<Text style={filter.counter}>{amountSmallAnimals}</Text>
 						<Button
 							onPress={() => {
 								setAmountSmallAnimals(amountSmallAnimals + 1)
 							}}
-              bg={colors.purple[700]}
+							bg={colors.purple[700]}
 						>
 							<Ionicons name="ios-add" size={24} color={colors.light} />
 						</Button>

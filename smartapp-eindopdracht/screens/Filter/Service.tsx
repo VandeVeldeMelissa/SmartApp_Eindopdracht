@@ -51,7 +51,7 @@ export default ({ navigation }: { navigation: any }) => {
 				onPress={() => {
 					unselectAllServices()
 					toggleSelectAtSittersHouseNight()
-					navigation.goBack({})
+					navigation.goBack({ payload: isSelectedAtSittersHouseDay })
 				}}
 			>
 				<HStack
@@ -158,9 +158,7 @@ export default ({ navigation }: { navigation: any }) => {
 						/>
 						<VStack space={1}>
 							<Text style={filter.serviceTitle}>Dog walking service</Text>
-							<Text style={filter.serviceDescription}>
-								A nice walk for your dog
-							</Text>
+							<Text style={filter.serviceDescription}>A nice walk for your dog</Text>
 						</VStack>
 					</HStack>
 					<Box opacity={isSelectedDogWalking ? 1 : 0}>

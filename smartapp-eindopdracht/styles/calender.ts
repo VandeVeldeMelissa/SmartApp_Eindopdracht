@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native'
 import colors from './colors'
 
 export default StyleSheet.create({
-	container: {
-		padding: 8,
-	},
 	button: {
 		fontFamily: 'Quicksand_500Medium',
 		color: colors.purple[900],

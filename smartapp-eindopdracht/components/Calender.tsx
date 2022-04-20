@@ -25,32 +25,28 @@ export default () => {
 	const endDate = dateEndSelected ? dateEndSelected.toString() : ''
 
 	return (
-		<View>
-			<Box height="100%" style={calender.container}>
-				<View>
-					<CalendarPicker
-						startFromMonday={true}
-						allowRangeSelection={true}
-						showDayStragglers={true}
-						minDate={minDate}
-						maxDate={maxDate}
-						previousTitleStyle={calender.button}
-						nextTitleStyle={calender.button}
-						todayBackgroundColor={colors.purple[600]}
-						selectedDayColor={colors.purple[800]}
-						selectedDayTextColor={colors.light}
-						textStyle={calender.text}
-						monthTitleStyle={calender.textTitle}
-						yearTitleStyle={calender.textTitle}
-						onDateChange={onDateChange}
-					/>
+		<Box height="100%">
+			<CalendarPicker
+				startFromMonday={true}
+				allowRangeSelection={true}
+				showDayStragglers={true}
+				minDate={minDate}
+				maxDate={maxDate}
+				previousTitleStyle={calender.button}
+				nextTitleStyle={calender.button}
+				todayBackgroundColor={colors.purple[600]}
+				selectedDayColor={colors.purple[800]}
+				selectedDayTextColor={colors.light}
+				textStyle={calender.text}
+				monthTitleStyle={calender.textTitle}
+				yearTitleStyle={calender.textTitle}
+				onDateChange={onDateChange}
+			/>
 
-					<View>
-						<Text>SELECTED START DATE:{startDate}</Text>
-						<Text>SELECTED END DATE:{endDate}</Text>
-					</View>
-				</View>
-			</Box>
-		</View>
+			<View>
+				<Text>SELECTED START DATE:{startDate}</Text>
+				<Text>SELECTED END DATE:{endDate}</Text>
+			</View>
+		</Box>
 	)
 }

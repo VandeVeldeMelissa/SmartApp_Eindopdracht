@@ -2,19 +2,33 @@ import { StyleSheet } from 'react-native'
 import colors from './colors'
 
 export default StyleSheet.create({
-	flex: {
-		flex: 1
+	//Layout
+	container: {
+		padding: 8
 	},
-    iconHeader: {
-        marginRight: 8
-    },
 	list: {
 		marginVertical: 4
 	},
-	largeText: {
-		fontFamily: 'Quicksand_500Medium',
-		fontSize: 20,
-		color: colors.dark
+	containerDivider: {
+		marginHorizontal: 8,
+		paddingVertical: 16,
+		borderBottomWidth: 1,
+		borderBottomColor: colors.grey[200],
+	},
+	topContainer: {
+		borderTopWidth: 1,
+		borderTopColor: colors.grey[200],
+	},
+
+	//Icon
+    iconHeader: {
+        marginRight: 8
+    },
+
+	//Searchbar
+	searchBarIcon: {
+		marginLeft: 8,
+		color: colors.light
 	},
 	inputSearchbar: {
 		fontFamily: 'Quicksand_500Medium',
@@ -27,9 +41,12 @@ export default StyleSheet.create({
 		margin: 10,
 		borderRadius: 4,
 	},
-	searchBarIcon: {
-		marginLeft: 8,
-		color: colors.light
+
+	//Locations list
+	locationContainer: {
+		borderBottomWidth: 1,
+		borderBottomColor: colors.grey[200],
+		marginHorizontal: 10
 	},
 	locationText: {
 		fontFamily: 'Quicksand_400Regular',
@@ -37,11 +54,8 @@ export default StyleSheet.create({
 		color: colors.dark,
 		paddingVertical: 12,
 	},
-	locationContainer: {
-		borderBottomWidth: 1,
-		borderBottomColor: colors.grey[200],
-		marginHorizontal: 10
-	},
+
+	//Button bottom
 	button: {
 		position: 'absolute',
 		marginHorizontal: 8,
@@ -55,6 +69,8 @@ export default StyleSheet.create({
 		color: colors.light,
 		padding: 4,
 	},
+
+	//Text
     subtitle: {
         fontFamily: 'Quicksand_700Bold',
 		fontSize: 16,
@@ -66,18 +82,4 @@ export default StyleSheet.create({
 		fontSize: 15,
 		color: colors.dark,
 	},
-	container: {
-		padding: 8
-	},
-	counter: {
-		fontFamily: 'Quicksand_500Medium',
-		fontSize: 16,
-		width: 14
-	},
-	containerDivider: {
-		marginHorizontal: 8,
-		paddingVertical: 16,
-		borderBottomWidth: 1,
-		borderBottomColor: colors.grey[200],
-	}
 })
