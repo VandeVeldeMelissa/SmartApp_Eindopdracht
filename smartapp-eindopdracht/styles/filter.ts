@@ -3,7 +3,7 @@ import colors from './colors'
 
 export default StyleSheet.create({
 	container: {
-		padding: 8,
+		margin: 8,
 	},
 	button: {
 		position: 'absolute',
@@ -23,8 +23,8 @@ export default StyleSheet.create({
 		fontSize: 16,
 		color: colors.dark,
 		marginBottom: 2,
-        marginTop: 8,
-        marginLeft: 8
+		marginTop: 8,
+		marginLeft: 8,
 	},
 	select: {
 		color: colors.dark,
@@ -45,44 +45,44 @@ export default StyleSheet.create({
 		fontSize: 16,
 		color: colors.dark,
 	},
-    selectedText: {
+	selectedText: {
 		fontFamily: 'Quicksand_400Regular',
 		fontSize: 15,
-        color: colors.grey[600]
-    },
+		color: colors.grey[600],
+	},
 	topContainer: {
 		borderTopWidth: 1,
 		borderTopColor: colors.grey[200],
 	},
-    slider: {
-        width: '80%', 
-        height: 40
-    }, 
-    priceText: {
-        fontFamily: 'Quicksand_500Medium',
+	slider: {
+		width: '80%',
+		height: 40,
+	},
+	priceText: {
+		fontFamily: 'Quicksand_500Medium',
 		fontSize: 16,
 		color: colors.purple[900],
 		marginBottom: 2,
-        marginTop: 8,
-        marginHorizontal: 6
-    },
-    spaceBottom: {
-        marginBottom: 16
-    },
-    spaceTop: {
-        marginTop: 8
-    },
-    serviceTitle: {
-        fontFamily: 'Quicksand_500Medium',
+		marginTop: 8,
+		marginHorizontal: 6,
+	},
+	spaceBottom: {
+		marginBottom: 16,
+	},
+	spaceTop: {
+		marginTop: 8,
+	},
+	serviceTitle: {
+		fontFamily: 'Quicksand_500Medium',
 		fontSize: 16,
-    },
-    serviceDescription: {
-        fontFamily: 'Quicksand_400Regular',
+	},
+	serviceDescription: {
+		fontFamily: 'Quicksand_400Regular',
 		fontSize: 14,
-    },
+	},
 	counter: {
 		fontFamily: 'Quicksand_500Medium',
 		fontSize: 16,
-		width: 14
+		width: 14,
 	},
 })

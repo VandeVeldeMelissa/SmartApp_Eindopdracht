@@ -6,6 +6,7 @@ import colors from '../../styles/colors'
 import chat from '../../styles/chat'
 import ChatListItem from '../../components/ChatListItem'
 import ChatListHiddenItem from '../../components/ChatListHiddenItem'
+import SearchBar from '../../components/SearchBar'
 
 export default () => {
 	const data: ChatUser[] = [
@@ -71,7 +72,7 @@ export default () => {
 	return (
 		<Center h="full">
 			<Box background={colors.light} flex="1" w="100%">
-				<Heading style={chat.heading}>Searchbar?</Heading>
+				<SearchBar/>
 				<SwipeListView
 					data={listData}
 					keyExtractor={(rowData) => {

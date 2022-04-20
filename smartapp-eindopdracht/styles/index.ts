@@ -28,16 +28,17 @@ export default StyleSheet.create({
 	//Searchbar
 	searchBarIcon: {
 		marginLeft: 8,
-		color: colors.light
+		color: colors.grey[800]
 	},
 	inputSearchbar: {
 		fontFamily: 'Quicksand_500Medium',
 		fontSize: 16,
 		paddingVertical: 10,
 		paddingHorizontal: 16,
+		color: colors.grey[800]
 	},
 	inputContainer: {
-		backgroundColor: colors.grey[400],
+		backgroundColor: colors.grey[200],
 		margin: 10,
 		borderRadius: 4,
 	},

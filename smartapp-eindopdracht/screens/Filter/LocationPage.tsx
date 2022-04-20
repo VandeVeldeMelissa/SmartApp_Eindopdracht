@@ -6,9 +6,10 @@ import {
 } from 'react-native'
 import colors from '../../styles/colors'
 import React from 'react'
-import { HStack } from 'native-base'
+import { Box, HStack } from 'native-base'
 import styles from '../../styles'
 import { Ionicons } from '@expo/vector-icons'
+import SearchBar from '../../components/SearchBar'
 
 
 export default () => {
@@ -26,16 +27,8 @@ export default () => {
 	]
 
 	return (
-		<View>
-			<HStack style={styles.inputContainer} alignItems="center">
-				<Ionicons name="ios-search" size={24} style={styles.searchBarIcon} />
-				<TextInput
-					style={styles.inputSearchbar}
-					placeholder={'Search'}
-					placeholderTextColor={colors.light}
-					autoCorrect={false}
-				/>
-			</HStack>
+		<Box height='100%' background={colors.light}>
+			<SearchBar/>
 			<FlatList
 				data={testLocaties}
 				renderItem={({ item }) => (
@@ -44,6 +37,6 @@ export default () => {
 					</View>
 				)}
 			/>
-		</View>
+		</Box>
 	)
 }

@@ -42,158 +42,160 @@ export default ({ navigation }: { navigation: any }) => {
 	//TODO: navigatie terug naar de vorige pagina en geselecteerde service meegeven!
 
 	return (
-		<ScrollView style={filter.container}>
-			<Text style={filter.subtitle}>At the sitter's house</Text>
-			<TouchableHighlight
-				activeOpacity={0.7}
-				underlayColor={colors.grey[200]}
-				style={filter.spaceTop}
-				onPress={() => {
-					unselectAllServices()
-					toggleSelectAtSittersHouseNight()
-					navigation.goBack({ payload: isSelectedAtSittersHouseDay })
-				}}
-			>
-				<HStack
-					alignItems="center"
-					justifyContent="space-between"
-					style={[filter.switchContainer, filter.topContainer]}
+		<Box height='100%' background={colors.light}>
+			<ScrollView style={filter.container}>
+				<Text style={filter.subtitle}>At the sitter's house</Text>
+				<TouchableHighlight
+					activeOpacity={0.7}
+					underlayColor={colors.grey[200]}
+					style={filter.spaceTop}
+					onPress={() => {
+						unselectAllServices()
+						toggleSelectAtSittersHouseNight()
+						navigation.goBack({ payload: isSelectedAtSittersHouseDay })
+					}}
 				>
-					<HStack alignItems="center" space={3}>
-						<MaterialCommunityIcons
-							name="power-sleep"
-							size={24}
-							color={colors.dark}
-						/>
-						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Stay</Text>
-							<Text style={filter.serviceDescription}>
-								Stays with the pet sitter, day and night
-							</Text>
-						</VStack>
+					<HStack
+						alignItems="center"
+						justifyContent="space-between"
+						style={[filter.switchContainer, filter.topContainer]}
+					>
+						<HStack alignItems="center" space={3}>
+							<MaterialCommunityIcons
+								name="power-sleep"
+								size={24}
+								color={colors.dark}
+							/>
+							<VStack space={1}>
+								<Text style={filter.serviceTitle}>Stay</Text>
+								<Text style={filter.serviceDescription}>
+									Stays with the pet sitter, day and night
+								</Text>
+							</VStack>
+						</HStack>
+						<Box opacity={isSelectedAtSittersHouseNight ? 1 : 0}>
+							<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
+						</Box>
 					</HStack>
-					<Box opacity={isSelectedAtSittersHouseNight ? 1 : 0}>
-						<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
-					</Box>
-				</HStack>
-			</TouchableHighlight>
-			<TouchableHighlight
-				activeOpacity={0.7}
-				underlayColor={colors.grey[200]}
-				style={filter.spaceBottom}
-				onPress={() => {
-					unselectAllServices()
-					toggleSelectAtSittersHouseDay()
-					//navigation.goBack()
-				}}
-			>
-				<HStack
-					alignItems="center"
-					justifyContent="space-between"
-					style={filter.switchContainer}
+				</TouchableHighlight>
+				<TouchableHighlight
+					activeOpacity={0.7}
+					underlayColor={colors.grey[200]}
+					style={filter.spaceBottom}
+					onPress={() => {
+						unselectAllServices()
+						toggleSelectAtSittersHouseDay()
+						//navigation.goBack()
+					}}
 				>
-					<HStack alignItems="center" space={3}>
-						<Ionicons name="sunny" size={24} color={colors.dark} />
-						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Day care</Text>
-							<Text style={filter.serviceDescription}>
-								Stay with the pet sitter during the day
-							</Text>
-						</VStack>
+					<HStack
+						alignItems="center"
+						justifyContent="space-between"
+						style={filter.switchContainer}
+					>
+						<HStack alignItems="center" space={3}>
+							<Ionicons name="sunny" size={24} color={colors.dark} />
+							<VStack space={1}>
+								<Text style={filter.serviceTitle}>Day care</Text>
+								<Text style={filter.serviceDescription}>
+									Stay with the pet sitter during the day
+								</Text>
+							</VStack>
+						</HStack>
+						<Box opacity={isSelectedAtSittersHouseDay ? 1 : 0}>
+							<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
+						</Box>
 					</HStack>
-					<Box opacity={isSelectedAtSittersHouseDay ? 1 : 0}>
-						<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
-					</Box>
-				</HStack>
-			</TouchableHighlight>
-			<Text style={filter.subtitle}>At your house</Text>
-			<TouchableHighlight
-				activeOpacity={0.7}
-				underlayColor={colors.grey[200]}
-				style={filter.spaceTop}
-				onPress={() => {
-					unselectAllServices()
-					toggleSelectHouseVisit()
-					//navigation.goBack()
-				}}
-			>
-				<HStack
-					alignItems="center"
-					justifyContent="space-between"
-					style={[filter.switchContainer, filter.topContainer]}
+				</TouchableHighlight>
+				<Text style={filter.subtitle}>At your house</Text>
+				<TouchableHighlight
+					activeOpacity={0.7}
+					underlayColor={colors.grey[200]}
+					style={filter.spaceTop}
+					onPress={() => {
+						unselectAllServices()
+						toggleSelectHouseVisit()
+						//navigation.goBack()
+					}}
 				>
-					<HStack alignItems="center" space={3}>
-						<Ionicons name="key" size={24} color={colors.dark} />
-						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Home visits</Text>
-							<Text style={filter.serviceDescription}>
-								The pet sitter comes to your home
-							</Text>
-						</VStack>
+					<HStack
+						alignItems="center"
+						justifyContent="space-between"
+						style={[filter.switchContainer, filter.topContainer]}
+					>
+						<HStack alignItems="center" space={3}>
+							<Ionicons name="key" size={24} color={colors.dark} />
+							<VStack space={1}>
+								<Text style={filter.serviceTitle}>Home visits</Text>
+								<Text style={filter.serviceDescription}>
+									The pet sitter comes to your home
+								</Text>
+							</VStack>
+						</HStack>
+						<Box opacity={isSelectedHouseVisit ? 1 : 0}>
+							<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
+						</Box>
 					</HStack>
-					<Box opacity={isSelectedHouseVisit ? 1 : 0}>
-						<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
-					</Box>
-				</HStack>
-			</TouchableHighlight>
-			<TouchableHighlight
-				activeOpacity={0.7}
-				underlayColor={colors.grey[200]}
-				onPress={() => {
-					unselectAllServices()
-					toggleSelectDogWalking()
-					//navigation.goBack()
-				}}
-			>
-				<HStack
-					alignItems="center"
-					justifyContent="space-between"
-					style={filter.switchContainer}
+				</TouchableHighlight>
+				<TouchableHighlight
+					activeOpacity={0.7}
+					underlayColor={colors.grey[200]}
+					onPress={() => {
+						unselectAllServices()
+						toggleSelectDogWalking()
+						//navigation.goBack()
+					}}
 				>
-					<HStack alignItems="center" space={3}>
-						<MaterialCommunityIcons
-							name="dog-service"
-							size={24}
-							color={colors.dark}
-						/>
-						<VStack space={1}>
-							<Text style={filter.serviceTitle}>Dog walking service</Text>
-							<Text style={filter.serviceDescription}>A nice walk for your dog</Text>
-						</VStack>
+					<HStack
+						alignItems="center"
+						justifyContent="space-between"
+						style={filter.switchContainer}
+					>
+						<HStack alignItems="center" space={3}>
+							<MaterialCommunityIcons
+								name="dog-service"
+								size={24}
+								color={colors.dark}
+							/>
+							<VStack space={1}>
+								<Text style={filter.serviceTitle}>Dog walking service</Text>
+								<Text style={filter.serviceDescription}>A nice walk for your dog</Text>
+							</VStack>
+						</HStack>
+						<Box opacity={isSelectedDogWalking ? 1 : 0}>
+							<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
+						</Box>
 					</HStack>
-					<Box opacity={isSelectedDogWalking ? 1 : 0}>
-						<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
-					</Box>
-				</HStack>
-			</TouchableHighlight>
-			<TouchableHighlight
-				activeOpacity={0.7}
-				underlayColor={colors.grey[200]}
-				onPress={() => {
-					unselectAllServices()
-					toggleSelectSitterAtMyHouse()
-					//navigation.goBack()
-				}}
-			>
-				<HStack
-					alignItems="center"
-					justifyContent="space-between"
-					style={filter.switchContainer}
+				</TouchableHighlight>
+				<TouchableHighlight
+					activeOpacity={0.7}
+					underlayColor={colors.grey[200]}
+					onPress={() => {
+						unselectAllServices()
+						toggleSelectSitterAtMyHouse()
+						//navigation.goBack()
+					}}
 				>
-					<HStack alignItems="center" space={3}>
-						<Ionicons name="home" size={24} color={colors.dark} />
-						<VStack space={1}>
-							<Text style={filter.serviceTitle}>House sitter</Text>
-							<Text style={filter.serviceDescription}>
-								The pet sitter stays at your home
-							</Text>
-						</VStack>
+					<HStack
+						alignItems="center"
+						justifyContent="space-between"
+						style={filter.switchContainer}
+					>
+						<HStack alignItems="center" space={3}>
+							<Ionicons name="home" size={24} color={colors.dark} />
+							<VStack space={1}>
+								<Text style={filter.serviceTitle}>House sitter</Text>
+								<Text style={filter.serviceDescription}>
+									The pet sitter stays at your home
+								</Text>
+							</VStack>
+						</HStack>
+						<Box opacity={isSelectedSitterAtMyHouse ? 1 : 0}>
+							<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
+						</Box>
 					</HStack>
-					<Box opacity={isSelectedSitterAtMyHouse ? 1 : 0}>
-						<Ionicons name="ios-checkmark" size={24} color={colors.purple[800]} />
-					</Box>
-				</HStack>
-			</TouchableHighlight>
-		</ScrollView>
+				</TouchableHighlight>
+			</ScrollView>
+		</Box>
 	)
 }

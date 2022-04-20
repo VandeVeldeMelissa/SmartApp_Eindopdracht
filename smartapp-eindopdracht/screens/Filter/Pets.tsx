@@ -14,8 +14,7 @@ export default ({ navigation }: { navigation: any }) => {
 	const [amountSmallAnimals, setAmountSmallAnimals] = useState(0)
 
 	return (
-		<View style={styles.container}>
-			<Box height="100%" style={styles.container}>
+			<Box height="100%" background={colors.light} style={styles.container}>
 				<HStack
 					alignItems="center"
 					justifyContent="space-between"
@@ -180,6 +179,5 @@ export default ({ navigation }: { navigation: any }) => {
 					<Text style={styles.buttonText}>Save pet(s)</Text>
 				</Button>
 			</Box>
-		</View>
 	)
 }

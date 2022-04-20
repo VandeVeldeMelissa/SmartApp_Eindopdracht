@@ -34,8 +34,7 @@ export default ({
 	const [onChangeValueMaxPrice, setOnChangeValueMaxPrice] = useState(50)
 
 	return (
-		<View>
-			<Box height="100%" style={filter.container}>
+			<Box height="100%" background={colors.light} style={styles.container} >
 				<ScrollView>
 					<Text style={filter.subtitle}>What are you looking for?</Text>
 					<TouchableHighlight
@@ -194,10 +193,11 @@ export default ({
 						/>
 					</HStack>
 				</ScrollView>
-				<Button style={filter.button}>
-					<Text style={filter.buttonText}>Filter results</Text>
-				</Button>
+				<Box style={styles.container}>
+					<Button style={styles.button}>
+						<Text style={styles.buttonText}>Filter results</Text>
+					</Button>
+				</Box>
 			</Box>
-		</View>
 	)
 }
