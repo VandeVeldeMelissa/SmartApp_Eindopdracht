@@ -1,5 +1,6 @@
 import { Ionicons } from '@expo/vector-icons'
 import { useIsFocused, useNavigation } from '@react-navigation/native'
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import { Avatar, Box, HStack, VStack } from 'native-base'
 import React, { useEffect } from 'react'
 import { Pressable, Text, View } from 'react-native'
@@ -87,7 +88,10 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				<Text style={profile.home}>
 					- House{'\n'}- Garden{'\n'}- No Children
 				</Text>
-				<Button style={profile.button}>
+				<Button style={profile.button} onPress={() => {
+					console.log("Contact button pressed")
+					impactAsync(ImpactFeedbackStyle.Medium)
+				}}>
 					<Text style={profile.buttonText}>Contact</Text>
 				</Button>
 			</Box>

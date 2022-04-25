@@ -1,8 +1,7 @@
 import React from 'react'
 import Overview from './Overview'
-import {
-	createStackNavigator,
-} from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import 'react-native-gesture-handler'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
@@ -37,7 +36,12 @@ export default () => {
 						fontFamily: 'Quicksand_600SemiBold',
 					},
 					headerRight: () => (
-						<Pressable onPress={() => navigation.goBack()}>
+						<Pressable
+							onPress={() => {
+								impactAsync(ImpactFeedbackStyle.Medium)
+								navigation.goBack()
+							}}
+						>
 							<Ionicons
 								name="close"
 								color={colors.light}

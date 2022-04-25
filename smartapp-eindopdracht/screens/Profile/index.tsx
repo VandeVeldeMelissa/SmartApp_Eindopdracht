@@ -4,6 +4,7 @@ import {
 	StackNavigationOptions,
 } from '@react-navigation/stack'
 import { ParamListBase, RouteProp } from '@react-navigation/native'
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import 'react-native-gesture-handler'
 import Profile from './Profile'
 import Reviews from './Reviews'
@@ -36,7 +37,12 @@ export default () => {
 						fontFamily: 'Quicksand_600SemiBold',
 					},
 					headerRight: () => (
-						<Pressable onPress={() => navigation.navigate('EditProfileModal')}>
+						<Pressable
+							onPress={() => {
+								impactAsync(ImpactFeedbackStyle.Medium)
+								navigation.navigate('EditProfileModal')
+							}}
+						>
 							<Ionicons
 								name="ios-pencil"
 								size={24}

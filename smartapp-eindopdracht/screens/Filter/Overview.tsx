@@ -8,6 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
 import { useNavigation } from '@react-navigation/native'
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
 
 export default ({
@@ -194,7 +195,10 @@ export default ({
 					</HStack>
 				</ScrollView>
 				<Box style={styles.container}>
-					<Button style={styles.button}>
+					<Button style={styles.button} onPress={() => {
+						console.log("Click filter button")
+						impactAsync(ImpactFeedbackStyle.Medium)
+					}}>
 						<Text style={styles.buttonText}>Filter results</Text>
 					</Button>
 				</Box>

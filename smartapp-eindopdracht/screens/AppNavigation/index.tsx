@@ -6,6 +6,7 @@ import tabNavigation from './tabNavigation'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
 
 const RootStack = createStackNavigator()
@@ -37,7 +38,12 @@ export default () => {
 					options={({ navigation }) => ({
 						headerShown: true,
 						headerRight: () => (
-							<Pressable onPress={() => navigation.goBack()}>
+							<Pressable
+								onPress={() => {
+									impactAsync(ImpactFeedbackStyle.Medium)
+									navigation.goBack()
+								}}
+							>
 								<Ionicons
 									name="close"
 									color={colors.light}

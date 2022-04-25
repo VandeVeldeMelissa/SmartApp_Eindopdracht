@@ -11,6 +11,7 @@ import 'react-native-gesture-handler'
 import colors from '../../styles/colors'
 import { Pressable } from 'react-native'
 import { Octicons } from '@expo/vector-icons'
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
 
 const Stack = createStackNavigator()
@@ -45,7 +46,12 @@ export default () => {
 						fontFamily: 'Quicksand_600SemiBold',
 					},
 					headerRight: () => (
-						<Pressable onPress={() => navigation.navigate('FilterModal')}>
+						<Pressable
+							onPress={() => {
+								impactAsync(ImpactFeedbackStyle.Medium)
+								navigation.navigate('FilterModal')
+							}}
+						>
 							<Octicons
 								name="settings"
 								size={24}
