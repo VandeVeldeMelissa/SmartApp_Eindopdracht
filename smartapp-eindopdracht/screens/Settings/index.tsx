@@ -2,7 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import 'react-native-gesture-handler'
 import colors from '../../styles/colors'
-import Settings from './Settings'
+import SettingsPage from './SettingsPage'
 
 const Stack = createStackNavigator()
 
@@ -11,7 +11,7 @@ export default () => {
 		<Stack.Navigator initialRouteName="Settings">
 			<Stack.Screen
 				name="Settings"
-				component={Settings}
+				component={SettingsPage}
 				options={() => ({
 					title: 'Settings',
 					headerShown: true,
