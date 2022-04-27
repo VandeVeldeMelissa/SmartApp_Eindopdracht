@@ -1,6 +1,7 @@
 export default {
 	dark: '#17171A',
 	light: '#FAFBFF',
+	green: '#228B22',
 	purple: {
 		900: '#1E2A57',
 		800: '#3D4466',
@@ -13,7 +14,7 @@ export default {
 		100: '#F2F4FF',
 	},
 	grey: {
-		900: "#1f2937",
+		900: '#1f2937',
 		800: '#45454D',
 		700: '#5C5D66',
 		600: '#737480',

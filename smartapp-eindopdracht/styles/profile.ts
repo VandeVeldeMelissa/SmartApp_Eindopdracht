@@ -17,7 +17,7 @@ export default StyleSheet.create({
 		fontFamily: 'Quicksand_500Medium',
 		fontSize: 14,
 		color: colors.dark,
-        lineHeight: 16
+		lineHeight: 16,
 	},
 	description: {
 		fontFamily: 'Quicksand_400Regular',
@@ -28,42 +28,57 @@ export default StyleSheet.create({
 		fontFamily: 'Quicksand_500Medium',
 		fontSize: 20,
 	},
-    subtitle: {
-        fontFamily: 'Quicksand_700Bold',
+	subtitle: {
+		fontFamily: 'Quicksand_700Bold',
 		fontSize: 16,
 		color: colors.dark,
-        marginTop: 12,
-        marginBottom: 2,
-    },
-    dogname: {
-        fontFamily: 'Quicksand_500Medium',
+		marginBottom: 4,
+	},
+	dogname: {
+		fontFamily: 'Quicksand_500Medium',
 		fontSize: 16,
-        color: colors.dark,
-    },
-    dogbreed: {
-        fontFamily: 'Quicksand_400Regular',
+		color: colors.dark,
+	},
+	dogbreed: {
+		fontFamily: 'Quicksand_400Regular',
 		fontSize: 15,
-        color: colors.grey[800],
-    },
-    home: {
-        fontFamily: 'Quicksand_400Regular',
+		color: colors.grey[800],
+	},
+	home: {
+		fontFamily: 'Quicksand_400Regular',
 		fontSize: 16,
-        color: colors.dark,
-    },
+		color: colors.dark,
+	},
 	container: {
-		padding: 8,
+		padding: 16,
 	},
 	button: {
-		position: 'absolute',
-    	bottom: 0,
-		margin: 8,
-		width: '100%',
-		backgroundColor: colors.purple[800]
+		backgroundColor: colors.purple[800],
+	},
+	backgroundButton: {
+		padding: 8,
+		backgroundColor: colors.light,
 	},
 	buttonText: {
 		fontFamily: 'Quicksand_600SemiBold',
 		fontSize: 16,
 		color: colors.light,
-		padding: 4
+		padding: 4,
+	},
+	spaceBottom: {
+		marginBottom: 24,
+	},
+	containerDivider: {
+		paddingVertical: 16,
+		borderBottomWidth: 1,
+		borderBottomColor: colors.grey[200],
+	},
+	serviceContainer: {
+		paddingVertical: 16,
+		borderBottomWidth: 1,
+		borderBottomColor: colors.grey[200],
+	},
+	paddingTop: {
+		paddingTop: 16
 	}
 })
