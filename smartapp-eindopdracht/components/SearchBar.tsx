@@ -1,9 +1,9 @@
-import { Ionicons } from "@expo/vector-icons"
-import { HStack } from "native-base"
-import React from "react"
-import { TextInput } from "react-native"
-import styles from "../styles"
-import colors from "../styles/colors"
+import { Ionicons } from '@expo/vector-icons'
+import { HStack } from 'native-base'
+import React from 'react'
+import { FlatList, TextInput, View, Text } from 'react-native'
+import styles from '../styles'
+import colors from '../styles/colors'
 
 export default () => {
 	return (

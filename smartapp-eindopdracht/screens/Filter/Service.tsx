@@ -7,7 +7,9 @@ import colors from '../../styles/colors'
 import filter from '../../styles/filter'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
-export default ({ navigation }: { navigation: any }) => {
+export default ({ route, navigation }: { route: any; navigation: any }) => {
+	//console.log(route.params)
+
 	const [isSelectedAtSittersHouseNight, setIsSelectedAtSittersHouseNight] =
 		useState(false)
 	const toggleSelectAtSittersHouseNight = () =>
@@ -39,10 +41,8 @@ export default ({ navigation }: { navigation: any }) => {
 		setIsSelectedSitterAtMyHouse(false)
 	}
 
-	//TODO: navigatie terug naar de vorige pagina en geselecteerde service meegeven!
-
 	return (
-		<Box height='100%' background={colors.light}>
+		<Box height="100%" background={colors.light}>
 			<ScrollView style={filter.container}>
 				<Text style={filter.subtitle}>At the sitter's house</Text>
 				<TouchableHighlight
@@ -52,7 +52,12 @@ export default ({ navigation }: { navigation: any }) => {
 					onPress={() => {
 						unselectAllServices()
 						toggleSelectAtSittersHouseNight()
-						navigation.goBack({ payload: isSelectedAtSittersHouseDay })
+						navigation.navigate('Filter', {
+							service: 'Stay',
+							location: route.params.location,
+							dates: route.params.dates,
+							pets: route.params.pets,
+						})
 					}}
 				>
 					<HStack
@@ -85,7 +90,12 @@ export default ({ navigation }: { navigation: any }) => {
 					onPress={() => {
 						unselectAllServices()
 						toggleSelectAtSittersHouseDay()
-						//navigation.goBack()
+						navigation.navigate('Filter', {
+							service: 'Day care',
+							location: route.params.location,
+							dates: route.params.dates,
+							pets: route.params.pets,
+						})
 					}}
 				>
 					<HStack
@@ -115,7 +125,12 @@ export default ({ navigation }: { navigation: any }) => {
 					onPress={() => {
 						unselectAllServices()
 						toggleSelectHouseVisit()
-						//navigation.goBack()
+						navigation.navigate('Filter', {
+							service: 'Home visits',
+							location: route.params.location,
+							dates: route.params.dates,
+							pets: route.params.pets,
+						})
 					}}
 				>
 					<HStack
@@ -143,7 +158,12 @@ export default ({ navigation }: { navigation: any }) => {
 					onPress={() => {
 						unselectAllServices()
 						toggleSelectDogWalking()
-						//navigation.goBack()
+						navigation.navigate('Filter', {
+							service: 'Dog walking',
+							location: route.params.location,
+							dates: route.params.dates,
+							pets: route.params.pets,
+						})
 					}}
 				>
 					<HStack
@@ -173,7 +193,12 @@ export default ({ navigation }: { navigation: any }) => {
 					onPress={() => {
 						unselectAllServices()
 						toggleSelectSitterAtMyHouse()
-						//navigation.goBack()
+						navigation.navigate('Filter', {
+							service: 'House sitter',
+							location: route.params.location,
+							dates: route.params.dates,
+							pets: route.params.pets,
+						})
 					}}
 				>
 					<HStack
