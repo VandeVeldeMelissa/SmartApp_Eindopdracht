@@ -1,4 +1,4 @@
-import User from "./User"
+import User from "./PetSitter"
 
 export default interface Review {
 	id: string

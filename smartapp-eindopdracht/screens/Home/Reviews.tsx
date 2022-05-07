@@ -4,7 +4,7 @@ import { FlatList, Text, View } from 'react-native'
 import StarRating from 'react-native-star-rating'
 import ReviewCard from '../../components/ReviewCard'
 import Review from '../../interfaces/Review'
-import User from '../../interfaces/User'
+import User from '../../interfaces/PetSitter'
 import styles from '../../styles'
 import colors from '../../styles/colors'
 

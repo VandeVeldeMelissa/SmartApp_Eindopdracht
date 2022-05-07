@@ -2,6 +2,7 @@ export default {
 	dark: '#17171A',
 	light: '#FAFBFF',
 	green: '#228B22',
+	red: '#DB6666',
 	purple: {
 		900: '#1E2A57',
 		800: '#3D4466',

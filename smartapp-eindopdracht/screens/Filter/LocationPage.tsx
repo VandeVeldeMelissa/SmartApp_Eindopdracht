@@ -10,6 +10,8 @@ import { TouchableHighlight } from 'react-native-gesture-handler'
 export default ({ route, navigation }: { route: any; navigation: any }) => {
 	//console.log(route.params)
 
+	//TODO: SEARCHBAR!!
+
 	const testLocaties = [
 		{ key: 'Bredene' },
 		{ key: 'Brugge' },
@@ -25,6 +27,10 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		{ key: 'Wevelgem' },
 	]
 
+	const handleSearch = (textInput: string) => {
+		console.log(textInput)
+	}
+
 	return (
 		<Box height="100%" background={colors.light}>
 			<HStack style={styles.inputContainer} alignItems="center">
@@ -34,6 +40,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					placeholder={'Search'}
 					placeholderTextColor={colors.grey[800]}
 					autoCorrect={false}
+					onChangeText={handleSearch}
 				/>
 			</HStack>
 			<FlatList
@@ -45,7 +52,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						underlayColor={colors.grey[200]}
 						onPress={() => {
 							console.log(item.key)
-							//navigation.navigate('Filter', { location: item.key })
 							navigation.navigate('Filter', {
 								service: route.params.service,
 								location: item.key,

@@ -10,7 +10,7 @@ export default () => {
 	return (
 		<Stack.Navigator initialRouteName="Settings">
 			<Stack.Screen
-				name="Settings"
+				name="SettingsPage"
 				component={SettingsPage}
 				options={() => ({
 					title: 'Settings',

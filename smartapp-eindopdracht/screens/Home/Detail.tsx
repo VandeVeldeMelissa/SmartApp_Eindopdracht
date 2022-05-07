@@ -3,7 +3,7 @@ import { useIsFocused, useNavigation } from '@react-navigation/native'
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import { Avatar, Box, HStack, ScrollView, VStack } from 'native-base'
 import React, { useEffect } from 'react'
-import { Pressable, Text, TouchableHighlight, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import profile from '../../styles/profile'
@@ -28,6 +28,181 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	useEffect(() => {
 		nav?.getParent()?.setOptions({ title: 'Detail' })
 	}, [isFocused])
+
+	const renderStayService = () => {
+		if (payload.priceStay != undefined) {
+			return (
+				<HStack
+					alignItems="center"
+					justifyContent="space-between"
+					style={profile.serviceContainer}
+				>
+					<HStack alignItems="center" space={3}>
+						<MaterialCommunityIcons
+							name="power-sleep"
+							size={24}
+							color={colors.dark}
+						/>
+						<VStack space={1}>
+							<Text style={filter.serviceTitle}>Stay</Text>
+							<Text style={filter.serviceDescription}>
+								Stays with the pet sitter, day and night
+							</Text>
+						</VStack>
+					</HStack>
+					<Text style={card.price}>{payload.priceStay} €</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderDayCareService = () => {
+		if (payload.priceDayCare != undefined) {
+			return (
+				<HStack
+					alignItems="center"
+					justifyContent="space-between"
+					style={profile.serviceContainer}
+				>
+					<HStack alignItems="center" space={3}>
+						<Ionicons name="sunny" size={24} color={colors.dark} />
+						<VStack space={1}>
+							<Text style={filter.serviceTitle}>Day care</Text>
+							<Text style={filter.serviceDescription}>
+								Stay with the pet sitter during the day
+							</Text>
+						</VStack>
+					</HStack>
+					<Text style={card.price}>{payload.priceDayCare} €</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderHomeVisitsService = () => {
+		if (payload.priceHomeVisits != undefined) {
+			return (
+				<HStack
+					alignItems="center"
+					justifyContent="space-between"
+					style={profile.serviceContainer}
+				>
+					<HStack alignItems="center" space={3}>
+						<Ionicons name="key" size={24} color={colors.dark} />
+						<VStack space={1}>
+							<Text style={filter.serviceTitle}>Home visits</Text>
+							<Text style={filter.serviceDescription}>
+								The pet sitter comes to your home
+							</Text>
+						</VStack>
+					</HStack>
+					<Text style={card.price}>{payload.priceHomeVisits} €</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderDogWalkingService = () => {
+		if (payload.priceDogWalking != undefined) {
+			return (
+				<HStack
+					alignItems="center"
+					justifyContent="space-between"
+					style={profile.serviceContainer}
+				>
+					<HStack alignItems="center" space={3}>
+						<MaterialCommunityIcons
+							name="dog-service"
+							size={24}
+							color={colors.dark}
+						/>
+						<VStack space={1}>
+							<Text style={filter.serviceTitle}>Dog walking service</Text>
+							<Text style={filter.serviceDescription}>A nice walk for your dog</Text>
+						</VStack>
+					</HStack>
+					<Text style={card.price}>{payload.priceDogWalking} €</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderHouseSitterService = () => {
+		if (payload.priceHouseSitter != undefined) {
+			return (
+				<HStack
+					alignItems="center"
+					justifyContent="space-between"
+					style={profile.serviceContainer}
+				>
+					<HStack alignItems="center" space={3}>
+						<Ionicons name="home" size={24} color={colors.dark} />
+						<VStack space={1}>
+							<Text style={filter.serviceTitle}>House sitter</Text>
+							<Text style={filter.serviceDescription}>
+								The pet sitter stays at your home
+							</Text>
+						</VStack>
+					</HStack>
+					<Text style={card.price}>{payload.priceHouseSitter} €</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderChildrenFeature = () => {
+		if (payload.hasChildren == 0) {
+			return (
+				<HStack alignItems="center" space={1}>
+					<Ionicons name="ios-checkmark" size={24} color={colors.green} />
+					<Text style={profile.home}>Has no children</Text>
+				</HStack>
+			)
+		} else if (payload.hasChildren == 1) {
+			return (
+				<HStack alignItems="center" space={1}>
+					<Ionicons name="ios-close" size={24} color={colors.red} />
+					<Text style={profile.home}>Has children</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderPetsFeature = () => {
+		if (payload.hasPets == 0) {
+			return (
+				<HStack alignItems="center" space={1}>
+					<Ionicons name="ios-checkmark" size={24} color={colors.green} />
+					<Text style={profile.home}>Has no pets</Text>
+				</HStack>
+			)
+		} else if (payload.hasPets == 1) {
+			return (
+				<HStack alignItems="center" space={1}>
+					<Ionicons name="ios-close" size={24} color={colors.red} />
+					<Text style={profile.home}>Has pets</Text>
+				</HStack>
+			)
+		}
+	}
+
+	const renderGardenFeature = () => {
+		if (payload.hasGarden == 1) {
+			return (
+				<HStack alignItems="center" space={1}>
+					<Ionicons name="ios-checkmark" size={24} color={colors.green} />
+					<Text style={profile.home}>Has a garden</Text>
+				</HStack>
+			)
+		} else if (payload.hasGarden == 0) {
+			return (
+				<HStack alignItems="center" space={1}>
+					<Ionicons name="ios-close" size={24} color={colors.red} />
+					<Text style={profile.home}>Has no garden</Text>
+				</HStack>
+			)
+		}
+	}
 
 	return (
 		<View>
@@ -61,7 +236,9 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 										emptyStarColor={colors.grey[300]}
 										starSize={20}
 									/>
-									<Text style={profile.ratingtext}>(?)</Text>
+									<Text style={profile.ratingtext}>
+										({payload.rating == null ? '-' : payload.rating})
+									</Text>
 								</HStack>
 								<HStack alignItems="center">
 									<Text style={profile.ratingtext}>See reviews</Text>
@@ -75,149 +252,18 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						<Text style={profile.description}>{payload.description}</Text>
 					</View>
 					<View style={profile.paddingTop}>
-						<Text style={profile.subtitle}>Services</Text>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<MaterialCommunityIcons
-										name="power-sleep"
-										size={24}
-										color={colors.dark}
-									/>
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Stay</Text>
-										<Text style={filter.serviceDescription}>
-											Stays with the pet sitter, day and night
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>10€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<Ionicons name="sunny" size={24} color={colors.dark} />
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Day care</Text>
-										<Text style={filter.serviceDescription}>
-											Stay with the pet sitter during the day
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>7€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<Ionicons name="key" size={24} color={colors.dark} />
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Home visits</Text>
-										<Text style={filter.serviceDescription}>
-											The pet sitter comes to your home
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>7€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<MaterialCommunityIcons
-										name="dog-service"
-										size={24}
-										color={colors.dark}
-									/>
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Dog walking service</Text>
-										<Text style={filter.serviceDescription}>
-											A nice walk for your dog
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>5€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<Ionicons name="home" size={24} color={colors.dark} />
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>House sitter</Text>
-										<Text style={filter.serviceDescription}>
-											The pet sitter stays at your home
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>9€</Text>
-							</HStack>
-						</TouchableHighlight>
-					</View>
-					<View style={profile.paddingTop}>
-						<Text style={profile.subtitle}>My pets</Text>
-						<HStack alignItems="center" space={2} style={profile.serviceContainer}>
-							<Avatar
-								bg="purple.200"
-								source={{
-									uri: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
-								}}
-								size="md"
-							>
-								<Text>{avatarFallback('Gordy', '')}</Text>
-							</Avatar>
-							<VStack>
-								<Text style={profile.dogname}>Gordy</Text>
-								<Text style={profile.dogbreed}>Large dog</Text>
-							</VStack>
-						</HStack>
-						<HStack alignItems="center" space={2} style={profile.serviceContainer}>
-							<Avatar
-								bg="purple.200"
-								source={{
-									uri: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2286&q=80',
-								}}
-								size="md"
-							>
-								<Text>{avatarFallback('Gordy', '')}</Text>
-							</Avatar>
-							<VStack>
-								<Text style={profile.dogname}>Meow</Text>
-								<Text style={profile.dogbreed}>Cat</Text>
-							</VStack>
-						</HStack>
+						<Text style={profile.subtitle}>My services</Text>
+						{renderStayService()}
+						{renderDayCareService()}
+						{renderHomeVisitsService()}
+						{renderDogWalkingService()}
+						{renderHouseSitterService()}
 					</View>
 					<View style={[profile.containerDivider, profile.spaceBottom]}>
 						<Text style={profile.subtitle}>My home</Text>
-						<HStack alignItems="center" space={1}>
-							<Ionicons name="ios-checkmark" size={24} color={colors.green} />
-							<Text style={profile.home}>Garden</Text>
-						</HStack>
-						<HStack alignItems="center" space={1}>
-							<Ionicons name="ios-checkmark" size={24} color={colors.green} />
-							<Text style={profile.home}>No children</Text>
-						</HStack>
+						{renderChildrenFeature()}
+						{renderPetsFeature()}
+						{renderGardenFeature()}
 					</View>
 				</ScrollView>
 				<Box style={profile.backgroundButton}>

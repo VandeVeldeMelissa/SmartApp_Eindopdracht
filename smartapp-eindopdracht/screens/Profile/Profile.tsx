@@ -68,7 +68,7 @@ export default ({ navigation }: { navigation: any }) => {
 						<Text style={profile.description}>Hello everybody</Text>
 					</View>
 					<View style={profile.paddingTop}>
-						<Text style={profile.subtitle}>Services</Text>
+						<Text style={profile.subtitle}>My services</Text>
 						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
 							<HStack
 								alignItems="center"

@@ -5,7 +5,7 @@ import { Avatar, HStack, VStack, Badge, Box } from 'native-base'
 import colors from '../styles/colors'
 import { Ionicons } from '@expo/vector-icons'
 import StarRating from 'react-native-star-rating'
-import User from '../interfaces/User'
+import User from '../interfaces/PetSitter'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const avatarFallback = (firstName: string, lastName: string) => {
@@ -65,18 +65,20 @@ export default ({ user, navigation }: { user: User; navigation: any }) => {
 								<StarRating
 									disabled={true}
 									maxStars={5}
-									rating={user?.rating}
+									rating={user?.rating == null ? 0 : user.rating}
 									fullStarColor={colors.rating}
 									emptyStarColor={colors.grey[300]}
 									starSize={20}
 								/>
-								<Text style={card.ratingtext}>(?)</Text>
+								<Text style={card.ratingtext}>
+									({user.rating == null ? '-' : user.rating})
+								</Text>
 							</HStack>
 						</VStack>
 					</HStack>
 					<VStack>
 						<Text style={card.price}>
-							{user.priceWalk} €{'\n'}/walk
+							{user.priceDogWalking == undefined ? '-' : user.priceDogWalking} €{'\n'}/walk
 						</Text>
 					</VStack>
 				</HStack>
