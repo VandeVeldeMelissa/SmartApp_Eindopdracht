@@ -1,5 +1,5 @@
 import { Switch, Text, TouchableHighlight, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Button, HStack, ScrollView } from 'native-base'
 import filter from '../../styles/filter'
 import colors from '../../styles/colors'
@@ -12,10 +12,10 @@ import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	//console.log("--- OVERVIEW ---")
-	//console.log(route.params)
+	console.log(route.params)
 	const nav = useNavigation()
 
+	//House properties
 	const [isEnabledNoChildren, setIsEnabledNoChildren] = useState(false)
 	const toggleSwitchNoChildren = () =>
 		setIsEnabledNoChildren((previousState) => !previousState)
@@ -28,28 +28,93 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	const toggleSwitchGarden = () =>
 		setIsEnabledGarden((previousState) => !previousState)
 
-	const [onChangeValueMaxPrice, setOnChangeValueMaxPrice] = useState(50)
+	//Price
+	const [maxPrice, setMaxPrice] = useState(25)
 
-	let serviceSelected = route.params
-		? route.params.service
-			? route.params.service
-			: '-'
-		: '-'
-	let locationSelected = route.params
-		? route.params.location
-			? route.params.location
-			: '-'
-		: '-'
-	let datesSelected = route.params
-		? route.params.dates
-			? route.params.dates
-			: '-'
-		: '-'
-	let petsSelected = route.params
-		? route.params.pets
-			? route.params.pets
-			: '-'
-		: '-'
+	//Amount of pets
+	const [amountSmallDogs, setAmountSmallDogs] = useState()
+	const [amountMediumDogs, setAmountMediumDogs] = useState()
+	const [amountLargeDogs, setAmountLargeDogs] = useState()
+	const [amountCats, setAmountCats] = useState()
+	const [amountSmallAnimals, setAmountSmallAnimals] = useState()
+
+	//Selected services
+	const [serviceSelected, setServiceSelected] = useState()
+	const [locationSelected, setLocationSelected] = useState()
+	const [dateStartSelected, setDateStartSelected] = useState<string>()
+	const [dateEndSelected, setDateEndSelected] = useState<string>()
+	const [petsSelected, setPetsSelected] = useState()
+
+	useEffect(() => {
+		//Amount of pets
+		setAmountSmallDogs(
+			route.params ? (route.params.smallDogs ? route.params.smallDogs : 0) : 0,
+		)
+		setAmountMediumDogs(
+			route.params ? (route.params.mediumDogs ? route.params.mediumDogs : 0) : 0,
+		)
+		setAmountLargeDogs(
+			route.params ? (route.params.largeDogs ? route.params.largeDogs : 0) : 0,
+		)
+		setAmountCats(route.params ? (route.params.cats ? route.params.cats : 0) : 0)
+		setAmountSmallAnimals(
+			route.params
+				? route.params.smallAnimals
+					? route.params.smallAnimals
+					: 0
+				: 0,
+		)
+
+		//Selected services
+		setServiceSelected(
+			route.params ? (route.params.service ? route.params.service : '-') : '-',
+		)
+		setLocationSelected(
+			route.params ? (route.params.location ? route.params.location : '-') : '-',
+		)
+		setDateStartSelected(
+			route.params ? (route.params.dateStart ? route.params.dateStart : '-') : '-',
+		)
+		setDateEndSelected(
+			route.params ? (route.params.dateEnd ? route.params.dateEnd : '-') : '-',
+		)
+		setPetsSelected(
+			route.params ? (route.params.pets ? route.params.pets : '-') : '-',
+		)
+	}, [route.params])
+
+	const convertDates = () => {
+		if (dateStartSelected && dateStartSelected != '-') {
+			let part1 = dateStartSelected.slice(4, 15)
+			let part2 = ''
+			if (dateEndSelected && dateEndSelected != '-') {
+				part2 = ' - ' + dateEndSelected.slice(4, 15)
+			}
+			let shortDate = part1 + part2
+			return shortDate
+		} else {
+			return '-'
+		}
+	}
+
+	const handleFilter = () => {
+		console.log(
+			serviceSelected,
+			locationSelected,
+			dateStartSelected,
+			dateEndSelected,
+			petsSelected,
+			amountSmallDogs,
+			amountMediumDogs,
+			amountLargeDogs,
+			amountCats,
+			amountSmallAnimals,
+			maxPrice,
+			isEnabledNoChildren,
+			isEnabledNoPets,
+			isEnabledGarden,
+		)
+	}
 
 	return (
 		<Box height="100%" background={colors.light} style={styles.container}>
@@ -62,8 +127,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Service', {
 							service: serviceSelected,
 							location: locationSelected,
-							dates: datesSelected,
+							dateStart: dateStartSelected,
+							dateEnd: dateEndSelected,
 							pets: petsSelected,
+							smallDogs: amountSmallDogs,
+							mediumDogs: amountMediumDogs,
+							largeDogs: amountLargeDogs,
+							cats: amountCats,
+							smallAnimals: amountSmallAnimals,
 						})
 					}
 					style={filter.spaceTop}
@@ -94,8 +165,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Location', {
 							service: serviceSelected,
 							location: locationSelected,
-							dates: datesSelected,
+							dateStart: dateStartSelected,
+							dateEnd: dateEndSelected,
 							pets: petsSelected,
+							smallDogs: amountSmallDogs,
+							mediumDogs: amountMediumDogs,
+							largeDogs: amountLargeDogs,
+							cats: amountCats,
+							smallAnimals: amountSmallAnimals,
 						})
 					}
 				>
@@ -121,8 +198,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Date', {
 							service: serviceSelected,
 							location: locationSelected,
-							dates: datesSelected,
+							dateStart: dateStartSelected,
+							dateEnd: dateEndSelected,
 							pets: petsSelected,
+							smallDogs: amountSmallDogs,
+							mediumDogs: amountMediumDogs,
+							largeDogs: amountLargeDogs,
+							cats: amountCats,
+							smallAnimals: amountSmallAnimals,
 						})
 					}
 				>
@@ -136,7 +219,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 							<Text style={filter.selectText}>Date(s):</Text>
 						</HStack>
 						<HStack alignItems="center" space={1}>
-							<Text style={filter.selectedText}>{datesSelected}</Text>
+							<Text style={filter.selectedText}>{convertDates()}</Text>
 							<AntDesign name="right" size={24} color={colors.grey[600]} />
 						</HStack>
 					</HStack>
@@ -148,8 +231,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Pets', {
 							service: serviceSelected,
 							location: locationSelected,
-							dates: datesSelected,
+							dateStart: dateStartSelected,
+							dateEnd: dateEndSelected,
 							pets: petsSelected,
+							smallDogs: amountSmallDogs,
+							mediumDogs: amountMediumDogs,
+							largeDogs: amountLargeDogs,
+							cats: amountCats,
+							smallAnimals: amountSmallAnimals,
 						})
 					}
 					style={filter.spaceBottom}
@@ -171,7 +260,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				</TouchableHighlight>
 				<HStack alignItems="center" justifyContent="space-between">
 					<Text style={filter.subtitle}>Maximum price:</Text>
-					<Text style={filter.priceText}>{onChangeValueMaxPrice}€</Text>
+					<Text style={filter.priceText}>{maxPrice}€</Text>
 				</HStack>
 				<HStack
 					alignItems="center"
@@ -183,17 +272,17 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					<Slider
 						style={filter.slider}
 						minimumValue={0}
-						maximumValue={75}
+						maximumValue={50}
 						minimumTrackTintColor={colors.purple[700]}
 						maximumTrackTintColor={colors.grey[300]}
-						value={50}
+						value={25}
 						step={1}
-						onValueChange={(maxPrice) => {
-							setOnChangeValueMaxPrice(maxPrice)
+						onSlidingComplete={(maxPrice) => {
+							setMaxPrice(maxPrice)
 						}}
 						tapToSeek={true}
 					/>
-					<Text>75€</Text>
+					<Text>50€</Text>
 				</HStack>
 				<HStack
 					alignItems="center"
@@ -245,6 +334,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					onPress={() => {
 						console.log('Click filter button')
 						impactAsync(ImpactFeedbackStyle.Medium)
+						handleFilter()
 					}}
 				>
 					<Text style={styles.buttonText}>Filter results</Text>

@@ -1,3 +1,4 @@
+import { Center } from 'native-base'
 import { StyleSheet } from 'react-native'
 import colors from './colors'
 
@@ -83,6 +84,7 @@ export default StyleSheet.create({
 	counter: {
 		fontFamily: 'Quicksand_500Medium',
 		fontSize: 16,
-		width: 14,
+		width: 20,
+		textAlign: 'center'
 	},
 })

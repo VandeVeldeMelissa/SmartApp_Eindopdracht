@@ -1,5 +1,5 @@
 import { Box, HStack, ScrollView, VStack } from 'native-base'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
@@ -8,8 +8,6 @@ import filter from '../../styles/filter'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	//console.log(route.params)
-
 	const [isSelectedAtSittersHouseNight, setIsSelectedAtSittersHouseNight] =
 		useState(false)
 	const toggleSelectAtSittersHouseNight = () =>
@@ -41,6 +39,20 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		setIsSelectedSitterAtMyHouse(false)
 	}
 
+	useEffect(() => {
+		setIsSelectedAtSittersHouseNight(
+			route.params.service == 'Stay' ? true : false,
+		)
+		setIsSelectedAtSittersHouseDay(
+			route.params.service == 'Day care' ? true : false,
+		)
+		setIsSelectedHouseVisit(route.params.service == 'Home visits' ? true : false)
+		setIsSelectedDogWalking(route.params.service == 'Dog walking' ? true : false)
+		setIsSelectedSitterAtMyHouse(
+			route.params.service == 'House sitter' ? true : false,
+		)
+	}, [])
+
 	return (
 		<Box height="100%" background={colors.light}>
 			<ScrollView style={filter.container}>
@@ -55,8 +67,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Filter', {
 							service: 'Stay',
 							location: route.params.location,
-							dates: route.params.dates,
+							dateStart: route.params.dateStart,
+							dateEnd: route.params.dateEnd,
 							pets: route.params.pets,
+							smallDogs: route.params.smallDogs,
+							mediumDogs: route.params.mediumDogs,
+							largeDogs: route.params.largeDogs,
+							cats: route.params.cats,
+							smallAnimals: route.params.smallAnimals,
 						})
 					}}
 				>
@@ -93,8 +111,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Filter', {
 							service: 'Day care',
 							location: route.params.location,
-							dates: route.params.dates,
+							dateStart: route.params.dateStart,
+							dateEnd: route.params.dateEnd,
 							pets: route.params.pets,
+							smallDogs: route.params.smallDogs,
+							mediumDogs: route.params.mediumDogs,
+							largeDogs: route.params.largeDogs,
+							cats: route.params.cats,
+							smallAnimals: route.params.smallAnimals,
 						})
 					}}
 				>
@@ -128,8 +152,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Filter', {
 							service: 'Home visits',
 							location: route.params.location,
-							dates: route.params.dates,
+							dateStart: route.params.dateStart,
+							dateEnd: route.params.dateEnd,
 							pets: route.params.pets,
+							smallDogs: route.params.smallDogs,
+							mediumDogs: route.params.mediumDogs,
+							largeDogs: route.params.largeDogs,
+							cats: route.params.cats,
+							smallAnimals: route.params.smallAnimals,
 						})
 					}}
 				>
@@ -161,8 +191,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Filter', {
 							service: 'Dog walking',
 							location: route.params.location,
-							dates: route.params.dates,
+							dateStart: route.params.dateStart,
+							dateEnd: route.params.dateEnd,
 							pets: route.params.pets,
+							smallDogs: route.params.smallDogs,
+							mediumDogs: route.params.mediumDogs,
+							largeDogs: route.params.largeDogs,
+							cats: route.params.cats,
+							smallAnimals: route.params.smallAnimals,
 						})
 					}}
 				>
@@ -196,8 +232,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						navigation.navigate('Filter', {
 							service: 'House sitter',
 							location: route.params.location,
-							dates: route.params.dates,
+							dateStart: route.params.dateStart,
+							dateEnd: route.params.dateEnd,
 							pets: route.params.pets,
+							smallDogs: route.params.smallDogs,
+							mediumDogs: route.params.mediumDogs,
+							largeDogs: route.params.largeDogs,
+							cats: route.params.cats,
+							smallAnimals: route.params.smallAnimals,
 						})
 					}}
 				>

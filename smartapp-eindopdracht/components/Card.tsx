@@ -78,7 +78,8 @@ export default ({ user, navigation }: { user: User; navigation: any }) => {
 					</HStack>
 					<VStack>
 						<Text style={card.price}>
-							{user.priceDogWalking == undefined ? '-' : user.priceDogWalking} €{'\n'}/walk
+							{user.priceDogWalking == undefined ? '-' : user.priceDogWalking} €{'\n'}
+							/walk
 						</Text>
 					</VStack>
 				</HStack>

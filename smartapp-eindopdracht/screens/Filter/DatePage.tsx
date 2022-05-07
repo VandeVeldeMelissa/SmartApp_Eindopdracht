@@ -26,16 +26,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	const startDate = dateStartSelected ? dateStartSelected.toString() : ''
 	const endDate = dateEndSelected ? dateEndSelected.toString() : ''
 
-	const convertDates = () => {
-		let part1 = startDate.slice(4, 15)
-		let part2 = ''
-		if (endDate) {
-			part2 = ' - ' + endDate.slice(4, 15)
-		}
-		let shortDate = part1 + part2
-		return shortDate
-	}
-
 	return (
 		<Box height="100%" style={styles.container} background={colors.light}>
 			<Box height="100%">
@@ -54,6 +44,8 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					monthTitleStyle={calender.textTitle}
 					yearTitleStyle={calender.textTitle}
 					onDateChange={onDateChange}
+					selectedStartDate={route.params.dateStart ? route.params.dateStart : undefined}
+					selectedEndDate={route.params.dateEnd ? route.params.dateEnd : undefined}
 				/>
 				<View>
 					<Text>SELECTED START DATE:{startDate}</Text>
@@ -63,13 +55,17 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 			<Button
 				style={styles.button}
 				onPress={() => {
-					let dates = convertDates()
-					console.log(dates)
 					navigation.navigate('Filter', {
 						service: route.params.service,
 						location: route.params.location,
-						dates: dates,
+						dateStart: startDate,
+						dateEnd: endDate,
 						pets: route.params.pets,
+						smallDogs: route.params.smallDogs,
+						mediumDogs: route.params.mediumDogs,
+						largeDogs: route.params.largeDogs,
+						cats: route.params.cats,
+						smallAnimals: route.params.smallAnimals,
 					})
 				}}
 			>

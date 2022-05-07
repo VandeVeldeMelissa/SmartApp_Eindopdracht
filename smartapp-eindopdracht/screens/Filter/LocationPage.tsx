@@ -1,6 +1,6 @@
 import { FlatList, View, Text, TextInput } from 'react-native'
 import colors from '../../styles/colors'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, HStack } from 'native-base'
 import styles from '../../styles'
 import SearchBar from '../../components/SearchBar'
@@ -8,10 +8,6 @@ import { Ionicons } from '@expo/vector-icons'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	//console.log(route.params)
-
-	//TODO: SEARCHBAR!!
-
 	const testLocaties = [
 		{ key: 'Bredene' },
 		{ key: 'Brugge' },
@@ -27,8 +23,16 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		{ key: 'Wevelgem' },
 	]
 
+	const [searchLocations, setSearchLocations] = useState<any[]>(testLocaties)
+
 	const handleSearch = (textInput: string) => {
-		console.log(textInput)
+		const newSearchLocations = []
+		for (let location of testLocaties) {
+			if (location.key.toLowerCase().includes(textInput.toLowerCase())) {
+				newSearchLocations.push(location)
+			}
+		}
+		setSearchLocations(newSearchLocations)
 	}
 
 	return (
@@ -44,7 +48,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				/>
 			</HStack>
 			<FlatList
-				data={testLocaties}
+				data={searchLocations}
 				renderItem={({ item }) => (
 					<TouchableHighlight
 						style={styles.locationContainer}
@@ -55,8 +59,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 							navigation.navigate('Filter', {
 								service: route.params.service,
 								location: item.key,
-								dates: route.params.dates,
+								dateStart: route.params.dateStart,
+								dateEnd: route.params.dateEnd,
 								pets: route.params.pets,
+								smallDogs: route.params.smallDogs,
+								mediumDogs: route.params.mediumDogs,
+								largeDogs: route.params.largeDogs,
+								cats: route.params.cats,
+								smallAnimals: route.params.smallAnimals,
 							})
 						}}
 					>

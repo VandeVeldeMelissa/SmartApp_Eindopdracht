@@ -1,5 +1,5 @@
 import { Button, HStack, VStack, Box } from 'native-base'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import styles from '../../styles'
 import { Ionicons } from '@expo/vector-icons'
@@ -14,17 +14,27 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	const [amountCats, setAmountCats] = useState(0)
 	const [amountSmallAnimals, setAmountSmallAnimals] = useState(0)
 
+	useEffect(() => {
+		setAmountSmallDogs(
+			route.params ? (route.params.smallDogs ? route.params.smallDogs : 0) : 0,
+		)
+		setAmountMediumDogs(
+			route.params ? (route.params.mediumDogs ? route.params.mediumDogs : 0) : 0,
+		)
+		setAmountLargeDogs(
+			route.params ? (route.params.largeDogs ? route.params.largeDogs : 0) : 0,
+		)
+		setAmountCats(route.params ? (route.params.cats ? route.params.cats : 0) : 0)
+		setAmountSmallAnimals(
+			route.params
+				? route.params.smallAnimals
+					? route.params.smallAnimals
+					: 0
+				: 0,
+		)
+	}, [])
+
 	const totalPets = () => {
-		let smallDogs = ''
-		let mediumDogs = ''
-		let largeDogs = ''
-		let cats = ''
-		let smallAnimals = ''
-		smallDogs = amountSmallDogs + 'small dogs'
-		mediumDogs = amountMediumDogs + 'medium dogs'
-		largeDogs = amountLargeDogs + 'large dogs'
-		cats = amountCats + 'cats'
-		smallAnimals = amountSmallAnimals + 'small animals'
 		let total =
 			amountSmallDogs +
 			amountMediumDogs +
@@ -200,8 +210,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					navigation.navigate('Filter', {
 						service: route.params.service,
 						location: route.params.location,
-						dates: route.params.dates,
+						dateStart: route.params.dateStart,
+						dateEnd: route.params.dateEnd,
 						pets: total,
+						smallDogs: amountSmallDogs,
+						mediumDogs: amountMediumDogs,
+						largeDogs: amountLargeDogs,
+						cats: amountCats,
+						smallAnimals: amountSmallAnimals,
 					})
 				}}
 			>
