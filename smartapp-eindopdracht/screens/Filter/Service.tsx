@@ -109,7 +109,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						unselectAllServices()
 						toggleSelectAtSittersHouseDay()
 						navigation.navigate('Filter', {
-							service: 'Day care',
+							service: 'Day Care',
 							location: route.params.location,
 							dateStart: route.params.dateStart,
 							dateEnd: route.params.dateEnd,
@@ -150,7 +150,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						unselectAllServices()
 						toggleSelectHouseVisit()
 						navigation.navigate('Filter', {
-							service: 'Home visits',
+							service: 'Home Visits',
 							location: route.params.location,
 							dateStart: route.params.dateStart,
 							dateEnd: route.params.dateEnd,
@@ -189,7 +189,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						unselectAllServices()
 						toggleSelectDogWalking()
 						navigation.navigate('Filter', {
-							service: 'Dog walking',
+							service: 'Dog Walking',
 							location: route.params.location,
 							dateStart: route.params.dateStart,
 							dateEnd: route.params.dateEnd,
@@ -230,7 +230,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						unselectAllServices()
 						toggleSelectSitterAtMyHouse()
 						navigation.navigate('Filter', {
-							service: 'House sitter',
+							service: 'House Sitter',
 							location: route.params.location,
 							dateStart: route.params.dateStart,
 							dateEnd: route.params.dateEnd,

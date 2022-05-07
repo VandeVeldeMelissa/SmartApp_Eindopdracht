@@ -55,7 +55,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						activeOpacity={0.7}
 						underlayColor={colors.grey[200]}
 						onPress={() => {
-							console.log(item.key)
 							navigation.navigate('Filter', {
 								service: route.params.service,
 								location: item.key,

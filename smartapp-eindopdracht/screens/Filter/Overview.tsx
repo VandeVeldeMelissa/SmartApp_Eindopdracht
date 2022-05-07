@@ -97,25 +97,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		}
 	}
 
-	const handleFilter = () => {
-		console.log(
-			serviceSelected,
-			locationSelected,
-			dateStartSelected,
-			dateEndSelected,
-			petsSelected,
-			amountSmallDogs,
-			amountMediumDogs,
-			amountLargeDogs,
-			amountCats,
-			amountSmallAnimals,
-			maxPrice,
-			isEnabledNoChildren,
-			isEnabledNoPets,
-			isEnabledGarden,
-		)
-	}
-
 	return (
 		<Box height="100%" background={colors.light} style={styles.container}>
 			<ScrollView>
@@ -334,7 +315,22 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					onPress={() => {
 						console.log('Click filter button')
 						impactAsync(ImpactFeedbackStyle.Medium)
-						handleFilter()
+						navigation.navigate('Home', {
+							service: route.params.service,
+							location: route.params.location,
+							dateStart: route.params.dateStart,
+							dateEnd: route.params.dateEnd,
+							pets: petsSelected,
+							smallDogs: amountSmallDogs,
+							mediumDogs: amountMediumDogs,
+							largeDogs: amountLargeDogs,
+							cats: amountCats,
+							smallAnimals: amountSmallAnimals,
+							maxPrice: maxPrice,
+							noChildren: isEnabledNoChildren,
+							noPets: isEnabledNoPets,
+							garden: isEnabledGarden,
+						})
 					}}
 				>
 					<Text style={styles.buttonText}>Filter results</Text>
