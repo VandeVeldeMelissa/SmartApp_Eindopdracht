@@ -44,12 +44,12 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 			route.params.service == 'Stay' ? true : false,
 		)
 		setIsSelectedAtSittersHouseDay(
-			route.params.service == 'Day care' ? true : false,
+			route.params.service == 'Day Care' ? true : false,
 		)
-		setIsSelectedHouseVisit(route.params.service == 'Home visits' ? true : false)
-		setIsSelectedDogWalking(route.params.service == 'Dog walking' ? true : false)
+		setIsSelectedHouseVisit(route.params.service == 'Home Visits' ? true : false)
+		setIsSelectedDogWalking(route.params.service == 'Dog Walking' ? true : false)
 		setIsSelectedSitterAtMyHouse(
-			route.params.service == 'House sitter' ? true : false,
+			route.params.service == 'House Sitter' ? true : false,
 		)
 	}, [])
 

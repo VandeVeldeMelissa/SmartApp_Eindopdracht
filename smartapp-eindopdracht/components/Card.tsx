@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons'
 import StarRating from 'react-native-star-rating'
 import User from '../interfaces/PetSitter'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ItemClick } from 'native-base/lib/typescript/components/composites/Typeahead/useTypeahead/types'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
@@ -34,7 +35,66 @@ function showOnly2Lines(textBlock: string) {
 	)
 }
 
-export default ({ user, navigation }: { user: User; navigation: any }) => {
+export default ({
+	user,
+	navigation,
+	service,
+}: {
+	user: User
+	navigation: any
+	service: string
+}) => {
+	const renderServicePrice = () => {
+		if (service != '') {
+			if (service == 'Stay') {
+				return (
+					<View>
+						<Text style={(card.price, { textAlign: 'center' })}>
+							{user.priceStay}€
+						</Text>
+						<Text style={card.price}>/stay</Text>
+					</View>
+				)
+			} else if (service == 'Day Care') {
+				return (
+					<View>
+						<Text style={(card.price, { textAlign: 'center' })}>
+							{user.priceDayCare}€
+						</Text>
+						<Text style={card.price}>/day</Text>
+					</View>
+				)
+			} else if (service == 'Home Visits') {
+				return (
+					<View>
+						<Text style={(card.price, { textAlign: 'center' })}>
+							{user.priceHomeVisits}€
+						</Text>
+						<Text style={card.price}>/visit</Text>
+					</View>
+				)
+			} else if (service == 'Dog Walking') {
+				return (
+					<View>
+						<Text style={(card.price, { textAlign: 'center' })}>
+							{user.priceDogWalking}€
+						</Text>
+						<Text style={card.price}>/walk</Text>
+					</View>
+				)
+			} else if (service == 'House Sitter') {
+				return (
+					<View>
+						<Text style={(card.price, { textAlign: 'center' })}>
+							{user.priceHouseSitter}€
+						</Text>
+						<Text style={card.price}>/house sit</Text>
+					</View>
+				)
+			}
+		}
+	}
+
 	return (
 		<Pressable
 			onPress={() => navigation.navigate('DetailPage', { payload: user })}
@@ -76,12 +136,7 @@ export default ({ user, navigation }: { user: User; navigation: any }) => {
 							</HStack>
 						</VStack>
 					</HStack>
-					<VStack>
-						<Text style={card.price}>
-							{user.priceDogWalking == undefined ? '-' : user.priceDogWalking} €{'\n'}
-							/walk
-						</Text>
-					</VStack>
+					{renderServicePrice()}
 				</HStack>
 				{showOnly2Lines(user.description)}
 			</View>

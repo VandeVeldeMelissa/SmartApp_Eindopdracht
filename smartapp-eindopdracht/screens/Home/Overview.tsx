@@ -98,7 +98,16 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 			hasPets: item.hasPets,
 			hasGarden: item.hasGarden,
 		}
-		return <Card user={item} key={item.id} navigation={navigation} />
+		return (
+			<Card
+				user={item}
+				key={item.id}
+				navigation={navigation}
+				service={
+					route.params ? (route.params.service ? route.params.service : '') : ''
+				}
+			/>
+		)
 	}
 
 	return (
