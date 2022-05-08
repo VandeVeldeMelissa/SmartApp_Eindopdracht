@@ -1,7 +1,7 @@
 import { FlatList, View, Text, TextInput } from 'react-native'
 import colors from '../../styles/colors'
 import React, { useEffect, useState } from 'react'
-import { Box, HStack } from 'native-base'
+import { Box, Center, HStack } from 'native-base'
 import styles from '../../styles'
 import SearchBar from '../../components/SearchBar'
 import { Ionicons } from '@expo/vector-icons'
@@ -36,7 +36,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	}
 
 	return (
-		<Box height="100%" background={colors.light}>
+		<Box flex="1" w="100%" h="full" background={colors.light}>
 			<HStack style={styles.inputContainer} alignItems="center">
 				<Ionicons name="ios-search" size={24} style={styles.searchBarIcon} />
 				<TextInput

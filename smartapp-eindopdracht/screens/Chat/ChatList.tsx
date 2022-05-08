@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Heading, Center } from 'native-base'
+import { Box, Heading, Center, HStack } from 'native-base'
 import { SwipeListView } from 'react-native-swipe-list-view'
 import ChatUser from '../../interfaces/ChatUser'
 import colors from '../../styles/colors'
@@ -7,55 +7,37 @@ import chat from '../../styles/chat'
 import ChatListItem from '../../components/ChatListItem'
 import ChatListHiddenItem from '../../components/ChatListHiddenItem'
 import SearchBar from '../../components/SearchBar'
+import { Ionicons } from '@expo/vector-icons'
+import { TextInput } from 'react-native'
+import styles from '../../styles'
 
 export default () => {
 	const data: ChatUser[] = [
 		{
-			id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-			firstName: 'Afreen',
-			lastName: 'Khan',
+			id: '1',
+			name: 'Aram Vanlerberghe',
 			timeStamp: '12:47 PM',
-			recentText: 'Good Day!',
+			recentText: 'Thank you :)',
 			profilePic:
-				'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+				'https://images.unsplash.com/photo-1535812859-6bfd2f132e78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
 		},
 		{
-			id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-			firstName: 'Sujita',
-			lastName: 'Mathur',
+			id: '2',
+			name: 'Lydia Carver',
 			timeStamp: '11:11 PM',
-			recentText: 'Cheer up, there!',
+			recentText: 'See you soon!',
 			profilePic:
-				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyEaZqT3fHeNrPGcnjLLX1v_W4mvBlgpwxnA&usqp=CAU',
+				'https://images.unsplash.com/photo-1528113535984-1e3bb158e388?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
 		},
 		{
-			id: '58694a0f-3da1-471f-bd96-145571e29d72',
-			firstName: 'Anci',
-			lastName: 'Barroco',
+			id: '3',
+			name: 'James Smith',
 			timeStamp: '6:22 PM',
-			recentText: 'Good Day!',
-			profilePic: 'https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg',
-		},
-		{
-			id: '68694a0f-3da1-431f-bd56-142371e29d72',
-			firstName: 'Aniket',
-			lastName: 'Kumar',
-			timeStamp: '8:56 PM',
-			recentText: 'All the best',
+			recentText: 'Okay, I will let you know.',
 			profilePic:
-				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr01zI37DYuR8bMV5exWQBSw28C1v_71CAh8d7GP1mplcmTgQA6Q66Oo--QedAN1B4E1k&usqp=CAU',
-		},
-		{
-			id: '28694a0f-3da1-471f-bd96-142456e29d72',
-			firstName: 'Kiara',
-			lastName: 'Bennet',
-			timeStamp: '12:47 PM',
-			recentText: 'I will call today.',
-			profilePic:
-				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
+				'https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
 		},
 	]
-	const [listData, setListData] = useState(data)
 
 	const onRowDidOpen = (rowKey: string) => {
 		console.log('This row opened: ', rowKey)
@@ -69,12 +51,33 @@ export default () => {
 		<ChatListHiddenItem data={data} rowMap={rowMap} />
 	)
 
+	const [searchContact, setContacts] = useState<any[]>(data)
+
+	const handleSearch = (textInput: string) => {
+		const newSearchContacts = []
+		for (let contact of data) {
+			if (contact.name.toLowerCase().includes(textInput.toLowerCase())) {
+				newSearchContacts.push(contact)
+			}
+		}
+		setContacts(newSearchContacts)
+	}
+
 	return (
 		<Center h="full">
 			<Box background={colors.light} flex="1" w="100%">
-				<SearchBar/>
+				<HStack style={styles.inputContainer} alignItems="center">
+					<Ionicons name="ios-search" size={24} style={styles.searchBarIcon} />
+					<TextInput
+						style={styles.inputSearchbar}
+						placeholder={'Search'}
+						placeholderTextColor={colors.grey[800]}
+						autoCorrect={false}
+						onChangeText={handleSearch}
+					/>
+				</HStack>
 				<SwipeListView
-					data={listData}
+					data={searchContact}
 					keyExtractor={(rowData) => {
 						return rowData.id.toString()
 					}}

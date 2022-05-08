@@ -30,9 +30,7 @@ export default ({ item }: { item: ChatUser }) => {
 							}}
 						/>
 						<VStack>
-							<Text style={chat.overviewName}>
-								{item.firstName} {item.lastName}
-							</Text>
+							<Text style={chat.overviewName}>{item.name}</Text>
 							<Text style={chat.recentText}>{item.recentText}</Text>
 						</VStack>
 						<Spacer />

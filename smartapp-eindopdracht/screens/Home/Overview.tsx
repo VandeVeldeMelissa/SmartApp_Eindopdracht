@@ -1,5 +1,6 @@
 import { useIsFocused, useNavigation } from '@react-navigation/native'
 import { SQLResultSet, SQLTransaction } from 'expo-sqlite'
+import { Box, Center } from 'native-base'
 import React, { useEffect, useState } from 'react'
 import { FlatList, SafeAreaView, Text } from 'react-native'
 import Card from '../../components/Card'
@@ -127,13 +128,17 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 
 	return (
 		<SafeAreaView>
-			<FlatList
-				style={styles.list}
-				data={petSitters}
-				renderItem={renderPetSitter}
-				keyExtractor={(item) => item.id}
-			/>
-			{renderResponseWhenNoPetSitters()}
+			<Center h="full">
+				<Box flex="1" w="100%">
+					<FlatList
+						style={styles.list}
+						data={petSitters}
+						renderItem={renderPetSitter}
+						keyExtractor={(item) => item.id}
+					/>
+					{renderResponseWhenNoPetSitters()}
+				</Box>
+			</Center>
 		</SafeAreaView>
 	)
 }
