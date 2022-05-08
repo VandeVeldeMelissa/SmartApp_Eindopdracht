@@ -25,7 +25,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 			'SELECT * FROM petsitters ORDER BY rating DESC',
 		)
 		setPetSitters(result.rows._array)
-		console.log(result)
 	}
 
 	const getPetSittersFiltered = async () => {
