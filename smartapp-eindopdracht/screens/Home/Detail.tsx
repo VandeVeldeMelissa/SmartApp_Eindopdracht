@@ -226,7 +226,14 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 								<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
 								<Text style={profile.location}>{payload.location}</Text>
 							</HStack>
-							<Pressable onPress={() => navigation.navigate('ReviewsPage')}>
+							<Pressable
+								onPress={() =>
+									navigation.navigate('ReviewsPage', {
+										userid: payload.id,
+										rating: payload.rating,
+									})
+								}
+							>
 								<HStack space={1} alignItems="center">
 									<StarRating
 										disabled={true}

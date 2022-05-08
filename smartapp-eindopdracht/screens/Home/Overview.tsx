@@ -20,7 +20,10 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 
 	const getPetSitters = async () => {
 		const tx: SQLTransaction = await transaction()
-		const result: SQLResultSet = await statement(tx, 'SELECT * FROM petsitters')
+		const result: SQLResultSet = await statement(
+			tx,
+			'SELECT * FROM petsitters ORDER BY rating DESC',
+		)
 		setPetSitters(result.rows._array)
 	}
 
@@ -32,7 +35,9 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				? ` AND price${route.params.service.replace(' ', '')} IS NOT NULL`
 				: ''
 		}${
-			route.params.location != '-' ? ` AND location IS "${route.params.location}"` : ''
+			route.params.location != '-'
+				? ` AND location IS "${route.params.location}"`
+				: ''
 		}`
 		let sqlStringPets = `${
 			route.params.smallDogs && route.params.smallDogs > 0
@@ -51,10 +56,13 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				? ' AND allowSmallAnimal IS 1'
 				: ''
 		}`
-		let sqlStringMaxPrice = `${route.params.service != '-' ? ` AND price${route.params.service.replace(
-			' ',
-			'',
-		)} <= ${route.params.maxPrice}` : ''}`
+		let sqlStringMaxPrice = `${
+			route.params.service != '-'
+				? ` AND price${route.params.service.replace(' ', '')} <= ${
+						route.params.maxPrice
+				  }`
+				: ''
+		}`
 		let sqlStringHouseOptions = `${
 			route.params.noChildren ? ' AND hasChildren IS 0' : ''
 		}${route.params.noPets ? ' AND hasPets IS 0' : ''}${
@@ -64,7 +72,8 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 			sqlStringServiceAndLocation +
 			sqlStringPets +
 			sqlStringMaxPrice +
-			sqlStringHouseOptions
+			sqlStringHouseOptions +
+			' ORDER BY rating DESC'
 		console.log(sqlString)
 		const result: SQLResultSet = await statement(tx, sqlString)
 		setPetSitters(result.rows._array)
@@ -80,7 +89,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 
 	const renderResponseWhenNoPetSitters = () => {
 		if (petSitters.length == 0) {
-			return (<Text style={styles.noResultsText}>No results found.</Text>)
+			return <Text style={styles.noResultsText}>No results found.</Text>
 		}
 	}
 

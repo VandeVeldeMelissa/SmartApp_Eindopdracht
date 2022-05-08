@@ -8,9 +8,16 @@ import chat from '../styles/chat'
 import colors from '../styles/colors'
 
 export default ({item}: {item: Review}) => {
+
+	const renderDescription = () => {
+		if (item.description != null) {
+			return(<Text style={[card.description, {marginTop: 8}]}>{item.description}</Text>)
+		}
+	}
+
 	return (
 		<View style={card.card}>
-			<HStack space={2} alignItems='center' marginBottom={2}>
+			<HStack space={2} alignItems='center'>
 				<Avatar
 					bg="purple.200"
 					source={{
@@ -33,7 +40,7 @@ export default ({item}: {item: Review}) => {
                         <Text style={card.timeStamp}>{item.date}</Text>
 				</VStack>
 			</HStack>
-            <Text style={card.description}>{item.text}</Text>
+			{renderDescription()}
 		</View>
 	)
 }

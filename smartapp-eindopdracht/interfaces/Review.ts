@@ -1,10 +1,9 @@
-import User from "./PetSitter"
-
 export default interface Review {
 	id: string
-    name: string
-    profilePic: string
+	name: string
+	description: string
+	profilePic: string
 	rating: number
-	text: string
-    date: Date | number | string
+	date: Date | number | string
+	userId: string
 }
