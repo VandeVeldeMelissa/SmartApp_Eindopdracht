@@ -87,5 +87,12 @@ export default StyleSheet.create({
 		fontFamily: 'Quicksand_500Medium',
  		fontSize: 20,
  		color: colors.dark
+	},
+	noResultsText: {
+		fontFamily: 'Quicksand_500Medium',
+ 		fontSize: 16,
+ 		color: colors.dark,
+		textAlign: 'center',
+		marginTop: 8
 	}
 })

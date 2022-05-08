@@ -7,7 +7,10 @@ import { AntDesign } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
-import { useNavigation } from '@react-navigation/native'
+import {
+	getFocusedRouteNameFromRoute,
+	useNavigation,
+} from '@react-navigation/native'
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
 
@@ -316,10 +319,10 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						console.log('Click filter button')
 						impactAsync(ImpactFeedbackStyle.Medium)
 						navigation.navigate('Home', {
-							service: route.params.service,
-							location: route.params.location,
-							dateStart: route.params.dateStart,
-							dateEnd: route.params.dateEnd,
+							service: serviceSelected,
+							location: locationSelected,
+							dateStart: dateStartSelected,
+							dateEnd: dateEndSelected,
 							pets: petsSelected,
 							smallDogs: amountSmallDogs,
 							mediumDogs: amountMediumDogs,

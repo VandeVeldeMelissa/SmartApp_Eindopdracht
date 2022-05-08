@@ -1,7 +1,7 @@
 import { useIsFocused, useNavigation } from '@react-navigation/native'
 import { SQLResultSet, SQLTransaction } from 'expo-sqlite'
 import React, { useEffect, useState } from 'react'
-import { FlatList, SafeAreaView } from 'react-native'
+import { FlatList, SafeAreaView, Text } from 'react-native'
 import Card from '../../components/Card'
 import PetSitter from '../../interfaces/PetSitter'
 import styles from '../../styles/index'
@@ -27,10 +27,13 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	const getPetSittersFiltered = async () => {
 		const tx: SQLTransaction = await transaction()
 		console.log('Filter')
-		let sqlStringServiceAndLocation = `SELECT * FROM petsitters WHERE price${route.params.service.replace(
-			' ',
-			'',
-		)} IS NOT NULL AND location IS "${route.params.location}"`
+		let sqlStringServiceAndLocation = `SELECT * FROM petsitters WHERE id IS NOT NULL${
+			route.params.service != '-'
+				? ` AND price${route.params.service.replace(' ', '')} IS NOT NULL`
+				: ''
+		}${
+			route.params.location != '-' ? ` AND location IS "${route.params.location}"` : ''
+		}`
 		let sqlStringPets = `${
 			route.params.smallDogs && route.params.smallDogs > 0
 				? ' AND allowSmallDog IS 1'
@@ -48,10 +51,10 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				? ' AND allowSmallAnimal IS 1'
 				: ''
 		}`
-		let sqlStringMaxPrice = ` AND price${route.params.service.replace(
+		let sqlStringMaxPrice = `${route.params.service != '-' ? ` AND price${route.params.service.replace(
 			' ',
 			'',
-		)} <= ${route.params.maxPrice}`
+		)} <= ${route.params.maxPrice}` : ''}`
 		let sqlStringHouseOptions = `${
 			route.params.noChildren ? ' AND hasChildren IS 0' : ''
 		}${route.params.noPets ? ' AND hasPets IS 0' : ''}${
@@ -70,10 +73,16 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 	useEffect(() => {
 		if (route.params == undefined) {
 			getPetSitters()
-		} else if (route.params != undefined && route.params.service != '-') {
+		} else if (route.params != undefined) {
 			getPetSittersFiltered()
 		}
 	}, [route.params])
+
+	const renderResponseWhenNoPetSitters = () => {
+		if (petSitters.length == 0) {
+			return (<Text style={styles.noResultsText}>No results found.</Text>)
+		}
+	}
 
 	const renderPetSitter = ({ item }: { item: PetSitter }) => {
 		const PetSitter: PetSitter = {
@@ -118,6 +127,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				renderItem={renderPetSitter}
 				keyExtractor={(item) => item.id}
 			/>
+			{renderResponseWhenNoPetSitters()}
 		</SafeAreaView>
 	)
 }
