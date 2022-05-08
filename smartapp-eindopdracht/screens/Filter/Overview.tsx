@@ -8,14 +8,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
 import {
-	getFocusedRouteNameFromRoute,
 	useNavigation,
 } from '@react-navigation/native'
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	console.log(route.params)
 	const nav = useNavigation()
 
 	//House properties
@@ -316,7 +314,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				<Button
 					style={styles.button}
 					onPress={() => {
-						console.log('Click filter button')
 						impactAsync(ImpactFeedbackStyle.Medium)
 						navigation.navigate('Home', {
 							service: serviceSelected,

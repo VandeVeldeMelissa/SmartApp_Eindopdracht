@@ -7,7 +7,6 @@ import colors from '../../styles/colors'
 import filter from '../../styles/filter'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	//console.log(route.params)
 	const [amountSmallDogs, setAmountSmallDogs] = useState(0)
 	const [amountMediumDogs, setAmountMediumDogs] = useState(0)
 	const [amountLargeDogs, setAmountLargeDogs] = useState(0)
@@ -206,7 +205,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				style={[styles.button]}
 				onPress={() => {
 					let total = totalPets()
-					console.log(totalPets)
 					navigation.navigate('Filter', {
 						service: route.params.service,
 						location: route.params.location,

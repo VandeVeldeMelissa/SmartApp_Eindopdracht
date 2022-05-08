@@ -1,20 +1,10 @@
 import React from 'react'
-import {
-	Text,
-	View,
-	Pressable,
-	ScrollView,
-	TouchableHighlight,
-} from 'react-native'
+import { Text, View, Pressable, ScrollView } from 'react-native'
 import { Avatar, Box, HStack, VStack } from 'native-base'
 import profile from '../../styles/profile'
 import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
-import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
-import { Button } from 'native-base'
-import filter from '../../styles/filter'
-import card from '../../styles/card'
+import { Ionicons } from '@expo/vector-icons'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
@@ -44,129 +34,11 @@ export default ({ navigation }: { navigation: any }) => {
 								<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
 								<Text style={profile.location}>Bredene</Text>
 							</HStack>
-							<Pressable onPress={() => navigation.navigate('ReviewsPage')}>
-								<HStack space={1} alignItems="center">
-									<StarRating
-										disabled={true}
-										maxStars={5}
-										rating={5}
-										fullStarColor={colors.rating}
-										emptyStarColor={colors.grey[300]}
-										starSize={20}
-									/>
-									<Text style={profile.ratingtext}>(?)</Text>
-								</HStack>
-								<HStack alignItems="center">
-									<Text style={profile.ratingtext}>See reviews</Text>
-									<Ionicons name="chevron-forward" size={16} color="black" />
-								</HStack>
-							</Pressable>
 						</VStack>
 					</HStack>
 					<View style={profile.containerDivider}>
 						<Text style={profile.subtitle}>About me</Text>
 						<Text style={profile.description}>Hello everybody</Text>
-					</View>
-					<View style={profile.paddingTop}>
-						<Text style={profile.subtitle}>My services</Text>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<MaterialCommunityIcons
-										name="power-sleep"
-										size={24}
-										color={colors.dark}
-									/>
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Stay</Text>
-										<Text style={filter.serviceDescription}>
-											Stays with the pet sitter, day and night
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>10€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<Ionicons name="sunny" size={24} color={colors.dark} />
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Day care</Text>
-										<Text style={filter.serviceDescription}>
-											Stay with the pet sitter during the day
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>7€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<Ionicons name="key" size={24} color={colors.dark} />
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Home visits</Text>
-										<Text style={filter.serviceDescription}>
-											The pet sitter comes to your home
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>7€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<MaterialCommunityIcons
-										name="dog-service"
-										size={24}
-										color={colors.dark}
-									/>
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>Dog walking service</Text>
-										<Text style={filter.serviceDescription}>
-											A nice walk for your dog
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>5€</Text>
-							</HStack>
-						</TouchableHighlight>
-						<TouchableHighlight activeOpacity={0.7} underlayColor={colors.grey[200]}>
-							<HStack
-								alignItems="center"
-								justifyContent="space-between"
-								style={profile.serviceContainer}
-							>
-								<HStack alignItems="center" space={3}>
-									<Ionicons name="home" size={24} color={colors.dark} />
-									<VStack space={1}>
-										<Text style={filter.serviceTitle}>House sitter</Text>
-										<Text style={filter.serviceDescription}>
-											The pet sitter stays at your home
-										</Text>
-									</VStack>
-								</HStack>
-								<Text style={card.price}>9€</Text>
-							</HStack>
-						</TouchableHighlight>
 					</View>
 					<View style={profile.paddingTop}>
 						<Text style={profile.subtitle}>My pets</Text>
@@ -199,17 +71,6 @@ export default ({ navigation }: { navigation: any }) => {
 								<Text style={profile.dogname}>Meow</Text>
 								<Text style={profile.dogbreed}>Cat</Text>
 							</VStack>
-						</HStack>
-					</View>
-					<View style={[profile.containerDivider, profile.spaceBottom]}>
-						<Text style={profile.subtitle}>My home</Text>
-						<HStack alignItems="center" space={1}>
-							<Ionicons name="ios-checkmark" size={24} color={colors.green} />
-							<Text style={profile.home}>Garden</Text>
-						</HStack>
-						<HStack alignItems="center" space={1}>
-							<Ionicons name="ios-checkmark" size={24} color={colors.green} />
-							<Text style={profile.home}>No children</Text>
 						</HStack>
 					</View>
 				</ScrollView>

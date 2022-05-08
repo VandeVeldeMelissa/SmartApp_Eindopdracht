@@ -8,7 +8,6 @@ import calender from '../../styles/calender'
 import colors from '../../styles/colors'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	//console.log(route.params)
 	const [dateStartSelected, setDateStartSelected] = useState<Date | null>()
 	const [dateEndSelected, setDateEndSelected] = useState<Date | null>()
 
@@ -44,13 +43,17 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 					monthTitleStyle={calender.textTitle}
 					yearTitleStyle={calender.textTitle}
 					onDateChange={onDateChange}
-					selectedStartDate={route.params.dateStart ? route.params.dateStart : undefined}
-					selectedEndDate={route.params.dateEnd ? route.params.dateEnd : undefined}
+					selectedStartDate={
+						route.params.dateStart != '-' ? route.params.dateStart : undefined
+					}
+					selectedEndDate={
+						route.params.dateEnd != '-' ? route.params.dateEnd : undefined
+					}
 				/>
-				<View>
+				{/* <View>
 					<Text>SELECTED START DATE:{startDate}</Text>
 					<Text>SELECTED END DATE:{endDate}</Text>
-				</View>
+				</View> */}
 			</Box>
 			<Button
 				style={styles.button}

@@ -7,7 +7,6 @@ import { ParamListBase, RouteProp } from '@react-navigation/native'
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import 'react-native-gesture-handler'
 import Profile from './Profile'
-import Reviews from './Reviews'
 import { Pressable } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import colors from '../../styles/colors'
@@ -51,26 +50,6 @@ export default () => {
 							/>
 						</Pressable>
 					),
-				})}
-			/>
-			<Stack.Screen
-				name="MyReviewsPage"
-				component={Reviews}
-				options={() => ({
-					title: 'My Reviews',
-					headerShown: true,
-					headerStyle: {
-						backgroundColor: colors.purple[700],
-					},
-					headerTitleStyle: {
-						color: colors.light,
-						fontFamily: 'Quicksand_600SemiBold',
-					},
-					headerTintColor: colors.light,
-					headerBackTitle: 'Back',
-					headerBackTitleStyle: {
-						fontFamily: 'Quicksand_600SemiBold',
-					},
 				})}
 			/>
 		</Stack.Navigator>

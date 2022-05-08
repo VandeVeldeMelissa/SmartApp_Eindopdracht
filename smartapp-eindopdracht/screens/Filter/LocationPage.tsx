@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	const testLocaties = [
+	const locations = [
 		{ key: 'Bredene' },
 		{ key: 'Brugge' },
 		{ key: 'De Panne' },
@@ -23,11 +23,11 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		{ key: 'Wevelgem' },
 	]
 
-	const [searchLocations, setSearchLocations] = useState<any[]>(testLocaties)
+	const [searchLocations, setSearchLocations] = useState<any[]>(locations)
 
 	const handleSearch = (textInput: string) => {
 		const newSearchLocations = []
-		for (let location of testLocaties) {
+		for (let location of locations) {
 			if (location.key.toLowerCase().includes(textInput.toLowerCase())) {
 				newSearchLocations.push(location)
 			}

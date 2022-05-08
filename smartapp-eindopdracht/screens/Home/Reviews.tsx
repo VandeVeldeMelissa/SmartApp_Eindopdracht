@@ -11,40 +11,6 @@ import { statement, transaction } from '../../utils/db'
 import { SQLResultSet, SQLTransaction } from 'expo-sqlite'
 
 export default ({ route, petSitter }: { route: any; petSitter: PetSitter }) => {
-	console.log(route.params)
-	const testReviews: Review[] = [
-		{
-			id: '1',
-			name: 'Aram Vanlerberghe',
-			userId: '6',
-			profilePic:
-				'https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80',
-			rating: 5,
-			description: 'Very friendly, very nice; would recommend 10/10!',
-			date: '10/04/2022',
-		},
-		{
-			id: '2',
-			name: 'Yannick Schalck',
-			userId: '6',
-			profilePic:
-				'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-			rating: 3,
-			description: 'jeh jeh',
-			date: '19/04/2022',
-		},
-		{
-			id: '3',
-			name: 'Melissa Van de Velde',
-			userId: '6',
-			profilePic:
-				'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80',
-			rating: 5,
-			description: 'Perfect',
-			date: '16/04/2022',
-		},
-	]
-
 	const [reviews, setReviews] = useState<Review[]>([])
 
 	const getReviews = async () => {

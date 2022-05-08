@@ -8,7 +8,6 @@ import styles from '../../styles/index'
 import { statement, transaction } from '../../utils/db'
 
 export default ({ route, navigation }: { route: any; navigation: any }) => {
-	console.log(route.params)
 	const nav = useNavigation()
 	const isFocused = useIsFocused()
 
@@ -29,7 +28,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 
 	const getPetSittersFiltered = async () => {
 		const tx: SQLTransaction = await transaction()
-		console.log('Filter')
 		let sqlStringServiceAndLocation = `SELECT * FROM petsitters WHERE id IS NOT NULL${
 			route.params.service != '-'
 				? ` AND price${route.params.service.replace(' ', '')} IS NOT NULL`
@@ -74,7 +72,6 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 			sqlStringMaxPrice +
 			sqlStringHouseOptions +
 			' ORDER BY rating DESC'
-		console.log(sqlString)
 		const result: SQLResultSet = await statement(tx, sqlString)
 		setPetSitters(result.rows._array)
 	}
