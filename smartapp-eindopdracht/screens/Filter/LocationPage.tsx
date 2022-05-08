@@ -1,9 +1,8 @@
 import { FlatList, View, Text, TextInput } from 'react-native'
 import colors from '../../styles/colors'
-import React, { useEffect, useState } from 'react'
-import { Box, Center, HStack } from 'native-base'
+import React, { useState } from 'react'
+import { Box, HStack } from 'native-base'
 import styles from '../../styles'
-import SearchBar from '../../components/SearchBar'
 import { Ionicons } from '@expo/vector-icons'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 

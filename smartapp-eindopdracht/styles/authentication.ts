@@ -16,8 +16,8 @@ export default StyleSheet.create({
 		paddingVertical: 8,
 		borderRadius: 4,
 		marginTop: 8,
-        fontSize: 16,
-        fontFamily: 'Quicksand_500Medium'
+		fontSize: 16,
+		fontFamily: 'Quicksand_500Medium',
 	},
 	buttonContainer: {
 		width: '60%',
@@ -56,19 +56,25 @@ export default StyleSheet.create({
 		marginTop: 12,
 		color: colors.dark,
 	},
-    containerInputAndButtons: {
-        alignItems: 'center'
-    },
-    containerTitle: {
-        alignItems: 'center',
+	containerInputAndButtons: {
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	containerTitle: {
+		alignItems: 'center',
 		marginBottom: 24,
-    },
-    title: {
-        fontFamily: 'Quicksand_600SemiBold',
+	},
+	title: {
+		fontFamily: 'Quicksand_600SemiBold',
 		fontSize: 20,
-        color: colors.purple[700]
-    },
-    icon: {
-        marginBottom: 16
-    }
+		color: colors.purple[700],
+	},
+	icon: {
+		marginBottom: 16,
+	},
+	smallText: {
+		marginTop: 8,
+		fontFamily: 'Quicksand_500Medium',
+		color: colors.grey[800],
+	},
 })

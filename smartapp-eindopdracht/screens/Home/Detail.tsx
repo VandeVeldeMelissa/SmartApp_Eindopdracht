@@ -8,7 +8,6 @@ import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import profile from '../../styles/profile'
 import { Button } from 'native-base'
-import styles from '../../styles'
 import filter from '../../styles/filter'
 import card from '../../styles/card'
 

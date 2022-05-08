@@ -130,13 +130,13 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		<SafeAreaView>
 			<Center h="full">
 				<Box flex="1" w="100%">
+					{renderResponseWhenNoPetSitters()}
 					<FlatList
 						style={styles.list}
 						data={petSitters}
 						renderItem={renderPetSitter}
 						keyExtractor={(item) => item.id}
 					/>
-					{renderResponseWhenNoPetSitters()}
 				</Box>
 			</Center>
 		</SafeAreaView>

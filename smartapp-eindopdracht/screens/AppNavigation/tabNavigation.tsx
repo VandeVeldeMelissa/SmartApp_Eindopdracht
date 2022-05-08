@@ -7,7 +7,6 @@ import { ParamListBase, RouteProp } from '@react-navigation/native'
 import React, { ComponentProps } from 'react'
 import Home from '../Home/index'
 import Chat from '../Chat/index'
-import Settings from '../Settings/index'
 import colors from '../../styles/colors'
 import Profile from '../Profile/index'
 
@@ -68,7 +67,6 @@ export default () => {
 			/>
 			<Tab.Screen name="Chat" component={Chat} />
 			<Tab.Screen name="Profile" component={Profile} />
-			<Tab.Screen name="Settings" component={Settings} />
 		</Tab.Navigator>
 	)
 }

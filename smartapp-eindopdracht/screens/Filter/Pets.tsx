@@ -1,6 +1,6 @@
 import { Button, HStack, VStack, Box } from 'native-base'
 import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
 import styles from '../../styles'
 import { Ionicons } from '@expo/vector-icons'
 import colors from '../../styles/colors'
