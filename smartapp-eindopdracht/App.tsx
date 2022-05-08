@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect } from 'react'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import AppNavigation from './screens/AppNavigation'
 import { NativeBaseProvider, Box, extendTheme } from 'native-base'
 import {
@@ -17,10 +17,10 @@ import colors from './styles/colors'
 import { SQLResultSet, SQLTransaction } from 'expo-sqlite'
 import { statement, transaction } from './utils/db'
 
-import { LogBox } from 'react-native';
+import { LogBox } from 'react-native'
 LogBox.ignoreLogs([
-	"[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
-  ]);
+	"[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+])
 
 const theme = extendTheme({ colors: colors.theme.colors })
 

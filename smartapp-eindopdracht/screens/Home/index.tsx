@@ -60,6 +60,7 @@ export default () => {
 							/>
 						</Pressable>
 					),
+					headerLeft: () => null,
 				})}
 			/>
 			<Stack.Screen

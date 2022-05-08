@@ -5,6 +5,7 @@ import profile from '../../styles/profile'
 import StarRating from 'react-native-star-rating'
 import colors from '../../styles/colors'
 import { Ionicons } from '@expo/vector-icons'
+import { auth } from '../../firebase'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
@@ -34,6 +35,7 @@ export default ({ navigation }: { navigation: any }) => {
 								<Ionicons name="ios-location" color={colors.grey[800]} size={16} />
 								<Text style={profile.location}>Bredene</Text>
 							</HStack>
+							<Text>Email: {auth.currentUser?.email}</Text>
 						</VStack>
 					</HStack>
 					<View style={profile.containerDivider}>

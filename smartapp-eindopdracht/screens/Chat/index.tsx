@@ -27,6 +27,7 @@ export default () => {
 					headerBackTitleStyle: {
 						fontFamily: 'Quicksand_600SemiBold',
 					},
+					headerLeft: () => null,
 				})}
 			/>
 		</Stack.Navigator>

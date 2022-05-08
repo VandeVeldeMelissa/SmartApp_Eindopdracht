@@ -8,6 +8,7 @@ import { Pressable } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics'
 import styles from '../../styles'
+import authenticationScreen from '../Authentication/index'
 
 const RootStack = createStackNavigator()
 
@@ -16,11 +17,34 @@ export default () => {
 		<RootStack.Navigator>
 			<RootStack.Group>
 				<RootStack.Screen
+					name="AuthenticationScreen"
+					component={authenticationScreen}
+					options={() => ({
+						title: 'Log in',
+						headerStyle: {
+							backgroundColor: colors.purple[700],
+						},
+						headerTitleStyle: {
+							color: colors.light,
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						headerTintColor: colors.light,
+						headerBackTitle: 'Back',
+						headerBackTitleStyle: {
+							fontFamily: 'Quicksand_600SemiBold',
+						},
+						animationEnabled: false,
+						headerLeft: () => null,
+						headerShown: false
+					})}
+				/>
+				<RootStack.Screen
 					name="BottomTabNavigatorScreen"
 					component={tabNavigation}
 					options={() => ({
 						title: 'Home',
 						headerShown: false,
+						animationEnabled: false,
 					})}
 				/>
 			</RootStack.Group>

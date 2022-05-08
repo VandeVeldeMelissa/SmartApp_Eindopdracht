@@ -50,6 +50,7 @@ export default () => {
 							/>
 						</Pressable>
 					),
+					headerLeft: () => null,
 				})}
 			/>
 		</Stack.Navigator>
