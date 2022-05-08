@@ -10,6 +10,7 @@ import profile from '../../styles/profile'
 import { Button } from 'native-base'
 import filter from '../../styles/filter'
 import card from '../../styles/card'
+import * as SMS from 'expo-sms'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
@@ -275,9 +276,12 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				<Box style={profile.backgroundButton}>
 					<Button
 						style={profile.button}
-						onPress={() => {
-							console.log('Contact button pressed')
+						onPress={async () => {
 							impactAsync(ImpactFeedbackStyle.Medium)
+							const isAvailable = await SMS.isAvailableAsync()
+							if (isAvailable) {
+								await SMS.sendSMSAsync(['0494640112'], 'Hey!')
+							}
 						}}
 					>
 						<Text style={profile.buttonText}>Contact</Text>

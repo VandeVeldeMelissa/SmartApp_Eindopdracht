@@ -28,22 +28,24 @@ const theme = extendTheme({ colors: colors.theme.colors })
 export default function App() {
 	const generateAppTable = async (): Promise<void> => {
 		const tx: SQLTransaction = await transaction()
-		// const response: SQLResultSet | void = await statement(
-		// 	tx,
-		// 	'CREATE TABLE IF NOT EXISTS petsitters (id integer primary key autoincrement, firstName text NOT NULL, lastName text NOT NULL, description text NOT NULL, profilePic text, location text NOT NULL, rating real, priceStay real, priceDayCare real, priceHomeVisits real, priceDogWalking real, priceHouseSitter real, allowSmallDog integer, allowMediumDog integer, allowLargeDog integer, allowCats integer, allowSmallAnimal integer, hasChildren integer, hasPets integer, hasGarden integer)',
-		// ).catch((err) => console.log(err)) //no booleans in SQLite => integer 0 = false & 1 = true
-
-		// const response: SQLResultSet | void = await statement(
-		// 	tx,
-		// 	'CREATE TABLE IF NOT EXISTS reviews (id integer primary key autoincrement, name text NOT NULL, description text, profilePic text, rating real, date text, userId text NOT NULL, FOREIGN KEY(userId) REFERENCES petsitters(id))',
-		// ).catch((err) => console.log(err))
-
-		// const response: SQLResultSet | void = await statement(
-		// 	tx,
-		// 	'CREATE TABLE IF NOT EXISTS users (uid string primary key, firstName text, lastName text, description text)',
-		// ).catch((err) => console.log(err))
+		const response: SQLResultSet | void = await statement(
+			tx,
+			'CREATE TABLE IF NOT EXISTS petsitters (id integer primary key autoincrement, firstName text NOT NULL, lastName text NOT NULL, description text NOT NULL, profilePic text, location text NOT NULL, rating real, priceStay real, priceDayCare real, priceHomeVisits real, priceDogWalking real, priceHouseSitter real, allowSmallDog integer, allowMediumDog integer, allowLargeDog integer, allowCats integer, allowSmallAnimal integer, hasChildren integer, hasPets integer, hasGarden integer)',
+		).catch((err) => console.log(err)) //no booleans in SQLite => integer 0 = false & 1 = true
 
 		const tx2: SQLTransaction = await transaction()
+		const response2: SQLResultSet | void = await statement(
+			tx2,
+			'CREATE TABLE IF NOT EXISTS reviews (id integer primary key autoincrement, name text NOT NULL, description text, profilePic text, rating real, date text, userId text NOT NULL, FOREIGN KEY(userId) REFERENCES petsitters(id))',
+		).catch((err) => console.log(err))
+
+		const tx3: SQLTransaction = await transaction()
+		const response3: SQLResultSet | void = await statement(
+			tx,
+			'CREATE TABLE IF NOT EXISTS users (uid string primary key, firstName text, lastName text, description text)',
+		).catch((err) => console.log(err))
+
+		const tx4: SQLTransaction = await transaction()
 		// Insert into petsitters
 		// const insert = await statement(tx2, 'INSERT INTO petsitters (id, firstName, lastName, description, profilePic, location, rating, priceStay, priceDayCare, priceHomeVisits, priceDogWalking, priceHouseSitter, allowSmallDog, allowMediumDog, allowLargeDog, allowCats, allowSmallAnimal, hasChildren, hasPets, hasGarden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [undefined, 'Aram', 'Vanlerberghe', 'Hi everybody... My name is Aram! Im 23 years old and I would love to babysit your pet! I dont have any pets myself anymore but I do have a lot of experience with dogs, rabbits, hamsters and birds.', "https://images.unsplash.com/photo-1535812859-6bfd2f132e78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80", 'Moorsele', 4.7, 15, 13, 10, 7, 17, 1, 1, 1, 1, 1, 0, 0, 1])
 		// const insert2 = await statement(tx2, 'INSERT INTO petsitters (id, firstName, lastName, description, profilePic, location, rating, priceStay, priceDayCare, priceHomeVisits, priceDogWalking, priceHouseSitter, allowSmallDog, allowMediumDog, allowLargeDog, allowCats, allowSmallAnimal, hasChildren, hasPets, hasGarden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [undefined, 'Lydia', 'Carver', 'Hey hey! My name is Lydia and I would love to help you take care of your dog! I work at a dog hair saloon and love all dogs big and small. I have a small cute dog Sam and he is really gentle with other dogs and my little girl Emily :)', "https://images.unsplash.com/photo-1528113535984-1e3bb158e388?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80", 'Kortrijk', 3.3, 16, 13, 10, undefined, undefined, 1, 1, 1, 0, 0, 1, 1, 0])
@@ -57,17 +59,15 @@ export default function App() {
 		// const insert5 = await statement(tx2, 'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)', [undefined, 'Bjorn Van Acker', undefined, "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80", 3, "03/04/2022", "2"])
 		// const insert6 = await statement(tx2, 'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)', [undefined, 'Maria Westhoven', 'Nice girl, but she gave my dog way to much cookies.', "https://images.unsplash.com/photo-1472698938026-79bed881e5b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80", 4, "02/01/2022", "2"])
 
-		// Insert into users
-		// const insert = await statement(tx2, 'INSERT INTO users (uid, firstName, lastName, description) VALUES (?, ?, ?, ?)', ['8M9sNV995MVVjyjfxtUriZxvl732', 'Melissa', 'Van de Velde'])
-
 		// DELETE TABLE
 		// const droptable = await statement(tx2, 'DROP TABLE users') // DELETE TABLE
 
+		// Test data table
 		const r: SQLResultSet | void = await statement(
 			tx2,
 			'SELECT * FROM petsitters',
 		).catch((err) => console.log(err))
-		console.log(r)
+		console.log("result: ", r)
 	}
 
 	useEffect(() => {
