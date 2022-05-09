@@ -1,12 +1,11 @@
 import React from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
-import { Box, Button, HStack } from 'native-base'
+import { Box, HStack } from 'native-base'
 import profile from '../../styles/profile'
 import colors from '../../styles/colors'
 import { auth } from '../../firebase'
 import styles from '../../styles'
 import { Ionicons } from '@expo/vector-icons'
-import * as SMS from 'expo-sms'
 
 export default ({ navigation }: { navigation: any }) => {
 	const handleSignOut = () => {

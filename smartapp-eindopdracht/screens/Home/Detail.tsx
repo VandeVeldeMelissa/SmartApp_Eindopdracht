@@ -316,6 +316,9 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 							if (isAvailable) {
 								await SMS.sendSMSAsync(['0494640112'], 'Hey!')
 							}
+							else {
+								alert("SMS not available.")
+							}
 						}}
 					>
 						<Text style={profile.buttonText}>Contact</Text>

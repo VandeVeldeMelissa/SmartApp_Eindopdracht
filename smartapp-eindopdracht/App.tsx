@@ -27,7 +27,6 @@ const theme = extendTheme({ colors: colors.theme.colors })
 
 export default function App() {
 	const generateAppTablePetSitters = async (): Promise<void> => {
-		console.log('generate app table')
 		const tx: SQLTransaction = await transaction()
 		const response: SQLResultSet | void = await statement(
 			tx,
@@ -39,8 +38,6 @@ export default function App() {
 			txPetSitters,
 			'SELECT * FROM petsitters',
 		)
-		console.log(resultPetSitters.rows._array)
-		console.log(resultPetSitters)
 		if (resultPetSitters.rows._array.length == 0) {
 			//Insert into petsitters
 			const tx4: SQLTransaction = await transaction()
@@ -159,7 +156,7 @@ export default function App() {
 					undefined,
 					'Youseph',
 					'Sajad',
-					'I\'m Youseph, 31 years old and I have a corgi, named Nabil. He loves to hang out with other dogs (that are as small as him) and I would love to take care of your pet while you\'re on vacation! Nabil also gets along with cats and other small animals like rabbits and stuff. I work from home so I\'m almost always available.',
+					"I'm Youseph, 31 years old and I have a corgi, named Nabil. He loves to hang out with other dogs (that are as small as him) and I would love to take care of your pet while you're on vacation! Nabil also gets along with cats and other small animals like rabbits and stuff. I work from home so I'm almost always available.",
 					'https://images.unsplash.com/photo-1634635880938-d81e973bcd6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80',
 					'Kortrijk',
 					4.5,
@@ -204,8 +201,6 @@ export default function App() {
 			txReviews,
 			'SELECT * FROM reviews',
 		)
-		console.log(resultReviews.rows._array)
-		console.log(resultReviews)
 		if (resultReviews.rows._array.length == 0) {
 			// Insert into reviews
 			const tx7: SQLTransaction = await transaction()
@@ -282,7 +277,14 @@ export default function App() {
 			const insert11 = await statement(
 				tx14,
 				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
-				[undefined, 'Yannick Schalck', 'Amazing dude! He took really good care of my dog.', 5, '03/05/2022', '5'],
+				[
+					undefined,
+					'Yannick Schalck',
+					'Amazing dude! He took really good care of my dog.',
+					5,
+					'03/05/2022',
+					'5',
+				],
 			)
 			const tx15: SQLTransaction = await transaction()
 			const insert12 = await statement(
