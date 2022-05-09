@@ -204,6 +204,32 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 		}
 	}
 
+	const renderSmallDog = () => {
+		if (payload.allowSmallDog) {
+			return (<Text style={profile.home}>- Small dogs (0-10kg)</Text>)
+		}
+	}
+	const renderMeidumDog = () => {
+		if (payload.allowMediumDog) {
+			return (<Text style={profile.home}>- Medium dogs (10-25kg)</Text>)
+		}
+	}
+	const renderLargeeDog = () => {
+		if (payload.allowLargeDog) {
+			return (<Text style={profile.home}>- Large dogs ({'>'}25kg)</Text>)
+		}
+	}
+	const renderCats = () => {
+		if (payload.allowCats) {
+			return (<Text style={profile.home}>- Cats (all kind of cats)</Text>)
+		}
+	}
+	const renderSmallAnimal = () => {
+		if (payload.allowSmallAnimal) {
+			return (<Text style={profile.home}>- Small animals (rabbit, bird, hamster...)</Text>)
+		}
+	}
+
 	return (
 		<View>
 			<Box height="100%" backgroundColor={colors.light}>
@@ -266,11 +292,19 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						{renderDogWalkingService()}
 						{renderHouseSitterService()}
 					</View>
-					<View style={[profile.containerDivider, profile.spaceBottom]}>
+					<View style={profile.containerDivider}>
 						<Text style={profile.subtitle}>My home</Text>
 						{renderChildrenFeature()}
 						{renderPetsFeature()}
 						{renderGardenFeature()}
+					</View>
+					<View style={[profile.containerDivider, profile.spaceBottom]}>
+						<Text style={profile.subtitle}>Wants to take care of:</Text>
+						{renderSmallDog()}
+						{renderMeidumDog()}
+						{renderLargeeDog()}
+						{renderCats()}
+						{renderSmallAnimal()}
 					</View>
 				</ScrollView>
 				<Box style={profile.backgroundButton}>
