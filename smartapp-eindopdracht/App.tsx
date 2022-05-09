@@ -151,7 +151,45 @@ export default function App() {
 					1,
 				],
 			)
+			const tx8: SQLTransaction = await transaction()
+			const insert5 = await statement(
+				tx8,
+				'INSERT INTO petsitters (id, firstName, lastName, description, profilePic, location, rating, priceStay, priceDayCare, priceHomeVisits, priceDogWalking, priceHouseSitter, allowSmallDog, allowMediumDog, allowLargeDog, allowCats, allowSmallAnimal, hasChildren, hasPets, hasGarden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				[
+					undefined,
+					'Youseph',
+					'Sajad',
+					'I\'m Youseph, 31 years old and I have a corgi, named Nabil. He loves to hang out with other dogs (that are as small as him) and I would love to take care of your pet while you\'re on vacation! Nabil also gets along with cats and other small animals like rabbits and stuff. I work from home so I\'m almost always available.',
+					'https://images.unsplash.com/photo-1634635880938-d81e973bcd6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80',
+					'Kortrijk',
+					4.5,
+					12,
+					10,
+					undefined,
+					4,
+					undefined,
+					1,
+					0,
+					0,
+					1,
+					1,
+					0,
+					1,
+					1,
+				],
+			)
 		}
+
+		// DELETE TABLE
+		// const txDropTable: SQLTransaction = await transaction()
+		// const droptable = await statement(txDropTable, 'DROP TABLE petsitters') // DELETE TABLE
+
+		// Test data table
+		// const r: SQLResultSet | void = await statement(
+		// 	tx2,
+		// 	'SELECT * FROM petsitters',
+		// ).catch((err) => console.log(err))
+		// console.log('result: ', r)
 	}
 
 	const generateAppTableReviews = async () => {
@@ -240,6 +278,18 @@ export default function App() {
 				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
 				[undefined, 'Yannick Schalck', undefined, 3, '07/05/2022', '4'],
 			)
+			const tx14: SQLTransaction = await transaction()
+			const insert11 = await statement(
+				tx14,
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
+				[undefined, 'Yannick Schalck', 'Amazing dude! He took really good care of my dog.', 5, '03/05/2022', '5'],
+			)
+			const tx15: SQLTransaction = await transaction()
+			const insert12 = await statement(
+				tx15,
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
+				[undefined, 'Isaline Colpaert', undefined, 4, '07/04/2022', '5'],
+			)
 		}
 
 		// DELETE TABLE
@@ -247,17 +297,16 @@ export default function App() {
 		// const droptable = await statement(txDropTable, 'DROP TABLE reviews') // DELETE TABLE
 
 		// Test data table
-		const r: SQLResultSet | void = await statement(
-			tx2,
-			'SELECT * FROM reviews',
-		).catch((err) => console.log(err))
-		console.log('result: ', r)
+		// const r: SQLResultSet | void = await statement(
+		// 	tx2,
+		// 	'SELECT * FROM reviews',
+		// ).catch((err) => console.log(err))
+		// console.log('result: ', r)
 	}
 
 	useEffect(() => {
 		generateAppTablePetSitters()
 		generateAppTableReviews()
-		
 	}, [])
 
 	let [fontsLoaded] = useFonts({
