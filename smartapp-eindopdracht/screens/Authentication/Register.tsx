@@ -22,7 +22,8 @@ export default ({ navigation }: { navigation: any }) => {
 	}, [])
 
 	const handleSignUp = () => {
-		auth
+		if (displayName != '') {
+			auth
 			.createUserWithEmailAndPassword(email, password)
 			.then((userCredentials: { user: any }) => {
 				const user = userCredentials.user
@@ -39,6 +40,10 @@ export default ({ navigation }: { navigation: any }) => {
 					})
 			})
 			.catch((error: { message: any }) => alert(error.message))
+		}
+		else {
+			alert("Display Name may not be empty.")
+		}
 	}
 
 	return (
