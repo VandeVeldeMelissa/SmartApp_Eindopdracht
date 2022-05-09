@@ -25,6 +25,9 @@ LogBox.ignoreAllLogs()
 
 const theme = extendTheme({ colors: colors.theme.colors })
 
+//Student: Melissa Van de Velde
+//Mijn github repo: https://github.com/VandeVeldeMelissa/SmartApp_Eindopdracht
+
 export default function App() {
 	const generateAppTablePetSitters = async (): Promise<void> => {
 		const tx: SQLTransaction = await transaction()
