@@ -21,7 +21,7 @@ import { LogBox } from 'react-native'
 LogBox.ignoreLogs([
 	"[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ])
-LogBox.ignoreAllLogs();
+LogBox.ignoreAllLogs()
 
 const theme = extendTheme({ colors: colors.theme.colors })
 
@@ -124,6 +124,33 @@ export default function App() {
 					1,
 				],
 			)
+			const tx7: SQLTransaction = await transaction()
+			const insert4 = await statement(
+				tx7,
+				'INSERT INTO petsitters (id, firstName, lastName, description, profilePic, location, rating, priceStay, priceDayCare, priceHomeVisits, priceDogWalking, priceHouseSitter, allowSmallDog, allowMediumDog, allowLargeDog, allowCats, allowSmallAnimal, hasChildren, hasPets, hasGarden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				[
+					undefined,
+					'David',
+					'Taylor',
+					'I love absolutely love all small animals. I have multiple rabbits, guinea pigs and hamsters. I would love to help you with you cute litte pet! ',
+					undefined,
+					'Kortrijk',
+					3,
+					5,
+					3,
+					5,
+					undefined,
+					undefined,
+					0,
+					0,
+					0,
+					0,
+					1,
+					0,
+					1,
+					1,
+				],
+			)
 		}
 	}
 
@@ -131,7 +158,7 @@ export default function App() {
 		const tx2: SQLTransaction = await transaction()
 		const response2: SQLResultSet | void = await statement(
 			tx2,
-			'CREATE TABLE IF NOT EXISTS reviews (id integer primary key autoincrement, name text NOT NULL, description text, profilePic text, rating real, date text, userId text NOT NULL, FOREIGN KEY(userId) REFERENCES petsitters(id))',
+			'CREATE TABLE IF NOT EXISTS reviews (id integer primary key autoincrement, name text NOT NULL, description text, rating real, date text, userId text NOT NULL, FOREIGN KEY(userId) REFERENCES petsitters(id))',
 		).catch((err) => console.log(err))
 
 		const txReviews: SQLTransaction = await transaction()
@@ -146,12 +173,11 @@ export default function App() {
 			const tx7: SQLTransaction = await transaction()
 			const insert4 = await statement(
 				tx7,
-				'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)',
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
 				[
 					undefined,
 					'Eva Schrijvers',
 					'Took really good care of my dog, I defnitly recommend him!',
-					'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
 					5,
 					'01/05/2022',
 					'1',
@@ -160,26 +186,17 @@ export default function App() {
 			const tx8: SQLTransaction = await transaction()
 			const insert5 = await statement(
 				tx8,
-				'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)',
-				[
-					undefined,
-					'Bjorn Van Acker',
-					'Really nice dude.',
-					'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-					4,
-					'02/05/2022',
-					'1',
-				],
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
+				[undefined, 'Bjorn Van Acker', 'Really nice dude.', 4, '02/05/2022', '1'],
 			)
 			const tx9: SQLTransaction = await transaction()
 			const insert6 = await statement(
 				tx9,
-				'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)',
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
 				[
 					undefined,
 					'Maria Westhoven',
 					'Such a sweetiepie! Reminds me of my grandson. Thank you for taking care of my little Nero :)',
-					'https://images.unsplash.com/photo-1472698938026-79bed881e5b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
 					4,
 					'04/05/2022',
 					'1',
@@ -188,12 +205,11 @@ export default function App() {
 			const tx10: SQLTransaction = await transaction()
 			const insert7 = await statement(
 				tx10,
-				'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)',
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
 				[
 					undefined,
 					'Eva Schrijvers',
 					'Not the best experience, but definitly not the worst either.',
-					'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
 					3,
 					'07/05/2022',
 					'2',
@@ -202,40 +218,38 @@ export default function App() {
 			const tx11: SQLTransaction = await transaction()
 			const insert8 = await statement(
 				tx11,
-				'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)',
-				[
-					undefined,
-					'Bjorn Van Acker',
-					undefined,
-					'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-					3,
-					'03/04/2022',
-					'2',
-				],
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
+				[undefined, 'Bjorn Van Acker', undefined, 3, '03/04/2022', '2'],
 			)
 			const tx12: SQLTransaction = await transaction()
 			const insert9 = await statement(
 				tx12,
-				'INSERT INTO reviews (id, name, description, profilePic, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?, ?)',
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
 				[
 					undefined,
 					'Maria Westhoven',
 					'Nice girl, but she gave my dog way to much cookies.',
-					'https://images.unsplash.com/photo-1472698938026-79bed881e5b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
 					4,
 					'02/01/2022',
 					'2',
 				],
 			)
+			const tx13: SQLTransaction = await transaction()
+			const insert10 = await statement(
+				tx13,
+				'INSERT INTO reviews (id, name, description, rating, date, userId) VALUES (?, ?, ?, ?, ?, ?)',
+				[undefined, 'Yannick Schalck', undefined, 3, '07/05/2022', '4'],
+			)
 		}
 
 		// DELETE TABLE
-		// const droptable = await statement(tx2, 'DROP TABLE users') // DELETE TABLE
+		// const txDropTable: SQLTransaction = await transaction()
+		// const droptable = await statement(txDropTable, 'DROP TABLE reviews') // DELETE TABLE
 
 		// Test data table
 		const r: SQLResultSet | void = await statement(
 			tx2,
-			'SELECT * FROM petsitters',
+			'SELECT * FROM reviews',
 		).catch((err) => console.log(err))
 		console.log('result: ', r)
 	}
@@ -243,6 +257,7 @@ export default function App() {
 	useEffect(() => {
 		generateAppTablePetSitters()
 		generateAppTableReviews()
+		
 	}, [])
 
 	let [fontsLoaded] = useFonts({

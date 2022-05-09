@@ -236,13 +236,13 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 				<ScrollView style={profile.container}>
 					<HStack alignItems="center" space={2}>
 						<Avatar
-							bg="purple.200"
+							bg="purple.100"
 							source={{
 								uri: payload.profilePic,
 							}}
 							size="xl"
 						>
-							<Text>{avatarFallback(payload.firstName, payload.lastName)}</Text>
+							<Text style={{fontSize: 24}}>{avatarFallback(payload.firstName, payload.lastName)}</Text>
 						</Avatar>
 						<VStack>
 							<Text style={profile.name}>

@@ -18,15 +18,6 @@ export default ({item}: {item: Review}) => {
 	return (
 		<View style={card.card}>
 			<HStack space={2} alignItems='center'>
-				<Avatar
-					bg="purple.200"
-					source={{
-						uri: item.profilePic,
-					}}
-					size="lg"
-				>
-					MV
-				</Avatar>
 				<VStack alignItems="flex-start">
 				    <Text style={card.smallTitle}>{item.name}</Text>
     				    <StarRating

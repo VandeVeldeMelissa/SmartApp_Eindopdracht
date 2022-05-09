@@ -6,8 +6,6 @@ import colors from '../styles/colors'
 import { Ionicons } from '@expo/vector-icons'
 import StarRating from 'react-native-star-rating'
 import User from '../interfaces/PetSitter'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { ItemClick } from 'native-base/lib/typescript/components/composites/Typeahead/useTypeahead/types'
 
 const avatarFallback = (firstName: string, lastName: string) => {
 	let firstLetter = firstName.slice(0, 1)
@@ -103,7 +101,7 @@ export default ({
 				<HStack alignItems="center" justifyContent="space-between">
 					<HStack alignItems="center" space={2} marginBottom={2}>
 						<Avatar
-							bg="purple.200"
+							bg="purple.100"
 							source={{
 								uri: user.profilePic,
 							}}
