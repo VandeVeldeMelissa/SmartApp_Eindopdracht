@@ -173,7 +173,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 						</HStack>
 					</HStack>
 				</TouchableHighlight>
-				<TouchableHighlight
+				{/* <TouchableHighlight
 					activeOpacity={0.6}
 					underlayColor={colors.grey[200]}
 					onPress={() =>
@@ -205,7 +205,7 @@ export default ({ route, navigation }: { route: any; navigation: any }) => {
 							<AntDesign name="right" size={24} color={colors.grey[600]} />
 						</HStack>
 					</HStack>
-				</TouchableHighlight>
+				</TouchableHighlight> */}
 				<TouchableHighlight
 					activeOpacity={0.6}
 					underlayColor={colors.grey[200]}
